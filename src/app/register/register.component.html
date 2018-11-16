@@ -1,0 +1,65 @@
+<div class="container ex1 form"> 
+  <div *ngIf="resposeText">
+     <span style="background-color:red"> {{resposeText}}</span>
+  </div>
+<form #userForm = "ngForm" novalidate (ngSubmit)="onsubmit();userForm.reset()">
+   <div class="form-group">
+     <label for="firstName">FirstName</label>
+      <input type="text" class="form-control " id="firstName" required name="firstName"
+      [(ngModel)]="usermodel.firstName" #fname1 = "ngModel" placeholder="enter first name"
+      [class.is-invalid] = "fname1.invalid && fname1.touched"> 
+      <small class= 'text-danger' [class.d-none]="fname1.valid || fname1.untouched ">
+          please must enter FirstName</small>
+  </div>
+ <div class="form-group">
+     <label for="lastName">LastName</label>
+      <input type="text" class="form-control" id="lastName" required name="lastName" 
+      [(ngModel)]="usermodel.lastName" #lname1 = "ngModel" placeholder=" enter last name"
+      [class.is-invalid] = "lname1.invalid && lname1.touched ">
+      <small class= 'text-danger' [class.d-none]="lname1.valid || lname1.untouched">
+          please must enter LastName</small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" required name="email" 
+      [(ngModel)]="usermodel.email" #email = "ngModel" placeholder="abc@gmail.com"
+      [class.is-invalid] = "email.invalid && email.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <small class= 'text-danger' [class.d-none]="email .valid || email.untouched">
+          please must enter mail</small>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required name="password" 
+      [(ngModel)]="usermodel.password" #pwd = "ngModel" placeholder=" enter password"
+      [class.is-invalid] = "pwd.invalid && pwd.touched ">
+      <small class= 'text-danger' [class.d-none]="pwd.valid || pwd.untouched">
+          please enter password</small>
+    </div>
+
+<div class="form-group">
+   <label for="contactNumber">Mobile Number</label>
+<input type="text" class="form-control " id="contactNumber" required name="contactNumber"
+  [(ngModel)]="usermodel.contactNumber" #mobile = "ngModel"  pattern="[6789][0-9]{9}" size ='10'
+     placeholder="enter mobile number" [class.is-invalid] = "mobile.invalid && mobile.touched"> 
+ <div  *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
+   <small  class= 'text-danger' *ngIf="mobile.errors.required">enter mobilenumber</small>
+   <small  class= 'text-danger' *ngIf="mobile.errors.pattern">must enter 10 digits and digit must be start with[6789]</small>
+  </div>
+</div>
+<div class="wrapper">
+              <button  class="button" type="submit" 
+              class="btn btn-success">Submit</button>
+              </div>
+     
+      </form>
+      </div>
+      
+            
+
+
+   
+    
+ 
+  

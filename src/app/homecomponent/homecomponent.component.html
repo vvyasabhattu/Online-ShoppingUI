@@ -1,0 +1,66 @@
+<div class="row">
+    <div *ngFor="let products of Product " class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="product-thumb transition">
+    <div class="image"><img src="{{products.imageurl}}" alt="MacBook" title="MacBook" class="img-responsive"></div>
+    <div class="caption">
+    <!--<h4><a href="https://demo.opencart.com/index.php?route=product/product&amp;product_id=43">MacBook</a></h4>-->
+    <p>
+        {{products.productName}}</p>
+    <p class="price">
+        {{products.price}}
+    <span class="price-tax">Ex Tax: $500.00</span>
+    </p>
+    </div>
+    <div class="button-group">
+    <button type="button" (click)="addcart(products)"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></button>
+    <button type="button" data-toggle="tooltip" title="" (click)="wishlist(products)" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+<!--
+<div class="container ">
+<div class="col-lg-3 df"><img href="#" target="_blank" src="assets/img/bike-2.jpg">
+<img target="_blank" src="assets/img/bike-2.jpg"></div>
+</div> -->
+<!--<div class=" container">
+<div class="card-body " *ngFor="let products of product">
+<div class="gallery">
+<img src= '{{products.imageurl}}' width="600" height="400" class="rounded float" alt="..."(click) = view(products)/></div>
+<div class="card-title">{{products.productName}}</div>
+<p class="card-text">{{products.price}}</p>
+<a class="btn btn-primary" (click)="addcart(products)">+addcart</a>&nbsp;
+<a class="btn btn-warning" (click)="wishlist(products)">wishlist</a>
+</div>
+</div>
+</div>
+
+<body>
+
+<div class="gallery">
+<a target="_blank" href="img_5terre.jpg">
+<img src="5terre.jpg" alt="5Terre" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+<a target="_blank" href="img_forest.jpg">
+<img src="img_forest.jpg" alt="Forest" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+<a target="_blank" href="img_lights.jpg">
+<img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+<a target="_blank" href="img_mountains.jpg">
+<img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+</a>
+<div class="desc">Add a description of the image here</div>
+</div>
+</body>
+--> 
