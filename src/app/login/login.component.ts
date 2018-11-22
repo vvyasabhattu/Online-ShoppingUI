@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
 import {Login } from 'src/app/model/loginmodel';
 import {LoginService} from 'src/app/service/login.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Userdetails } from '../model/loginresponse';
 import { Router } from '@angular/router';
+
+
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'    
@@ -17,7 +20,7 @@ const httpOptions = {
 export class LoginComponent implements OnInit {
   private regdata =[];
 private resposeText:string = null;
-
+//@Output() public childEvent = new EventEmitter();
 
  // store the URL so we can redirect after logging in
  public redirectUrl: string;
@@ -30,8 +33,9 @@ private resposeText:string = null;
 
   public login = new Login('','');
 
-  private loginApi='http://localhost:9090/api/user-by-service/user/login';
+//private loginApi='http://localhost:9090/api/user-by-service/user/login';
 
+private loginApi='http://vgaddam-l-1196:9090/api/user-by-service/user/login';
  
   "userobject"= {
    
@@ -49,7 +53,7 @@ private resposeText:string = null;
   ngOnInit() {
   }
 
-
+ 
   onsubmit()
   {
 this.userobject.user.email=this.login.email;
@@ -62,6 +66,7 @@ console.log(this.http.post(this.loginApi,this.userobject, httpOptions).subscribe
   {
     localStorage.setItem('isLoggedIn', "true");   
     localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
+    //this.childEvent.emit(localStorage.getItem('userData'));
     localStorage.setItem('token',JSON.stringify( data.userLst[0].id));
     this.router.navigate(['/home']);
     this.resposeText = "user login succeessfully";

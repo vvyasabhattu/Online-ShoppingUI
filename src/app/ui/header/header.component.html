@@ -1,20 +1,22 @@
 <nav class="navbar navbar-dark bg-dark mb-5">
-  <a class="navbar-brand" href="/home">Ecommerce</a>
+  <a class="navbar-brand" href="/home"><i >EvokeStore</i></a>
 
   <div class="navbar-expand mr-auto">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/home">Home</a>
       <a class="nav-item nav-link" href="">About</a>
       <a class="nav-item nav-link" href="#">Contact</a>
-      <a class="nav-item nav-link" (click)="logout()" href="#">LogOut</a>
+     <!-- <a class="nav-item nav-link"  href="/updateprofile"><i class="fa fa-user"></i>Viewprofile</a>-->
+      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount"><i class="fa fa-user"></i>MyAccount</a>
+      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">LogOut</a>
     
     </div>
   </div>
   <div class="navbar-expand ml-auto navbar-nav">
     
     <div class="navbar-nav">
-      <div class="nav-item nav-link active"> Logged In as : {{getUserName()}} </div>
-      <a class="nav-item nav-link" href="login" >
+      <div *ngIf="isUserLoggedIn()" class="nav-item nav-link active"> Logged In as : {{getUserName()}} </div>
+      <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
          <i class="fa fa-user"></i> &nbsp;login/Signup
       </a>
     </div>

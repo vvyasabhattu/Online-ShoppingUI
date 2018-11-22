@@ -1,0 +1,115 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">View Profile</h4>
+                        <p class="card-category">Complete your profile</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                           
+                        
+                                <div class="col-md-6">
+                                    <mat-form-field  class="example-full-width">
+                                        <input matInput name="update.fname" #fname="ngModel" 
+                                    type="text" placeholder="User name"  [(ngModel)]="update.fname" required disabled>
+                                        <mat-error>This field is required</mat-error>
+                                </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput name="update.mail" #mail="ngModel"  
+                                      type="email"  placeholder="Email address" [(ngModel)] = "update.mail"  required disabled>
+                                       <mat-error>This field is required</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput name="update.fname"  #fname="ngModel" 
+                                    type="text"  placeholder="First Name" [(ngModel)] = "update.fname" required disabled>
+                                     
+                                    <mat-error>This field is required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput name="update.lname" #lname="ngModel"  
+                                    type="text"  placeholder="Last Name" 
+                                     [(ngModel)] = "update.lname" required disabled>
+                                     <mat-error>This field is required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                         <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput name="update.mobilenumber" #mobilenumber ="ngModel"  
+                                   type="text"  placeholder="mobilenumber" 
+                                   [(ngModel)] = "update.mobilenumber" required aria-disabled="true">
+                                   <mat-error>This field is required</mat-error>
+                                  
+                                  </mat-form-field>
+                                </div>
+                                </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="City" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Country" type="text">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Postal Code" type="text">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                       <!--   <div class="row">
+                                <div class="col-md-12">
+                                  <label>About Me</label>
+                                  <mat-form-field class="example-full-width">
+                                     <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                                   </mat-form-field>
+                                     <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="./assets/img/userprofile.png" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray"><i class="fa fa-edit" style="font-size:24px">userprofile</i>  </h6>
+                        <h5 class="card-title">{{update.fname}}</h5>
+                       <!-- <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
