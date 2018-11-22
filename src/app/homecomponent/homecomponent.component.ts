@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
+import { ProductService } from '../service/product.service';
+
 
 @Component({
   selector: 'app-homecomponent',
@@ -8,21 +10,24 @@ import { Product } from '../model/product';
 })
 
 export class HomecomponentComponent implements OnInit {
+  Products:Product []=[];
+  constructor(private productService:ProductService ) {
+    //fetching from product service
+     this.productService.getAllProduct().subscribe(
+      data=>{
+                console.log(data["productResponse"]);
+                
+              this.Products=data["productResponse"];
 
-  constructor() { }
+            }
+    );
+ }
 
-  Product = [
-    {"imageurl":'src/assets/img/bike-2.jpg',  "productName":"product1", "price":"Rs600","productId":123},
-    {"imageurl":'src/assets/img/bike-2.jpg', "productName":"product2", "price":"Rs300","productId":111},
-    {"imageurl":'src/assets/img/bike-2.jpg', "productName":"product3", "price":"Rs300","productId":222},
-    {"imageurl":'src/assets/img/bike-2.jpg', "productName":"product4", "price":"Rs400","productId":333},
-  
-  ];
-  
 cartList =[];
 wishList = [];
 
   ngOnInit() {
+    //console.log(this.Products);
   }
 
 

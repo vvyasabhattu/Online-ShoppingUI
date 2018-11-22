@@ -20,6 +20,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { AccounteditComponent } from './accountedit/accountedit.component';
 import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -36,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ViewcomponentComponent,
     MyaccountComponent,
     AccounteditComponent,
-    ViewaccountComponent
+    ViewaccountComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

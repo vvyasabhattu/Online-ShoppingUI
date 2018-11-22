@@ -6,7 +6,7 @@ import {Userdetail} from '../model/registrationres';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'    
+    'Content-Type':  'application/json'
   })
 };
 
@@ -22,9 +22,9 @@ export class RegisterComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   public usermodel = new Users('','','','','');
- 
+
   //private userRegistrationUrl='http://localhost:9090/api/user-by-service/user/register';
-  private userRegistrationUrl='http://vgaddam-l-1196:9090/api/user-by-service/user/register';
+  private userRegistrationUrl='http://localhost:9090/api/user-by-service/user/register';
   "userobject"= {
     "appOS": "string",
     "appVersion": "string",
@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
       "updatedUser": "string"
     }
   }
-  
+
 
   ngOnInit() {
 
@@ -84,7 +84,7 @@ export class RegisterComponent implements OnInit {
   this.userobject.user.contactNumber=this.usermodel.contactNumber;
 
    //console.log(this.userobject);
-  
+
    this.http.post(this.userRegistrationUrl,this.userobject,httpOptions).subscribe((data:Userdetail) => {
           console.log('data',data);
           console.log('errorCode',data.errorCode);
@@ -93,36 +93,36 @@ export class RegisterComponent implements OnInit {
             this.resposeText = "user registered successfully."
           }
           else if(data.errorCode == 1001){
-             this.resposeText = data.errorDesc; 
+             this.resposeText = data.errorDesc;
           }
           else if(data.errorCode == 1002)
           {
-            this.resposeText = data.errorDesc; 
+            this.resposeText = data.errorDesc;
           }
           else if(data.errorCode == 1003)
           {
-            this.resposeText = data.errorDesc; 
+            this.resposeText = data.errorDesc;
           }
            else if(data.errorCode == 1004)
           {
-            this.resposeText = data.errorDesc; 
+            this.resposeText = data.errorDesc;
           }
           else if(data.errorCode == 1005)
           {
-            this.resposeText = data.errorDesc; 
+            this.resposeText = data.errorDesc;
           }
-         
+
           else if(data.errorCode == 1006)
           {
-            this.resposeText = data.errorDesc; 
+            this.resposeText = data.errorDesc;
           }
-         
-         
-   });
-               
-   
-                                                                
 
-  
+
+   });
+
+
+
+
+
 }
 }

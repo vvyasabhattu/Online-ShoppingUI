@@ -1,11 +1,11 @@
 <div class="row">
-    <div *ngFor="let products of Product " class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div *ngFor="let products of Products " class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
     <div class="product-thumb transition">
-    <div class="image"><img src="{{products.imageurl}}" alt="MacBook" title="MacBook" class="img-responsive"></div>
+    <div class="image"><img src="{{products.imageurl}}" alt="image" title="MacBook" class="img-responsive"></div>
     <div class="caption">
     <!--<h4><a href="https://demo.opencart.com/index.php?route=product/product&amp;product_id=43">MacBook</a></h4>-->
     <p>
-        {{products.productName}}</p>
+        {{products.product_name}}</p>
     <p class="price">
         {{products.price}}
     <span class="price-tax">Ex Tax: $500.00</span>
@@ -14,7 +14,7 @@
     <div class="button-group">
     <button type="button" (click)="addcart(products)"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></button>
     <button type="button" data-toggle="tooltip" title="" (click)="wishlist(products)" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
-    
+
     </div>
     </div>
     </div>
@@ -63,4 +63,4 @@
 <div class="desc">Add a description of the image here</div>
 </div>
 </body>
---> 
+-->

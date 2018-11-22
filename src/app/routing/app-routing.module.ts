@@ -11,10 +11,12 @@ import { ViewcomponentComponent } from 'src/app/viewcomponent/viewcomponent.comp
 import {MyaccountComponent} from '../myaccount/myaccount.component';
 import {AccounteditComponent } from '../accountedit/accountedit.component';
 import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
+import { CartComponent } from '../cart/cart.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/login',pathMatch:'full'},
-  { path: 'home', component: HomecomponentComponent ,canActivate: [AuthGuard] },
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  { path: 'home', component: HomecomponentComponent },
+  { path: 'cart', component: CartComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
   { path: 'updateprofile', component: ViewcomponentComponent },

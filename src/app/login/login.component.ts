@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'    
+    'Content-Type':  'application/json'
   })
 };
 @Component({
@@ -25,20 +25,20 @@ private resposeText:string = null;
  // store the URL so we can redirect after logging in
  public redirectUrl: string;
 
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private http: HttpClient, private router: Router) {
 
   }
-  
+
 
 
   public login = new Login('','');
 
 //private loginApi='http://localhost:9090/api/user-by-service/user/login';
 
-private loginApi='http://vgaddam-l-1196:9090/api/user-by-service/user/login';
- 
+private loginApi='http://localhost:9090/api/user-by-service/user/login';
+
   "userobject"= {
-   
+
       "appOS": "string",
       "appVersion": "string",
       "deviceId": "string",
@@ -46,14 +46,14 @@ private loginApi='http://vgaddam-l-1196:9090/api/user-by-service/user/login';
       "user": {
         "email": "string",
         "password": "string"
-       
+
       }
     }
-  
+
   ngOnInit() {
   }
 
- 
+
   onsubmit()
   {
 this.userobject.user.email=this.login.email;
@@ -64,23 +64,23 @@ console.log(this.http.post(this.loginApi,this.userobject, httpOptions).subscribe
    console.log('errorCode',data.errorCode);
   if (data.errorCode == 0)
   {
-    localStorage.setItem('isLoggedIn', "true");   
+    localStorage.setItem('isLoggedIn', "true");
     localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
     //this.childEvent.emit(localStorage.getItem('userData'));
     localStorage.setItem('token',JSON.stringify( data.userLst[0].id));
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
     this.resposeText = "user login succeessfully";
   }
   else{
-     this.resposeText = data.errorDesc; 
+     this.resposeText = data.errorDesc;
   }
-  
+
 }
- 
-   ));                              
-    
+
+   ));
 
 
-   
+
+
   }
 }
