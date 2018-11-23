@@ -8,17 +8,27 @@
       <a class="nav-item nav-link" href="#">Contact</a>
      <!-- <a class="nav-item nav-link"  href="/updateprofile"><i class="fa fa-user"></i>Viewprofile</a>-->
       <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount"><i class="fa fa-user"></i>MyAccount</a>
-      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">LogOut</a>
-    
+
+
     </div>
   </div>
   <div class="navbar-expand ml-auto navbar-nav">
-    
+
     <div class="navbar-nav">
-      <div *ngIf="isUserLoggedIn()" class="nav-item nav-link active"> Logged In as : {{getUserName()}} </div>
-      <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
-         <i class="fa fa-user"></i> &nbsp;login/Signup
-      </a>
+        <div *ngIf="isUserLoggedIn()" class="nav-item nav-link active"><i class="fa fa-user"></i>  {{getUserName()}} </div>
+        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
+            <i class="fa fa-heart"></i> {{wishListSize}}
+        </a>
+        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
+          <i class="fa fa-shopping-cart"></i> {{cartListSize}}
+        </a>
+        <!-- if not logged in -->
+        <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
+           <i class="fa fa-user"></i> &nbsp;login/Signup
+        </a>
+        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">Logout</a>
+
     </div>
+
   </div>
 </nav>

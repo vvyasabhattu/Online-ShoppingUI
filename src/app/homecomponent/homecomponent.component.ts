@@ -11,51 +11,47 @@ import { ProductService } from '../service/product.service';
 
 export class HomecomponentComponent implements OnInit {
   Products:Product []=[];
-  constructor(private productService:ProductService ) {
-    //fetching from product service
-     this.productService.getAllProduct().subscribe(
-      data=>{
-                console.log(data["productResponse"]);
-                
-              this.Products=data["productResponse"];
+  constructor(private productService:ProductService ) { }
 
-            }
-    );
- }
-
-cartList =[];
-wishList = [];
+public cartList =[];
+public wishList = [];
 
   ngOnInit() {
-    //console.log(this.Products);
-  }
-
-
-  view(products)
-  {
-console.log("view products");
-console.log(products);
+    //set the product size to local Product Array
+    this.getAllProductList();
 
   }
-addcart(products)
-{
-  console.log("addcart");
-  this.addproduct(products,this.cartList);
-  console.log(this.cartList);
 
-}
+  //fetching from product service
+  getAllProductList(){
+       this.productService.getAllProduct()
+       .subscribe(data=>{ console.log(data["productResponse"]);
+                          this.Products=data["productResponse"];
+                        }   );
+  }
 
-wishlist(products)
-{
-  console.log("wishlist");
-  this.addproduct(products,this.wishList);
-  console.log(this.wishList);
+    view(products:Product) {
+      console.log("view products");
+      console.log(products);
 
-}
-addproduct(products,array)
-{
-length =array.length;
-array[length] = products;
-}
+    }
+    addcart(products:Product){
+        console.log("addcart");
+        this.addproduct(products,this.cartList);
+        console.log(this.cartList);
+        console.log(this.cartList.length);
+
+    }
+
+    wishlist(products:Product){
+      console.log("wishlist");
+      this.addproduct(products,this.wishList);
+      console.log(this.wishList);
+      console.log(this.wishList.length);
+    }
+    addproduct(products:Product,array:Product []){
+        length =array.length;
+        array[length] = products;
+    }
 
 }

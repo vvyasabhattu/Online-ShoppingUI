@@ -15,21 +15,47 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProductService {
-
    private productUrl= 'http://localhost:9090/api/product-by-service/product/all';
+
+    //productListView
+   public products:any =[];
+
+
+   public cartList:Product[] = [];
+   public wishList:Product[] = [];
+
+   //remove it later
+   public cartListSize=this.cartList.length;
+   public wishListSize=this.wishList.length;
+
+
 
   constructor(
     private httpClient:HttpClient) {
-
+      //temp
+      this.products=this.getAllProduct().subscribe( data=> {
+        this.products=data;
+      });
+      console.log("product service .....")
+      console.log(this.products);
     }
+  //fetch product from server
 
-
-
-  getAllProduct(): Observable<Product>  {
-
+  getAllProduct(): Observable<any>  {
+        //end temp
        return   this.httpClient.get<Product>(this.productUrl);
   }
-  //handle errors
+
+
+    //fetching from product service
+    // getAllProductList2(){
+    //      this.getAllProduct()
+    //      .subscribe(data=>{ console.log(data["productResponse"]);
+    //                         this.products=data["productResponse"];
+    //                       }   );
+    //       console.log(this.products);
+    //     return this.products;
+    // }
 
 
 
