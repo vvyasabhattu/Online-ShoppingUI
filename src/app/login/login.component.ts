@@ -35,7 +35,7 @@ private resposeText:string = null;
 
 //private loginApi='http://localhost:9090/api/user-by-service/user/login';
 
-private loginApi='http://localhost:9090/api/user-by-service/user/login';
+private loginApi='http://vgaddam-l-1196:9090/api/user-by-service/user/login';
 
   "userobject"= {
 

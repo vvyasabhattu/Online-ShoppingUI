@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   public usermodel = new Users('','','','','');
 
   //private userRegistrationUrl='http://localhost:9090/api/user-by-service/user/register';
-  private userRegistrationUrl='http://localhost:9090/api/user-by-service/user/register';
+  private userRegistrationUrl='http://vgaddam-l-1196:9090/api/user-by-service/user/register';
   "userobject"= {
     "appOS": "string",
     "appVersion": "string",
