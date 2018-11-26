@@ -22,15 +22,11 @@ const routes: Routes = [
   { path: 'updateprofile', component: ViewcomponentComponent },
   {path :'editAccount',component : MyaccountComponent,
     children:[
-      {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
-      {path:'viewmyaccount',component:ViewaccountComponent,outlet: 'viewmyaccountOutlet'}
-    ]
-
-},
-  {path:'about',component:AboutComponent,
-  children:[
-       {path:'contact' ,component: ContactComponent},
-       ]},
+                {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
+                {path:'viewmyaccount',component:ViewaccountComponent,outlet: 'viewmyaccountOutlet'}
+            ]
+  },
+  {path:'about',component:AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: '**', component: PagenotfoundComponent }
 ];

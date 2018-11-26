@@ -1,22 +1,22 @@
 
-<div class="container ex1 "> 
+<div class="container ex1 ">
     <div *ngIf="errorCode == 0; then thenBlock; else elseBlock"></div>
       <ng-template #thenBlock>
-        <span style="background-color:yellowgreen">{{resposeText}}</span>
-  
+        <h2 class="bg-success">{{resposeText}}</h2>
+
       </ng-template>
-    <ng-template  #elseBlock> 
-        <span style="background-color: rgb(206, 137, 8)"> {{resposeText}}</span>
+    <ng-template  #elseBlock>
+        <h2 class="bg-warning"> {{resposeText}}</h2>
     </ng-template>
-     
+
   <br/>
   <h3 class="wrapper" text-align='center'> Login Form</h3>
   <br/>
  <form #login1 = "ngForm" novalidate (ngSubmit)="onsubmit(); login1.reset()">
-    
+
 <div class="form-group">
         <label for="email">UserName</label>
-        <input type="email" class="form-control" id="email" required name="email" 
+        <input type="email" class="form-control" id="email" required name="email"
         [(ngModel)]="login.email" #email1 = "ngModel" placeholder="abc@gmail.com"
         [class.is-invalid] = "email1.invalid && email1.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
         <small class= 'text-danger' [class.d-none]="email1.valid || email1.untouched">
@@ -25,20 +25,20 @@
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" required name="password" 
+      <input type="password" class="form-control" id="password" required name="password"
       [(ngModel)]="login.password" #pwd = "ngModel" placeholder=" enter password"
       [class.is-invalid] = "pwd.invalid && pwd.touched ">
       <small class= 'text-danger' [class.d-none]="pwd.valid || pwd.untouched">
           please enter password</small>
     </div>
     <div class="wrapper">
-      <button [disabled] = 'login1.form.invalid' class="button" type="submit" 
+      <button [disabled] = 'login1.form.invalid' class="button" type="submit"
        class="btn btn-success">Submit</button>
        &nbsp;
        <a routerLink="/register" routerLinkActive="active">register</a>
       </div>
-       
-      
+
+
     </form>
-  
+
   </div>

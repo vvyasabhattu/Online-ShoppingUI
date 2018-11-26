@@ -1,34 +1,51 @@
-<nav class="navbar navbar-dark bg-dark mb-5">
-  <a class="navbar-brand" href="/home"><i >EvokeStore</i></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark header-margin-bottom">
+    <a class="navbar-brand" href="/home"><i >EvokeStore</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/home">Home</a>
-      <a class="nav-item nav-link" href="">About</a>
-      <a class="nav-item nav-link" href="#">Contact</a>
-     <!-- <a class="nav-item nav-link"  href="/updateprofile"><i class="fa fa-user"></i>Viewprofile</a>-->
-      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount"><i class="fa fa-user"></i>MyAccount</a>
-
-
-    </div>
-  </div>
-  <div class="navbar-expand ml-auto navbar-nav">
-
-    <div class="navbar-nav">
-        <div *ngIf="isUserLoggedIn()" class="nav-item nav-link active"><i class="fa fa-user"></i>  {{getUserName()}} </div>
-        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
-            <i class="fa fa-heart"></i> {{wishListSize}}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
         </a>
-        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
-          <i class="fa fa-shopping-cart"></i> {{cartListSize}}
-        </a>
-        <!-- if not logged in -->
-        <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
-           <i class="fa fa-user"></i> &nbsp;login/Signup
-        </a>
-        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">Logout</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="contact">Contact</a>
+      </li>
+    </ul>
 
-    </div>
 
+      <div class="form-inline my-2 my-lg-0">
+
+
+            <div *ngIf="isUserLoggedIn()" class="nav-item nav-link active"><i class="fa fa-user"></i>  {{getUserName()}} </div>
+              <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount"><i class="fa fa-user"></i>MyAccount</a>
+            <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
+                <i class="fa fa-heart"></i> {{wishListSize}}
+            </a>
+            <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
+              <i class="fa fa-shopping-cart"></i> {{cartListSize}}
+            </a>
+            <!-- if not logged in -->
+            <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
+               <i class="fa fa-user"></i> &nbsp;login/Signup
+            </a>
+            <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">Logout</a>
+
+      </div>
   </div>
 </nav>

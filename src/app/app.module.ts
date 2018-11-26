@@ -21,13 +21,14 @@ import { AccounteditComponent } from './accountedit/accountedit.component';
 import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
+import {NgxSpinnerModule } from 'ngx-spinner';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-  
+
     HomecomponentComponent,
     LoginComponent,
     RegisterComponent,
@@ -47,9 +48,10 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-  // BrowserAnimationsModule,
    MatFormFieldModule,
-   MatInputModule     
+   MatInputModule,
+   //spinner Module
+   NgxSpinnerModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -1,9 +1,23 @@
-
+<!-- spinner service -->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<!-- // end spinner service -->
 <app-layout>
   <!--<div class="jumbotron">
-     
-     </div>-->
-    </app-layout>
 
+     </div>-->
+</app-layout>
+<!-- online ofline network  -->
+<div class="offset-4 col-sm-4 bg-warning" *ngIf="!isConnected">
+  <h2 class=" text-center">You Are OFFLINE</h2>
+  <p class="text-center">please check you Internet connection</p>
+</div>
+
+<!-- //end online ofline network  -->
 
 <router-outlet ></router-outlet>

@@ -16,6 +16,7 @@ const httpOptions = {
 })
 export class ProductService {
    private productUrl= 'http://localhost:9090/api/product-by-service/product/all';
+//private productUrl= 'http://192.168.99.100:9090/api/product-by-service/product/all';
 
     //productListView
    public products:any =[];
