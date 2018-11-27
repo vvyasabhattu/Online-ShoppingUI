@@ -14,7 +14,7 @@ export interface ProductData{
   description: string;
   price: number;
   product_name: string;
-  user_id:number;
+  id:number;
   /* "user": {
   "id": 1
   } */
@@ -35,12 +35,12 @@ export interface ProductCategoryResponse{
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class AddnewproductService {
 
-  baseURL = "http://localhost:9090";
+  baseURL = "http://localhost:9090/";
   categoryURL : string = "/api/product-by-service/category";
   addProductURL : string = "/api/product-by-service/product/add";
-  imageUploadURL :string = "";
+  imageUploadURL :string = "/api/product-by-service/product/uploadImg";
 
   constructor(private http : HttpClient) { }
 
@@ -54,8 +54,6 @@ export class ProductService {
   }
 
   postImage(formData:FormData,user_id:string){
-    return this.http.post(this.baseURL+this.imageUploadURL+"/"+user_id,formData);
+    return this.http.post(this.baseURL+this.imageUploadURL+'/'+user_id,formData);
   }
-
-
 }

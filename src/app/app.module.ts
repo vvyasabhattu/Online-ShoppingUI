@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,FormGroup,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomecomponentComponent } from './homecomponent/homecomponent.component';
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -22,6 +22,7 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -30,6 +31,7 @@ import {NgxSpinnerModule } from 'ngx-spinner';
     AppComponent,
 
     HomecomponentComponent,
+    ProductComponent,
     LoginComponent,
     RegisterComponent,
     ContactComponent,
@@ -46,6 +48,7 @@ import {NgxSpinnerModule } from 'ngx-spinner';
     UiModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
    MatFormFieldModule,
