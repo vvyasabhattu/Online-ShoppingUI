@@ -3,6 +3,7 @@ import { Users } from 'src/app/model/user';
 import { RegisterService } from 'src/app/service/register.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Userdetail} from '../model/registrationres';
+import { ApiService } from '../service/api.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,12 +20,12 @@ const httpOptions = {
 export class RegisterComponent implements OnInit {
   private regdata =[];
   public resposeText :string = null;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private apiService:ApiService) { }
 
   public usermodel = new Users('','','','','');
 
   //private userRegistrationUrl='http://localhost:9090/api/user-by-service/user/register';
-  private userRegistrationUrl='http://vgaddam-l-1196:9090/api/user-by-service/user/register';
+  private userRegistrationUrl=this.apiService.userRegistrationUrl;
   "userobject"= {
     "appOS": "string",
     "appVersion": "string",

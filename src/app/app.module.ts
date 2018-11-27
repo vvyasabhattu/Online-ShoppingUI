@@ -13,7 +13,6 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthGuard } from './service/auth.guard';
-import { ViewcomponentComponent } from './viewcomponent/viewcomponent.component';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MyaccountComponent } from './myaccount/myaccount.component';
@@ -35,7 +34,6 @@ import {NgxSpinnerModule } from 'ngx-spinner';
     ContactComponent,
     AboutComponent,
     PagenotfoundComponent,
-    ViewcomponentComponent,
     MyaccountComponent,
     AccounteditComponent,
     ViewaccountComponent,

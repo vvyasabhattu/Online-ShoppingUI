@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { ProductService } from '../service/product.service';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-homecomponent',
@@ -10,14 +11,13 @@ import { ProductService } from '../service/product.service';
 
 export class HomecomponentComponent implements OnInit {
   Products:Product []=[];
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService,private apiService:ApiService) { }
 
 public cartList =[];
 public wishList = [];
-
+  //private apiService:ApiService=new ApiService();
   ngOnInit() {
-
-
+    
     //set the product size to local Product Array
     this.getAllProductList();
 

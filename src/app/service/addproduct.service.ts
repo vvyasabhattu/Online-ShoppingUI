@@ -35,7 +35,7 @@ export interface ProductCategoryResponse{
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class AddProductService {
 
   baseURL = "http://localhost:9090";
   categoryURL : string = "/api/product-by-service/category";

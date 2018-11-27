@@ -4,6 +4,7 @@ import { Product } from '../model/product';
 import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { ApiService } from './api.service';
 
 
 //define header
@@ -16,7 +17,7 @@ const httpOptions = {
 })
 export class ProductService {
   // private productUrl= 'http://localhost:9090/api/product-by-service/product/all';
-private productUrl= 'http://vgaddam-l-1196:9090/api/product-by-service/product/all';
+private productUrl= this.apiService.productUrl;
 
     //productListView
    public products:any =[];
@@ -32,7 +33,7 @@ private productUrl= 'http://vgaddam-l-1196:9090/api/product-by-service/product/a
 
 
   constructor(
-    private httpClient:HttpClient) {
+    private httpClient:HttpClient,private apiService:ApiService) {
       //temp
       this.products=this.getAllProduct().subscribe( data=> {
         this.products=data;

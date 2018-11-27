@@ -4,6 +4,7 @@ import {LoginService} from 'src/app/service/login.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Userdetails } from '../model/loginresponse';
 import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 
 
@@ -25,7 +26,7 @@ private resposeText:string = null;
  // store the URL so we can redirect after logging in
  public redirectUrl: string;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router,private apiService:ApiService) {
 
   }
 
@@ -33,9 +34,7 @@ private resposeText:string = null;
 
   public login = new Login('','');
 
-//private loginApi='http://localhost:9090/api/user-by-service/user/login';
-
-private loginApi='http://vgaddam-l-1196:9090/api/user-by-service/user/login';
+private loginUrl=this.apiService.loginUrl;
 
   "userobject"= {
 
@@ -59,7 +58,7 @@ private loginApi='http://vgaddam-l-1196:9090/api/user-by-service/user/login';
 this.userobject.user.email=this.login.email;
     this.userobject.user.password=this.login.password;
 
-console.log(this.http.post(this.loginApi,this.userobject, httpOptions).subscribe((data:Userdetails)=>{
+console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe((data:Userdetails)=>{
    console.log('data',data);
    console.log('errorCode',data.errorCode);
   if (data.errorCode == 0)

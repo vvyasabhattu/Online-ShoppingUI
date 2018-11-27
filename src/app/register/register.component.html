@@ -1,8 +1,10 @@
-<div class="container ex1 form">
+
+<div class="container">
+  <h1 class="text-center">User Registration</h1>
   <div *ngIf="resposeText">
      <h4 class="bg-success"> {{resposeText}}</h4>
   </div>
-<form #userForm = "ngForm" novalidate (ngSubmit)="onsubmit();userForm.reset()">
+<form #userForm = "ngForm" novalidate (ngSubmit)="onsubmit();userForm.reset()" class="form ex1 offset-4">
    <div class="form-group">
      <label for="firstName">FirstName</label>
       <input type="text" class="form-control " id="firstName" required name="firstName"

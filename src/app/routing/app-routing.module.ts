@@ -7,7 +7,6 @@ import { PagenotfoundComponent } from 'src/app/pagenotfound/pagenotfound.compone
 import { AboutComponent } from 'src/app/about/about.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
 import {AuthGuard} from '../service/auth.guard';
-import { ViewcomponentComponent } from 'src/app/viewcomponent/viewcomponent.component';
 import {MyaccountComponent} from '../myaccount/myaccount.component';
 import {AccounteditComponent } from '../accountedit/accountedit.component';
 import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
-  { path: 'updateprofile', component: ViewcomponentComponent },
   {path :'editAccount',component : MyaccountComponent,
     children:[
                 {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
