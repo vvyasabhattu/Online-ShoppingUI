@@ -12,6 +12,7 @@ import {MyaccountComponent} from '../myaccount/myaccount.component';
 import {AccounteditComponent } from '../accountedit/accountedit.component';
 import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
 import { CartComponent } from '../cart/cart.component';
+import { ProductComponent } from '../product/product.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -28,7 +29,9 @@ const routes: Routes = [
   },
   {path:'about',component:AboutComponent},
   { path: 'contact', component: ContactComponent},
+  { path: 'ash', component: ProductComponent},
   { path: '**', component: PagenotfoundComponent }
+  
 ];
 
 @NgModule({
