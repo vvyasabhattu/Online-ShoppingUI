@@ -64,14 +64,16 @@ export class ProductComponent implements OnInit {
   onSubmit(){
     console.log(this.productForm.value);
 
+    var p_id;
+
     this.productForm.value.product.user.id = 1;
     console.log('user id ',this.productForm.value.product.user.id);
     this.productService.addFormData(this.productForm.value).subscribe
     (
       data => {
-        this.formSubmitResponse = JSON.stringify(data);
+        this.formSubmitResponse = JSON.parse(JSON.stringify(data));
         console.log ('This is Product Resonse :',this.formSubmitResponse);
-        console.log ('This is Product id :',this.formSubmitResponse.productResponse.product_id);
+        console.log ('This is Product id :',this.formSubmitResponse.ProductResponse[0].product_id);
 
       },
       (err: HttpErrorResponse) => {
