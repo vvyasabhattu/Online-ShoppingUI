@@ -17,7 +17,7 @@ public cartList =[];
 public wishList = [];
   //private apiService:ApiService=new ApiService();
   ngOnInit() {
-    
+
     //set the product size to local Product Array
     this.getAllProductList();
 
@@ -26,9 +26,10 @@ public wishList = [];
   //fetching from product service
   getAllProductList(){
        this.productService.getAllProduct()
-       .subscribe(data=>{ console.log(data["productResponse"]);
-                          this.Products=data["productResponse"];
+       .subscribe(data=>{ console.log(data);
+                          this.Products=data.productResponse;
                         }   );
+
   }
 
     view(products:Product) {

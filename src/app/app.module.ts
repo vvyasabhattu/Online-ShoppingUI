@@ -21,7 +21,6 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
-import { ProductComponent } from './product/product.component';
 
 
 
@@ -30,7 +29,6 @@ import { ProductComponent } from './product/product.component';
     AppComponent,
 
     HomecomponentComponent,
-    ProductComponent,
     LoginComponent,
     RegisterComponent,
     ContactComponent,

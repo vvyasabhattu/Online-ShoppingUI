@@ -1,11 +1,11 @@
 export interface Product
 {
 
-      "product_id": number,
+      "product_id": number;
       "product_name": string;
       "seller_id": number,
       "img_path": string;
-      "price": number,
+      "price": number;
       "description": string;
       "is_deleted": string;
       "brand": string;

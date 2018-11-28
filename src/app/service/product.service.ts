@@ -5,6 +5,7 @@ import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ApiService } from './api.service';
+import { ProductResponse } from '../model/productResponce';
 
 
 //define header
@@ -34,18 +35,20 @@ private productUrl= this.apiService.productUrl;
 
   constructor(
     private httpClient:HttpClient,private apiService:ApiService) {
-      //temp
-      this.products=this.getAllProduct().subscribe( data=> {
-        this.products=data;
-      });
+      // //temp
+      // this.products=this.getAllProduct().subscribe( data=> {
+      //   this.products=data;
+      // });
       console.log("product service .....")
       console.log(this.products);
+
+
     }
   //fetch product from server
 
-  getAllProduct(): Observable<any>  {
+  getAllProduct(): Observable<ProductResponse>  {
         //end temp
-       return   this.httpClient.get<Product>(this.productUrl);
+       return   this.httpClient.get<ProductResponse>(this.productUrl);
   }
 
 
