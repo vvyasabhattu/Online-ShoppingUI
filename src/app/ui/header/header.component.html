@@ -33,7 +33,7 @@
 
 
             <div *ngIf="isUserLoggedIn()" class="nav-item nav-link "><i class="fa fa-user"></i>  {{getUserName()}} </div>
-              <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount"><i class="fa fa-user"></i>MyAccount</a>
+              <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount/(editmyaccountOutlet:viewaccount)"><i class="fa fa-user"></i>MyAccount</a>
             <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
                 <i class="fa fa-heart"></i> {{wishListSize}}
             </a>
