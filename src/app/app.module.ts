@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
-import { FormsModule,FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomecomponentComponent } from './homecomponent/homecomponent.component';
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -21,6 +21,7 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -42,6 +43,7 @@ import {NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     BrowserModule,
     UiModule,
+    AdminModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -50,9 +52,10 @@ import {NgxSpinnerModule } from 'ngx-spinner';
    MatFormFieldModule,
    MatInputModule,
    //spinner Module
-   NgxSpinnerModule
+   NgxSpinnerModule,
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
