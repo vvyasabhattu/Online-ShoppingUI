@@ -5,7 +5,7 @@ import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ApiService } from './api.service';
-import { ProductResponse } from '../model/productResponce';
+import { ProductResponse } from '../model/productResponse';
 
 
 //define header

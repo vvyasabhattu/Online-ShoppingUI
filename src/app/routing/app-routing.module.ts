@@ -11,6 +11,7 @@ import {MyaccountComponent} from '../myaccount/myaccount.component';
 import {AccounteditComponent } from '../accountedit/accountedit.component';
 import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
 import { CartComponent } from '../cart/cart.component';
+import { SingleProductComponent } from '../single-product/single-product.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
+  { path: 'product', component: SingleProductComponent },
   {path :'editAccount',component : MyaccountComponent,
     children:[
                 {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},

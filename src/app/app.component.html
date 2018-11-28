@@ -8,15 +8,11 @@
 </ngx-spinner>
 <!-- // end spinner service -->
 <app-layout>
-  <!--<div class="jumbotron">
-
-     </div>-->
-     <router-outlet ></router-outlet>
+  <!-- online ofline network  -->
+  <div class="offset-4 col-sm-4 bg-warning" *ngIf="!isConnected">
+    <h2 class=" text-center">You Are OFFLINE</h2>
+    <p class="text-center">please check you Internet connection</p>
+  </div>
+  <!-- //end online ofline network  -->
+ <router-outlet ></router-outlet>
 </app-layout>
-<!-- online ofline network  -->
-<div class="offset-4 col-sm-4 bg-warning" *ngIf="!isConnected">
-  <h2 class=" text-center">You Are OFFLINE</h2>
-  <p class="text-center">please check you Internet connection</p>
-</div>
-
-<!-- //end online ofline network  -->

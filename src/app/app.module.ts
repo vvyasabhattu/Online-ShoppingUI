@@ -21,6 +21,7 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 
 
@@ -37,7 +38,8 @@ import {NgxSpinnerModule } from 'ngx-spinner';
     MyaccountComponent,
     AccounteditComponent,
     ViewaccountComponent,
-    CartComponent
+    CartComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,
