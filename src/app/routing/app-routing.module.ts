@@ -18,12 +18,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
-  {path :'editAccount',component : MyaccountComponent,
-    children:[
-                {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
-                {path:'viewmyaccount',component:ViewaccountComponent,outlet: 'viewmyaccountOutlet'}
-            ]
-  },
+  {path :'viewAccount',component : AccounteditComponent},
+  {path :'editAccount',component : ViewaccountComponent},
   {path:'about',component:AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: '**', component: PagenotfoundComponent }
