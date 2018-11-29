@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
-  { path: 'product', component: SingleProductComponent },
+  { path: 'product/:id', component: SingleProductComponent },
   {path :'editAccount',component : MyaccountComponent,
     children:[
                 {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},

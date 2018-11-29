@@ -19,6 +19,7 @@ const httpOptions = {
 export class ProductService {
   // private productUrl= 'http://localhost:9090/api/product-by-service/product/all';
 private productUrl= this.apiService.productUrl;
+private productById= this.apiService.productById;
 
     //productListView
    public products:any =[];
@@ -49,6 +50,12 @@ private productUrl= this.apiService.productUrl;
   getAllProduct(): Observable<ProductResponse>  {
         //end temp
        return   this.httpClient.get<ProductResponse>(this.productUrl);
+  }
+  //fetch product from server by product id for single product component
+
+  getProductById(id:any): Observable<ProductResponse>  {
+        //end temp
+       return   this.httpClient.get<ProductResponse>(this.productById+id);
   }
 
 

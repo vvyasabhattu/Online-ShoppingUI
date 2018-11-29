@@ -9,10 +9,12 @@ export class ApiService {
   //api urls
   //public baseUrl:string="http://vgaddam-l-1196:9090/api";
   public productUrl:string=this.baseUrl+"/product-by-service/product/all";
+  public productById:string=this.baseUrl+"/product-by-service/product/";
   public userUrl:string=this.baseUrl+"/user-by-service/";
   public aboutUrl:string=this.baseUrl+"/about";
   public loginUrl:string=this.baseUrl+"/user-by-service/user/login";
   public userRegistrationUrl:string=this.baseUrl+"/user-by-service/user/register";
+
 
 
   constructor() {}

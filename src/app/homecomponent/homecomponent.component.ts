@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { ProductService } from '../service/product.service';
 import { ApiService } from '../service/api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-homecomponent',
@@ -14,7 +15,7 @@ export class HomecomponentComponent implements OnInit {
     images = ["./assets/img/head1.png","./assets/img/head2.jpg","./assets/img/head3.jpg"];
 
   Products:Product []=[];
-  constructor(private productService:ProductService,private apiService:ApiService) { }
+  constructor(private productService:ProductService,private apiService:ApiService,private router:Router) { }
 
 public cartList =[];
 public wishList = [];
@@ -57,6 +58,10 @@ public wishList = [];
     addproduct(products:Product,array:Product []){
         length =array.length;
         array[length] = products;
+    }
+    //routing to single product component
+    onRoutingProduct(product:Product){
+        this.router.navigate(['/product',product.product_id]);
     }
 
 }
