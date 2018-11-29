@@ -1,3 +1,83 @@
-<p>
-  single-product works!
-</p>
+<div class="top_50px">
+
+</div>
+<div class="row">
+
+<div class="col-md-4">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <img [src]="images[0]" alt="Random first slide">
+
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="images[1]" alt="Random second slide">
+
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="images[2]" alt="Random third slide">
+
+      </ng-template>
+    </ngb-carousel>
+    <!-- small images -->
+    <div class="small_product"><img [src]="images[0]" alt="Random first slide"  class="" ></div>
+    <div class="small_product"><img [src]="images[1]" alt="Random second slide" class="" ></div>
+    <div class="small_product"><img [src]="images[2]" alt="Random third slide" class="" ></div>
+</div>
+<div class="col-md-3 offset-right-3">
+  <h2>Product Name</h2>
+  <h4>Rs 500    </h4>
+  <h3>Quantity</h3>
+  <select class="form-control" name="">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <h4>Types:</h4>
+   <label class="radio-inline btn-lg"><input class="radio" type="radio" name="types" value="Casual" checked> Casual</label>
+   <label class="radio-inline btn-lg"><input class="radio" type="radio" name="types" value="Sneaker"> Sneaker</label>
+   <label class="radio-inline btn-lg"><input class="radio" type="radio" name="types" value="Formal shoes"> Formal shoes </label>
+   <h3>Size</h3>
+   <select class="form-control" name="">
+     <option value="10">10</option>
+     <option value="9">9</option>
+     <option value="8">8</option>
+   </select>
+  <br>
+   <button type="button"  name="button"  class="btn btn-lg bg-warning">Add to cart</button>
+</div>
+
+</div>
+<div class="layer_1">
+
+</div>
+<!-- description review and information -->
+  <div class="container jumbotron offset-3">
+    <ngb-tabset>
+
+    <ngb-tab title="Description" class="bg-primary">
+    <ng-template ngbTabContent>
+    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+    master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+    dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+    iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+    </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+    <ng-template ngbTabTitle>Reviews</ng-template>
+    <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+    craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+    cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+    yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+    shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
+    sint qui sapiente accusamus tattooed echo park.</p>
+    </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Information" [disabled]="false">
+    <ng-template ngbTabContent>
+    <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+    </ng-template>
+    </ngb-tab>
+
+    </ngb-tabset>
+  </div>

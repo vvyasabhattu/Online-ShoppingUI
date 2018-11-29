@@ -1,7 +1,37 @@
-<div class="row offset-3">
-    <div *ngFor="let products of Products " class="product-layout col-lg-3 col-md-4 col-sm-6 col-xs-12">
+<!-- header slider -->
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>E shopping site</h3>
+      <p>Ecommerce solution</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>Shopping</h3>
+      <p>Evoke E-cart  solution</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Random third slide">
+    <div class="carousel-caption">
+      <h3>Checkout</h3>
+      <p>Ecommerce  solution</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<!-- //end header slider -->
+<div class="clearfix top_30px">
+
+</div>
+<!-- product lits view -->
+<div class="row offset-1">
+    <div *ngFor="let products of Products " class="product-layout col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
     <div class="product-thumb transition">
       <!-- dummy image  -->
+    <a href="product">
     <div class="image"><img src="./assets/img/Product3.png" alt="image" title="MacBook" class="img-responsive"></div>
 
     <div class="caption">
@@ -13,6 +43,7 @@
     <span class="price-tax">Ex Tax: $500.00</span>
     </p>
     </div>
+    </a>
     <div class="button-group">
     <button type="button" (click)="addcart(products)"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></button>
     <button type="button" data-toggle="tooltip" title="" (click)="wishlist(products)" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>

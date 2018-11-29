@@ -1,0 +1,12 @@
+.small_product{
+  width: 150px;
+  height:150px;
+  border-style: solid;
+     border-color: red;
+     display: inline;
+     margin:2px;
+}
+.small_product img{
+  width: 150px;
+  height:150px;
+}

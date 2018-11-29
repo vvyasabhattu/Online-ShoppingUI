@@ -10,6 +10,9 @@ import { ApiService } from '../service/api.service';
 })
 
 export class HomecomponentComponent implements OnInit {
+  //slider images
+    images = ["./assets/img/head1.png","./assets/img/head2.jpg","./assets/img/head3.jpg"];
+
   Products:Product []=[];
   constructor(private productService:ProductService,private apiService:ApiService) { }
 
