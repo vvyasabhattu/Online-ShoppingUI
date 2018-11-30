@@ -13,7 +13,7 @@ export class ApiService {
   public userUrl:string=this.baseUrl+"/user-by-service/";
   public aboutUrl:string=this.baseUrl+"/about";
   public loginUrl:string=this.baseUrl+"/user-by-service/user/login";
-  public userRegistrationUrl:string=this.baseUrl+"/user-by-service/user/register";
+  public userRegistrationUrl:string=this.baseUrl+"/user-by-service/user/registerUser";
 
 
 
