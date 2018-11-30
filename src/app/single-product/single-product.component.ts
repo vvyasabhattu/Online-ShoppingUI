@@ -13,7 +13,7 @@ export class SingleProductComponent implements OnInit {
 //images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
   images = ["./assets/img/laptop1.jpg","./assets/img/laptop2.jpg","./assets/img/laptop3.jpg"];
 
-  product:Product;
+  private product:Product;
   constructor(private config: NgbCarouselConfig ,private route:ActivatedRoute,private productService:ProductService) {
     // customize default values of carousels used by this component tree
      config.interval = 3000;
@@ -44,7 +44,7 @@ export class SingleProductComponent implements OnInit {
     //             "category_name": "Mobiles, Computers"
     //                 }
     //             }
-  //  console.log("product....",this.product);
+    console.log("product....",this.product);
   }
 
   productDetails(id:any){

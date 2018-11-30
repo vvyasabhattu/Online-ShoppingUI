@@ -1,12 +1,16 @@
 .small_product{
-  width: 150px;
-  height:150px;
+  width: 140px;
+  height: 140px;
+  background-color: none;
+  border: 1px;
   border-style: solid;
-     border-color: red;
-     display: inline;
-     margin:2px;
+  border-color: grey;
+  margin: 2px;
+  padding: 2px;
+
 }
-.small_product img{
-  width: 150px;
-  height:150px;
+.small_product > img{
+  width: 130px;
+  height:130px;
+
 }

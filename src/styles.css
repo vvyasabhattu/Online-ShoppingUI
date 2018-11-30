@@ -5,25 +5,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .header-margin-bottom{
   margin-bottom:1px;
 }
-.footer_div{
-  padding-top:10px;
-  margin-top: 50px;
-  background-color: grey;
 
-}
-.footer_address{
-  font-size: 15pxpx;
-}
-/*anchor tag styling */
-.footer_div > a:link, a:visited {
-    color: white;
-
-    text-decoration: none;
-    cursor: hand;
-}
-
-.footer_div > a:link:active, a:visited:active {
-    color: white;
-}
 .top_30px{margin-top:30px;}
 .top_50px{margin-top:50px;}
