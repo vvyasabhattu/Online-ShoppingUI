@@ -23,13 +23,15 @@ import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './service/search.service';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     HomecomponentComponent,
     LoginComponent,
     RegisterComponent,
@@ -40,7 +42,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AccounteditComponent,
     ViewaccountComponent,
     CartComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
    NgxSpinnerModule,
    NgbModule.forRoot()
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
