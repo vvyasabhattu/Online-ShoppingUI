@@ -22,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
 import { AddressprofileComponent } from './addressprofile/addressprofile.component';
-
+import {AddressbookComponent } from './addressbook/addressbook.component';
+//import {AgGridModule} from 'ag-grid-angular/community';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { AddressprofileComponent } from './addressprofile/addressprofile.compone
     AccounteditComponent,
     ViewaccountComponent,
     CartComponent,
-    AddressprofileComponent
+    AddressprofileComponent,
+    AddressbookComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { AddressprofileComponent } from './addressprofile/addressprofile.compone
    MatFormFieldModule,
    MatInputModule,
    //spinner Module
-   NgxSpinnerModule
+   NgxSpinnerModule,
+   AgGridModule.withComponents([])
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

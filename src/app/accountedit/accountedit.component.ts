@@ -12,24 +12,19 @@ export class AccounteditComponent implements OnInit {
   public mail;
   public mobilenumber;
   public username;
-  public res;
-public resposeText:string;
+
     update: any = {};
     //this.resposeText = "your profile Updated succeessfully";
     constructor() {
       let user : Userlist;
       user = JSON.parse(localStorage.getItem('userData'));
-this.res =  localStorage.getItem("isUpdated")
+      
       this.update.fname = user.firstName;
       this.update.lname = user.lastName;
       this.update.mail = user.email;
       this.update.mobilenumber  = user.contactNumber;
       this.update.username = user.firstName;
-    if(this.res==true)
-    {
-      this.resposeText = "your profile Updated succeessfully";
     }
-     }
     
   ngOnInit() {
   }

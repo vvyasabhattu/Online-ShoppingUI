@@ -1,0 +1,100 @@
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">add Address</h4>
+                        <p class="card-category">enter your address</p>
+                    </div>
+                    <div class="card-body">
+                        <form   (ngSubmit)="onsubmit();">
+                            <div class="row">
+                            <!--  <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Company (disabled)" disabled>
+                                    </mat-form-field>
+                                    
+                                </div>-->  
+                        
+                                <div class="col-md-12">
+                                    <mat-form-field  class="example-full-width">
+                                        <input matInput name="address.addrLine1" #addrLine1="ngModel" 
+                                    type="text" placeholder=" address Line1"  [(ngModel)]="address.fname" required >
+                                        <mat-error>This field is required</mat-error>
+                                </mat-form-field>
+                                </div>
+                            </div>
+                            <div class ="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput name="address.addrLine2" #addrLine2="ngModel"  
+                                      type="text"  placeholder="landmark" [(ngModel)] = "address.addrLine2"  required >
+                                       <mat-error>This field is required</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput name="address.city"  #city="ngModel" 
+                                    type="text"  placeholder="city" [(ngModel)] = "address.city" required >
+                                     
+                                    <mat-error>This field is required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput name="address.state" #state="ngModel"  
+                                    type="text"  placeholder="state" 
+                                     [(ngModel)] = "address.state" required>
+                                     <mat-error>This field is required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                         <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput name="address.country" #country ="ngModel"  
+                                   type="text"  placeholder="country" 
+                                   [(ngModel)] = "address.country" required>
+                                   <mat-error>This field is required</mat-error>
+                                  
+                                  </mat-form-field>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput name="address.pincode" #pincode ="ngModel"  
+                                       type="text"  placeholder="pincode" 
+                                       [(ngModel)] = "address.pincode" required>
+                                       <mat-error>This field is required</mat-error>
+                                      
+                                      </mat-form-field>
+                                    </div>
+                                    </div>
+                          
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" >Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+<div style="    width: 750px;
+            margin-top: 177px;
+margin-left: 316px;">
+    <ag-grid-angular  style="width: 100%; height: 200px;" class="ag-theme-balham"
+          [rowData]="rowData" [columnDefs]="columnDefs">
+    </ag-grid-angular>
+</div>

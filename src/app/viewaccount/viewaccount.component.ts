@@ -107,8 +107,9 @@ console.log('user object in local storage ',user);
         localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
         //this.childEvent.emit(localStorage.getItem('userData'));
         localStorage.setItem('token',JSON.stringify( data.userLst[0].id));
-        this.router.navigate(['/viewAccount']);
-        this.resposeText = "your profile Updated succeessfully";
+        
+        this.router.navigate(['/editAccount']);
+         this.resposeText = "your profile Updated succeessfully";
       }
       else{
         this.resposeText = data.errorDesc;
@@ -118,10 +119,10 @@ console.log('user object in local storage ',user);
   }
  
 )
-
-
-
-
-
+}
+isvalid(): boolean
+{
+ 
+return JSON.parse(localStorage.getItem('isUpdated')); 
 }
 }

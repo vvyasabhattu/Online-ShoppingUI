@@ -11,6 +11,7 @@ import {MyaccountComponent} from '../myaccount/myaccount.component';
 import {AccounteditComponent } from '../accountedit/accountedit.component';
 import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
 import { CartComponent } from '../cart/cart.component';
+import{AddressbookComponent} from '../addressbook/addressbook.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path :'editAccount',component : ViewaccountComponent},
   {path:'about',component:AboutComponent},
   { path: 'contact', component: ContactComponent},
+  { path: 'addressBook', component: AddressbookComponent},
   { path: '**', component: PagenotfoundComponent }
 
 ];
