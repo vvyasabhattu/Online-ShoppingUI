@@ -12,6 +12,7 @@ import {AccounteditComponent } from '../accountedit/accountedit.component';
 import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
 import { CartComponent } from '../cart/cart.component';
 import { SingleProductComponent } from '../single-product/single-product.component';
+import { SearchComponent } from '../search/search.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -28,6 +29,7 @@ const routes: Routes = [
   },
   {path:'about',component:AboutComponent},
   { path: 'contact', component: ContactComponent},
+  {path:'search',component:SearchComponent},
   { path: '**', component: PagenotfoundComponent }
 
 ];
