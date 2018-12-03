@@ -6,7 +6,7 @@ export class Addressreq {
         public country:string,
         public pincode:string,
         public state: string,
-        public id :number)
+      )
     {
 
     };

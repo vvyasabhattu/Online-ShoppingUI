@@ -101,14 +101,14 @@ console.log('user object in local storage ',user);
     this.http.post(this.updateprofileUrl,this.userobject, httpOptions).subscribe((data:Userdetails)=>{
       console.log('data',data);
       console.log('errorCode',data.errorCode);
-     if (data.errorCode == 0)
+     if (data.errorCode== 0)
       {
         localStorage.setItem('isUpdated', "true");
         localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
         //this.childEvent.emit(localStorage.getItem('userData'));
         localStorage.setItem('token',JSON.stringify( data.userLst[0].id));
         
-        this.router.navigate(['/editAccount']);
+        this.router.navigate(['/viewaccount']);
          this.resposeText = "your profile Updated succeessfully";
       }
       else{

@@ -15,6 +15,7 @@ export class ApiService {
   public userRegistrationUrl:string=this.baseUrl+"/user-by-service/user/registerUser";
   public updateprofileUrl:string=this.baseUrl+"/user-by-service/user/updateUser";
   public getuserUrl:string = this.baseUrl+"/user-by-service/user/getUser";
+  public addAddressUrl:string = this.baseUrl+"/user-by-service/user/addAddress";
   constructor() {}
 
 

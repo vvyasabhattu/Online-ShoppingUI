@@ -12,19 +12,12 @@ margin-left: 316px;">
                         <p class="card-category">enter your address</p>
                     </div>
                     <div class="card-body">
-                        <form   (ngSubmit)="onsubmit();">
+                        <form   #address = "ngForm" novalidate (ngSubmit)="onsubmit(); ">
                             <div class="row">
-                            <!--  <div class="col-md-5">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Company (disabled)" disabled>
-                                    </mat-form-field>
-                                    
-                                </div>-->  
-                        
-                                <div class="col-md-6">
+                        <div class="col-md-6">
                                     <mat-form-field  class="example-full-width">
-                                        <input matInput name="address.addrLine1" #addrLine1="ngModel" 
-                                    type="text" placeholder=" address Line1"  [(ngModel)]="address.fname" required >
+                                        <input matInput name="addressdata.addrLine1" #addrLine1="ngModel" 
+                                    type="text" placeholder=" address Line1"  [(ngModel)]="addressdata.addrLine1" required >
                                         <mat-error>This field is required</mat-error>
                                 </mat-form-field>
                                 </div>
@@ -32,8 +25,8 @@ margin-left: 316px;">
                            
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <input matInput name="address.addrLine2" #addrLine2="ngModel"  
-                                      type="text"  placeholder="landmark" [(ngModel)] = "address.addrLine2"  required >
+                                      <input matInput name="addressdata.addrLine2" #addrLine2="ngModel"  
+                                      type="text"  placeholder="landmark" [(ngModel)] = "addressdata.addrLine2"  required >
                                        <mat-error>This field is required</mat-error>
                                     </mat-form-field>
                                 </div>
@@ -41,8 +34,8 @@ margin-left: 316px;">
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput name="address.city"  #city="ngModel" 
-                                    type="text"  placeholder="city" [(ngModel)] = "address.city" required >
+                                    <input matInput name="addressdata.city"  #city="ngModel" 
+                                    type="text"  placeholder="city" [(ngModel)] = "addressdata.city" required >
                                      
                                     <mat-error>This field is required</mat-error>
                                   </mat-form-field>
@@ -51,9 +44,9 @@ margin-left: 316px;">
                         
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput name="address.state" #state="ngModel"  
+                                    <input matInput name="addressdata.state" #state="ngModel"  
                                     type="text"  placeholder="state" 
-                                     [(ngModel)] = "address.state" required>
+                                     [(ngModel)] = "addressdata.state" required>
                                      <mat-error>This field is required</mat-error>
                                   </mat-form-field>
                                 </div>
@@ -61,9 +54,9 @@ margin-left: 316px;">
                          <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput name="address.country" #country ="ngModel"  
+                                    <input matInput name="addressdata.country" #country ="ngModel"  
                                    type="text"  placeholder="country" 
-                                   [(ngModel)] = "address.country" required>
+                                   [(ngModel)] = "addressdata.country" required>
                                    <mat-error>This field is required</mat-error>
                                   
                                   </mat-form-field>
@@ -71,9 +64,9 @@ margin-left: 316px;">
                               
                                     <div class="col-md-6">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput name="address.pincode" #pincode ="ngModel"  
+                                        <input matInput name="addressdata.pincode" #pincode ="ngModel"  
                                        type="text"  placeholder="pincode" 
-                                       [(ngModel)] = "address.pincode" required>
+                                       [(ngModel)] = "addressdata.pincode" required>
                                        <mat-error>This field is required</mat-error>
                                       
                                       </mat-form-field>
