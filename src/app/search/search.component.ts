@@ -23,6 +23,6 @@ export class SearchComponent implements OnInit {
    //   .switchMap((query) =>  this._searchService.search(query))
    //   .subscribe( result => { if (result.status === 400) { return; } else {   this.results = result.json().artists.items; }
    // });
-   this.queryField.valueChanged.subscribe( (result)=>{});
+  // this.queryField.valueChanged.subscribe( (result)=>{});
    }
 }
