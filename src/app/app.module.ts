@@ -30,6 +30,7 @@ import { SearchService } from './service/search.service';
 import { AddressprofileComponent } from './addressprofile/addressprofile.component';
 import {AddressbookComponent } from './addressbook/addressbook.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -57,6 +58,7 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     BrowserModule,
     UiModule,
+    AdminModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
