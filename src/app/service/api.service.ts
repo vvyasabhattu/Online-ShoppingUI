@@ -19,7 +19,13 @@ export class ApiService {
   public productById:string=this.baseUrl+"/product-by-service/product/";
   public categoryURL : string = "/product-by-service/category";
 public addProductURL : string = "/product-by-service/product/add";
-public imageUploadURL :string = "/product-by-service/product/uploadImg"; 
+public imageUploadURL :string = "/product-by-service/product/uploadImg";
+  public userRegistrationUrl:string=this.baseUrl+"/user-by-service/user/register";
+  public categoryURL : string = "/api/product-by-service/category";
+  public addProductURL : string = "/api/product-by-service/product/add";
+  public imageUploadURL :string = "/api/product-by-service/product/uploadImg";
+
+
   constructor() {}
 
 

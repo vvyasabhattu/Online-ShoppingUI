@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
-import { FormsModule,FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomecomponentComponent } from './homecomponent/homecomponent.component';
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -21,6 +21,7 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
+import { AdminModule } from './admin/admin.module';
 
 import { SingleProductComponent } from './single-product/single-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -58,6 +59,7 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     BrowserModule,
     UiModule,
+    AdminModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -67,6 +69,7 @@ import { AgGridModule } from 'ag-grid-angular';
    MatInputModule,
    //spinner Module
    NgxSpinnerModule,
+<<<<<<< HEAD
 
    NgbModule.forRoot(),
 
@@ -75,5 +78,11 @@ import { AgGridModule } from 'ag-grid-angular';
   ],
   providers: [AuthGuard,SearchService],
   bootstrap: [AppComponent]
+=======
+  ],
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
+  
+>>>>>>> origin/amannew-ui
 })
 export class AppModule { }
