@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark header-margin-bottom static-top">
-    <a class="navbar-brand" href="/home"><i >EvokeStore</i></a>
+    <a class="navbar-brand" href="/home"><i >Evokart</i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,27 +26,31 @@
       <li class="nav-item">
         <a class="nav-link" href="contact">Contact</a>
       </li>
+
+      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/viewAccount"><i class="fa fa-user"></i>MyAccount</a>
     </ul>
 
 
-      <div class="form-inline my-2 my-lg-0">
+    <div class="form-inline my-2 my-lg-0">
 
-
-            <div *ngIf="isUserLoggedIn()" class="nav-item nav-link "><i class="fa fa-user"></i>  {{getUserName()}} </div>
-              <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/editAccount"><i class="fa fa-user"></i>MyAccount</a>
+        <div class="navbar-nav">
             <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
                 <i class="fa fa-heart"></i> {{wishListSize}}
             </a>
-
+    
             <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
               <i class="fa fa-shopping-cart"></i> {{cartListSize}}
             </a>
-            <!-- if not logged in -->
-            <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
-               <i class="fa fa-user"></i> &nbsp;login/Signup
-            </a>
-            <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">Logout</a>
+            <a *ngIf="isUserLoggedIn()"  href="/editAccount/(editmyaccountOutlet:viewaccount)" class="nav-item nav-link "><i class="fa fa-user"></i>  
+              {{getUserName()}} </a>
+      
+        <!-- if not logged in -->
+        <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
+           <i class="fa fa-user"></i> &nbsp;login/Signup
+        </a>
+        <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">Logout</a>
 
-      </div>
   </div>
+</div>
+</div>
 </nav>

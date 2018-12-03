@@ -5,6 +5,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Userdetails } from '../model/loginresponse';
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
+import { tokenKey } from '@angular/core/src/view';
 
 
 
@@ -67,6 +68,8 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
     localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
     //this.childEvent.emit(localStorage.getItem('userData'));
     localStorage.setItem('token',JSON.stringify( data.userLst[0].id));
+  let ket  = localStorage.getItem('token');
+  console.log("tokensss"+ket);
     this.router.navigate(['']);
     this.resposeText = "user login succeessfully";
   }

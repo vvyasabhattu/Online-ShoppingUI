@@ -6,6 +6,7 @@
                     <div class="card-header card-header-danger">
                         <h4 class="card-title">View Profile</h4>
                         <p class="card-category">Complete your profile</p>
+                        <h6 style ="float:right"><a href = "/editAccount"><i class="fa fa-edit" ></i>updateprofile</a></h6>
                     </div>
                     <div class="card-body">
                         <form>
@@ -15,14 +16,14 @@
                                 <div class="col-md-6">
                                     <mat-form-field  class="example-full-width">
                                         <input matInput name="update.fname" #fname="ngModel" 
-                                    type="text" placeholder="User name"  [(ngModel)]="update.fname" required disabled>
+                                    type="text" placeholder="User name"  [(ngModel)]="update.fname" required readonly>
                                         <mat-error>This field is required</mat-error>
                                 </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                       <input matInput name="update.mail" #mail="ngModel"  
-                                      type="email"  placeholder="Email address" [(ngModel)] = "update.mail"  required disabled>
+                                      type="email"  placeholder="Email address" [(ngModel)] = "update.mail"  required readonly>
                                        <mat-error>This field is required</mat-error>
                                     </mat-form-field>
                                 </div>
@@ -31,7 +32,7 @@
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
                                     <input matInput name="update.fname"  #fname="ngModel" 
-                                    type="text"  placeholder="First Name" [(ngModel)] = "update.fname" required disabled>
+                                    type="text"  placeholder="First Name" [(ngModel)] = "update.fname" required readonly>
                                      
                                     <mat-error>This field is required</mat-error>
                                   </mat-form-field>
@@ -40,7 +41,7 @@
                                   <mat-form-field class="example-full-width">
                                     <input matInput name="update.lname" #lname="ngModel"  
                                     type="text"  placeholder="Last Name" 
-                                     [(ngModel)] = "update.lname" required disabled>
+                                     [(ngModel)] = "update.lname" required readonly>
                                      <mat-error>This field is required</mat-error>
                                   </mat-form-field>
                                 </div>
@@ -50,7 +51,7 @@
                                   <mat-form-field class="example-full-width">
                                     <input matInput name="update.mobilenumber" #mobilenumber ="ngModel"  
                                    type="text"  placeholder="mobilenumber" 
-                                   [(ngModel)] = "update.mobilenumber" required aria-disabled="true">
+                                   [(ngModel)] = "update.mobilenumber" required readonly>
                                    <mat-error>This field is required</mat-error>
                                   
                                   </mat-form-field>
@@ -101,7 +102,7 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-category text-gray"><i class="fa fa-edit" style="font-size:24px">userprofile</i>  </h6>
+                        <h6 class="card-category text-gray"><a href = "/editAccount"><i class="fa fa-edit" style="font-size:24px">userprofile</i></a>  </h6>
                         <h5 class="card-title">{{update.fname}}</h5>
                        <!-- <p class="card-description">
                             Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
