@@ -28,6 +28,7 @@ const routes: Routes = [
             ]
   },
   {path:'about',component:AboutComponent},
+  {path:'admin',component:AddproductComponent},
   { path: 'contact', component: ContactComponent},
   {path:'search',component:SearchComponent},
   { path: '**', component: PagenotfoundComponent }
