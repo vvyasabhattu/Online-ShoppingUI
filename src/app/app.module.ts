@@ -21,12 +21,19 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
+<<<<<<< HEAD
 import { SingleProductComponent } from './single-product/single-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './service/search.service';
 
 
+=======
+import { AddressprofileComponent } from './addressprofile/addressprofile.component';
+import {AddressbookComponent } from './addressbook/addressbook.component';
+//import {AgGridModule} from 'ag-grid-angular/community';
+import { AgGridModule } from 'ag-grid-angular';
+>>>>>>> origin/surendra-ui
 
 
 @NgModule({
@@ -42,8 +49,13 @@ import { SearchService } from './service/search.service';
     AccounteditComponent,
     ViewaccountComponent,
     CartComponent,
+<<<<<<< HEAD
     SingleProductComponent,
     SearchComponent
+=======
+    AddressprofileComponent,
+    AddressbookComponent
+>>>>>>> origin/surendra-ui
   ],
   imports: [
     BrowserModule,
@@ -57,7 +69,11 @@ import { SearchService } from './service/search.service';
    MatInputModule,
    //spinner Module
    NgxSpinnerModule,
+<<<<<<< HEAD
    NgbModule.forRoot()
+=======
+   AgGridModule.withComponents([])
+>>>>>>> origin/surendra-ui
   ],
   providers: [AuthGuard,SearchService],
   bootstrap: [AppComponent]

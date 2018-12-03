@@ -1,11 +1,11 @@
 import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
 import {Login } from 'src/app/model/loginmodel';
-import {LoginService} from 'src/app/service/login.service';
+//import {LoginService} from 'src/app/service/login.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Userdetails } from '../model/loginresponse';
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
-import { tokenKey } from '@angular/core/src/view';
+//import { tokenKey } from '@angular/core/src/view';
 
 
 
