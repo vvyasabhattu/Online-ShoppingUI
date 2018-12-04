@@ -13,6 +13,7 @@ import {ViewaccountComponent} from '../viewaccount/viewaccount.component';
 import { CartComponent } from '../cart/cart.component';
 import { AddproductComponent } from '../admin/addproduct/product.component';
 import { SingleProductComponent } from '../single-product/single-product.component';
+import { AddressbookComponent } from '../addressbook/addressbook.component';
 
 
 
@@ -23,17 +24,20 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
   { path: 'product/:id', component: SingleProductComponent },
-  {path :'editAccount',component : MyaccountComponent,
-    children:[
-                {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
-                {path:'viewmyaccount',component:ViewaccountComponent,outlet: 'viewmyaccountOutlet'}
-            ]
-  },
+  // {path :'editAccount',component : MyaccountComponent,
+  //   children:[
+  //               {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
+  //               {path:'viewmyaccount',component:ViewaccountComponent,outlet: 'viewmyaccountOutlet'}
+  //           ]
+  // },
+  { path: 'editAccount', component: ViewaccountComponent },
+  { path: 'viewAccount', component: AccounteditComponent },
+  { path: 'addressBook', component: AddressbookComponent },
   {path:'about',component:AboutComponent},
   {path:'admin',component:AddproductComponent},
   { path: 'contact', component: ContactComponent},
-  { path: 'admin', component: AddproductComponent},
   
+
   { path: '**', component: PagenotfoundComponent }
 
 ];
