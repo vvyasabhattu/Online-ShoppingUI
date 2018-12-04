@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
 
 }
-
+  role:string;
   isLoggedIn : boolean;
   ngOnInit() {
       //cart and wishList size fetching from product service
@@ -36,6 +36,8 @@ export class HeaderComponent implements OnInit {
     let user : Userlist;
    user = JSON.parse(localStorage.getItem('userData'));
    console.log(user);
+   this.role=user.roleLst[0]["role"];
+   console.log(user.roleLst[0]["role"]);
    return user.firstName;
   }
 
@@ -44,5 +46,11 @@ export class HeaderComponent implements OnInit {
 
   return JSON.parse(localStorage.getItem('isLoggedIn'));
 
+   }
+   //admin check
+
+   isAdmin(): boolean{
+     if(this.role=="admin") return true;
+     else false;
    }
 }

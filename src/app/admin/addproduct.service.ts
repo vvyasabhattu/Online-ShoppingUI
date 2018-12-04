@@ -40,7 +40,7 @@ export interface ProductCategoryResponse{
 export class AddproductService {
 
   //baseURL = "http://localhost:9090/";
-  
+
 
   constructor(private http : HttpClient,  private apiservice:ApiService) { }
 
@@ -57,9 +57,9 @@ export class AddproductService {
     const httpOptions = {
       headers: new HttpHeaders({
         'enctype':  'multipart/form-data'
-        
+
       })
     };
-    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+prod_id,formData,{responseType: 'text'});
+    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+'/'+prod_id,formData,{responseType: 'text'});
   }
 }

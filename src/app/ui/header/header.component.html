@@ -26,7 +26,7 @@
       <li class="nav-item">
         <a class="nav-link" href="contact">Contact</a>
       </li>
-      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/admin"><i class="fa fa-user"></i>Upload Product</a>
+      <a class="nav-item nav-link" *ngIf="isAdmin()"   href="/admin"><i class="fa fa-user"></i>Upload Product</a>
       <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/viewAccount"><i class="fa fa-user"></i>MyAccount</a>
       <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/addressBook"><i class="fa fa-user"></i>view address</a>
     </ul>
