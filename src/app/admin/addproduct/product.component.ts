@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddproductService,CategoryConfig,ProductCategoryResponse} from '../addproduct.service';
-//import { AddProductService, CategoryConfig,ProductCategoryResponse } from '../service/addproduct.service';
-//import { AddnewproductService,CategoryConfig,ProductCategoryResponse} from '../service/addnewproduct.service';
+import { ProductResponse } from 'src/app/model/productResponce';
 
 
 
@@ -17,23 +16,14 @@ import { AddproductService,CategoryConfig,ProductCategoryResponse} from '../addp
 })
 export class AddproductComponent implements OnInit {
 
-  /* uploadImageURL : string = "src/assets/image/icons8-upload-96.png"; */
-
   
-  //categoryObject :any;
   formSubmitResponse : any;
   productCategory : string[] = [''];
   serviceMsg:string = '';
-  myFiles:string [] = [];
+  myFiles:File;
   productForm : FormGroup;
-  //private addNewProductUrl='#';
-  //private imageUploadURL = 'http://192.168.2.164:9099/product/addProductImg/{product_id}';
   categoryConfig: CategoryConfig;
   productCategory1:CategoryConfig[];
-  /* nFileChanged(event) {
-    const file = event.target.files[0]} */
-
-    
 
   constructor(private fb : FormBuilder,
               private http: HttpClient,
@@ -59,7 +49,13 @@ export class AddproductComponent implements OnInit {
     })
   })
     this.showProductCategory();
+    this.getUrl();
   }
+
+  getUrl()
+{
+  return "url('src/assets/img/productimage.jpg')";
+}
 
   /* this method sends the form data to the Web API */
   onSubmit(){
@@ -67,14 +63,14 @@ export class AddproductComponent implements OnInit {
 
     var resArray ;
 
-    this.productForm.value.product.user.id = 1;
+    this.productForm.value.product.user.id = 10;
     console.log('user id ',this.productForm.value.product.user.id);
     this.productService.addFormData(this.productForm.value).subscribe
     (
-      data => {
-        this.formSubmitResponse = JSON.parse(JSON.stringify(data));
+      (data : ProductResponse) => {
+        this.formSubmitResponse = data.productResponse[0].product_id;
         //resArray = this.formSubmitResponse.ProductResponse[0];
-        console.log('Array Of Product Response',resArray);
+        console.log('Complete Response',data);
         console.log ('This is Product Resonse :',this.formSubmitResponse);
         //console.log ('This is Product id :',this.formSubmitResponse.ProductResponse[0].product_id);
 
@@ -83,41 +79,42 @@ export class AddproductComponent implements OnInit {
         console.log (err.message);    // SHOW ERRORS IF ANY.
       }
     );
-
-    //return this.http.post(this.addNewProductUrl,this.productForm.value);
-
-
-
+        this.productForm.reset();
   }
 
   /* this method selects all multiple files */
   getFileDetails (event) {
     //console.log (e.target.files);
-    for (var i = 0; i < event.target.files.length; i++) { 
-      this.myFiles.push(event.target.files[i]);
-    }
+    /* for (var i = 0; i < event.target.files.length; i++) { 
+      let file = <File> event.target.files[i];
+      this.myFiles.push(file);
+    } */
+
+    this.myFiles= <File> event.target.files[0];
   }
 
   /* this method appends the selected files and sends it to Web API */
   uploadFiles(){
     var imageData = new FormData();
-    var prod_id = this.formSubmitResponse;
-    //var user_id =46;
+    //var prod_id = this.formSubmitResponse;
+    var prod_id = 72;
 
-    
-    
-    for (var i = 0; i < this.myFiles.length; i++) { 
-      imageData.append("fileUpload", this.myFiles[i]);
-      //imageData.append("prod_id",prod_id.toString());
-    }
-
+    /* for (var i = 0; i < this.myFiles.length; i++) { 
+      imageData.append("image", this.myFiles[0],this.myFiles[0].name);
+    } */
+    imageData.append("file", this.myFiles);
+    //imageData.append( "productId","72","productId");
     console.log("on image upload"+imageData.getAll('fileupload'));
     console.log("on image upload"+imageData.getAll('user_id'));
-    this.productService.postImage(imageData ,prod_id.toString()).subscribe(
-    data => {
+    console.log("Image for Product Id :",prod_id);
+
+    
+
+    this.productService.postImage(imageData).subscribe(
+    (data : string) => {
         // SHOW A MESSAGE RECEIVED FROM THE WEB API.
-        this.serviceMsg = data as string;
-        console.log (this.serviceMsg);
+        //this.serviceMsg = data.errorDesc;
+        console.log ('1111111111111',data);
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);    // SHOW ERRORS IF ANY.
@@ -132,7 +129,7 @@ export class AddproductComponent implements OnInit {
     this.productService.getAllProductCategories()
     .subscribe(
       (data : ProductCategoryResponse) => {
-        console.log('aaaaaaaaaaaaaaa',data);
+        console.log('Category Response',data);
         this.productCategory1 = data.category;
       } )
 }

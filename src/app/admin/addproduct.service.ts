@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
-
+import { HttpHeaders } from '@angular/common/http';
 
 
 export interface ProductData{
@@ -53,7 +53,13 @@ export class AddproductService {
     return this.http.post(this.apiservice.baseUrl+this.apiservice.addProductURL,formData);
   }
 
-  postImage(formData:FormData,user_id:string){
-    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+'/'+user_id,formData);
+  postImage(formData:FormData){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'enctype':  'multipart/form-data'
+        
+      })
+    };
+    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+"/73",formData,{responseType: 'text'});
   }
 }

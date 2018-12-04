@@ -8,8 +8,22 @@ panel-title{
     background-color: rgb(177, 205, 247);
 }
 
-container{
+/*  somestyle{
+    background-image: url("productima");           
     border: 2px;
     box-shadow: 2px;
-}
+}  */
 
+/* .image{
+    height:40em; background-size:cover; width:auto;
+    background-image:url('productimage.jpg');
+    background-position:50% 50%;
+  } */
+
+  div.border{
+    height:40em; background-size:cover; width:auto;
+    background-image:url('product12.jpg');
+    background-position:50% 50%;
+    box-shadow: 10px;
+    border-radius: 5px;
+  }
