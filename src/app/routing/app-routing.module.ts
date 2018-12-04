@@ -14,6 +14,7 @@ import { CartComponent } from '../cart/cart.component';
 import { AddproductComponent } from '../admin/addproduct/product.component';
 import { SingleProductComponent } from '../single-product/single-product.component';
 import { AddressbookComponent } from '../addressbook/addressbook.component';
+import { SearchComponent } from '../search/search.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'admin',component:AddproductComponent,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent},
+  { path: 'search', component: SearchComponent},
 
 
   { path: '**', component: PagenotfoundComponent }
