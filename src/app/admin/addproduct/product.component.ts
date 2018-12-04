@@ -16,7 +16,7 @@ import { ProductResponse } from 'src/app/model/productResponce';
 })
 export class AddproductComponent implements OnInit {
 
-  
+  userId = localStorage.getItem('token');
   formSubmitResponse : any;
   productCategory : string[] = [''];
   serviceMsg:string = '';
@@ -63,7 +63,7 @@ export class AddproductComponent implements OnInit {
 
     var resArray ;
 
-    this.productForm.value.product.user.id = 10;
+    this.productForm.value.product.user.id = this.userId;
     console.log('user id ',this.productForm.value.product.user.id);
     this.productService.addFormData(this.productForm.value).subscribe
     (
@@ -96,8 +96,8 @@ export class AddproductComponent implements OnInit {
   /* this method appends the selected files and sends it to Web API */
   uploadFiles(){
     var imageData = new FormData();
-    //var prod_id = this.formSubmitResponse;
-    var prod_id = 72;
+    var prod_id = this.formSubmitResponse;
+    //var prod_id = 72;
 
     /* for (var i = 0; i < this.myFiles.length; i++) { 
       imageData.append("image", this.myFiles[0],this.myFiles[0].name);
@@ -110,7 +110,7 @@ export class AddproductComponent implements OnInit {
 
     
 
-    this.productService.postImage(imageData).subscribe(
+    this.productService.postImage(imageData,prod_id).subscribe(
     (data : string) => {
         // SHOW A MESSAGE RECEIVED FROM THE WEB API.
         //this.serviceMsg = data.errorDesc;

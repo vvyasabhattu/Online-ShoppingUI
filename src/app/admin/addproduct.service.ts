@@ -53,13 +53,13 @@ export class AddproductService {
     return this.http.post(this.apiservice.baseUrl+this.apiservice.addProductURL,formData);
   }
 
-  postImage(formData:FormData){
+  postImage(formData:FormData,prod_id){
     const httpOptions = {
       headers: new HttpHeaders({
         'enctype':  'multipart/form-data'
         
       })
     };
-    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+"/73",formData,{responseType: 'text'});
+    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+prod_id,formData,{responseType: 'text'});
   }
 }
