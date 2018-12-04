@@ -34,9 +34,9 @@ const routes: Routes = [
   { path: 'viewAccount', component: AccounteditComponent },
   { path: 'addressBook', component: AddressbookComponent },
   {path:'about',component:AboutComponent},
-  {path:'admin',component:AddproductComponent},
+  {path:'admin',component:AddproductComponent,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent},
-  
+
 
   { path: '**', component: PagenotfoundComponent }
 

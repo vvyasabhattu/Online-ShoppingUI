@@ -26,7 +26,7 @@
       <li class="nav-item">
         <a class="nav-link" href="contact">Contact</a>
       </li>
-      
+      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/admin"><i class="fa fa-user"></i>Upload Product</a>
       <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/viewAccount"><i class="fa fa-user"></i>MyAccount</a>
       <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/addressBook"><i class="fa fa-user"></i>view address</a>
     </ul>
@@ -38,13 +38,13 @@
             <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
                 <i class="fa fa-heart"></i> {{wishListSize}}
             </a>
-    
+
             <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
               <i class="fa fa-shopping-cart"></i> {{cartListSize}}
             </a>
-            <a *ngIf="isUserLoggedIn()"  href="/viewaccount" class="nav-item nav-link "><i class="fa fa-user"></i>  
+            <a *ngIf="isUserLoggedIn()"  href="/viewaccount" class="nav-item nav-link "><i class="fa fa-user"></i>
               {{getUserName()}} </a>
-      
+
         <!-- if not logged in -->
         <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
            <i class="fa fa-user"></i> &nbsp;login/Signup
