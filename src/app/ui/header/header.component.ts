@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
    //admin check
 
    isAdmin(): boolean{
-     if(this.role=="admin") return true;
+     if(this.role=="Seller" || this.role=="admin") return true;
      else false;
    }
 }
