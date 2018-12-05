@@ -39,9 +39,9 @@ export class AddproductComponent implements OnInit {
         brand :['',[Validators.required]],
         product_name : ['',Validators.required],
         description : [''],
-        price : [''],
+        price : ['',Validators.required],
         category : this.fb.group({
-          category_id : []
+          category_id : ['',Validators.required]
         }),
         user:this.fb.group({
           id:[]
@@ -60,15 +60,13 @@ export class AddproductComponent implements OnInit {
   /* this method sends the form data to the Web API */
   onSubmit(){
     console.log(this.productForm.value);
-
-    var resArray ;
-
+    console.log("this is the user idddddddddddddddddd",this.userId);
     this.productForm.value.product.user.id = this.userId;
     console.log('user id ',this.productForm.value.product.user.id);
     this.productService.addFormData(this.productForm.value).subscribe
     (
       (data : ProductResponse) => {
-        this.formSubmitResponse = data.productResponse[0].product_id;
+        this.formSubmitResponse = data.productResponse;
         //resArray = this.formSubmitResponse.ProductResponse[0];
         console.log('Complete Response',data);
         console.log ('This is Product Resonse :',this.formSubmitResponse);
@@ -133,4 +131,9 @@ export class AddproductComponent implements OnInit {
         this.productCategory1 = data.category;
       } )
 }
+
+viewUploadedProduct(){
+
+}
+
 }

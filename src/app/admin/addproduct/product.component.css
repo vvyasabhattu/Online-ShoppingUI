@@ -22,7 +22,7 @@ panel-title{
 
   div.border{
     height:40em; background-size:cover; width:auto;
-    background-image:url('product12.jpg');
+    /* background-image:url('product12.jpg'); */
     background-position:50% 50%;
     box-shadow: 10px;
     border-radius: 5px;
