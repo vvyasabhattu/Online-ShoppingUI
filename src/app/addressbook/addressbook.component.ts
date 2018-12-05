@@ -4,6 +4,7 @@ import { Addressreq } from '../model/addressreq';
 import { ApiService } from '../service/api.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {  Useraddress } from '../model/addressrespone';
+import { Userdetail } from '../model/getuserresponse';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -16,85 +17,116 @@ const httpOptions = {
   styleUrls: ['./addressbook.component.css']
 })
 export class AddressbookComponent implements OnInit {
-    
+
   private addAddressUrl=this.apiService.addAddressUrl;
   public resposeText : string;
   public userid:string;
 addressdata = new Addressreq('','','','','','');
 
   ngOnInit() {
+      this.getAddressList();
   }
 
 
   constructor(private http: HttpClient,private apiService:ApiService) {
     this.userid  = localStorage.getItem('token');
   console.log("tokensss"+this.userid);
-  
+
    }
 
-   
+   "getListAddress"={
+           "address": {
+
+             "user": {
+
+               "id": 5
+
+             }
+           }
+         };
+         addressList:AddressResponse;
+   getAddressList(){
+     console.log("Get Address List.............................");
+     // this.http.post(this.apiService.addressListUrl,this.getListAddress,httpOptions).subscribe((data:AddressResponse)=>{
+     //   console.log(JSON.stringify(data));
+     //   this.addressList=data;
+     // });
+     this.http.post(this.apiService.addressListUrl,this.getListAddress).subscribe( (data:AddressResponse)=>
+       {console.log(data);
+          this.addressList=data;
+       });
+   }
+
+   //by Ashish
+   editAddress(address:Addressreq){
+     console.log('edit table');
+     console.log(address);
+     this.addressdata=address;
+   }
+
+//
     "addaddress" = {
 
      "appOS": "string",
     "appVersion": "",
     "deviceId": "",
-      "address": 
+      "address":
         {
-      
+
           "addrLine1": "",
           "addrLine2": "",
           "city": "",
-          "country": "", 
+          "country": "",
           "pincode": "",
           "state": "",
           "user": {
         "id":""
-      
-        
+
+
           }
-          
-        }   
+
+        }
   }
 
 
-  
 
 
 
-    columnDefs = [            
+
+    columnDefs = [
       {
           headerName: "id",
-          field: "id",                
+          field: "id",
           width: 100
       },
       {
         headerName: "city",
-        field: "city",                
+        field: "city",
         width: 100
      },
      {
       headerName: "state",
-      field: "state",                
+      field: "state",
       width: 100
     },
     {
       headerName: "country",
-      field: "country",                
+      field: "country",
       width: 100
     },
     {
       headerName: "pincode",
-      field: "pincode",                
+      field: "pincode",
       width: 100
     },
     {
       headerName: "addrLine1",
-      field: "addrLine1",                
+      field: "addrLine1",
       width: 100
     },
     {
       headerName: "addrLine2",
-      field: "addrLine2",                
+      field: "addrLine2",
       width: 100
     },
 
@@ -109,25 +141,25 @@ addressdata = new Addressreq('','','','','','');
         "addrLine1": "",
         "addrLine2": ""
       }
-     
-  
+
+
     ]
     onsubmit()
     {
       console.log('22222222222222222');
-      
+
       this.addaddress.address.addrLine1=this.addressdata.addrLine1;
       this.addaddress.address.addrLine2=this.addressdata.addrLine2;
       this.addaddress.address.city=this.addressdata.city;
-      this.addaddress.address.country=this.addressdata.country; 
+      this.addaddress.address.country=this.addressdata.country;
       this.addaddress.address.pincode= this.addressdata.pincode;
       this.addaddress.address.state =this.addressdata.state;
       this.addaddress.address.user.id=this.userid;
-      
+
 //console.log("request object"+this.addaddress);
       this.http.post(this.addAddressUrl,this.addaddress,httpOptions).subscribe((data:Useraddress) => {
         console.log('data  11111111111111111',data);
-        
+
         if(data.errorCode == 0)
         {
           localStorage.setItem('isaddedaddress', "true");
@@ -148,4 +180,5 @@ addressdata = new Addressreq('','','','','','');
         }
        });
     }
+
 }

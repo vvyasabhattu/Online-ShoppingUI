@@ -31,6 +31,7 @@ import { AddressprofileComponent } from './addressprofile/addressprofile.compone
 import {AddressbookComponent } from './addressbook/addressbook.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AdminModule } from './admin/admin.module';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -52,7 +53,8 @@ import { AdminModule } from './admin/admin.module';
     SearchComponent,
 
     AddressprofileComponent,
-    AddressbookComponent
+    AddressbookComponent,
+    FilterPipe
 
   ],
   imports: [

@@ -20,6 +20,9 @@ export class ApiService {
   public categoryURL : string = "/product-by-service/category";
   public addProductURL : string = "/product-by-service/product/add";
   public imageUploadURL :string = "/product-by-service/product/uploadImg";
+  public addressListUrl :string = this.baseUrl+"/user-by-service/user/getAddress";
+
+
 
 
 
