@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+//http://vgaddam-l-1196:9090/api/user-by-service/user/check
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   //localhost check
-    //public baseUrl:string="http://localhost:9090/api";
-  //api urls
+  public localUrl:string="http://localhost:9090/api";
+  public dockerUrl:string="http://vgaddam-l-1196:9090/api";
   public baseUrl:string="http://vgaddam-l-1196:9090/api";
+  //api urls
+
   public productUrl:string=this.baseUrl+"/product-by-service/product/all";
   public userUrl:string=this.baseUrl+"/user-by-service/";
   public aboutUrl:string=this.baseUrl+"/about";
@@ -20,10 +23,18 @@ export class ApiService {
   public categoryURL : string = "/product-by-service/category";
   public addProductURL : string = "/product-by-service/product/add";
   public imageUploadURL :string = "/product-by-service/product/uploadImg";
+  public addressListUrl :string = this.baseUrl+"/user-by-service/user/getAddress";
+  public addresUpdateUrl :string = this.baseUrl+"/user-by-service/user/updateAddress";
 
-  public getAllProductsByUserURL : string = "/product/byUser";
 
-
+//switch server Local or Docker
+  // checkServerStatus(){
+  //   if(this.localUrl){
+  //     this.baseUrl=this.localUrl;
+  //   }else{
+  //     this.baseUrl=this.dockerUrl;
+  //   }
+  // }
 
   constructor() {}
 

@@ -12,20 +12,20 @@ margin-left: 316px;">
                         <p class="card-category">enter your address</p>
                     </div>
                     <div class="card-body">
-                        <form   #address = "ngForm" novalidate (ngSubmit)="onsubmit(); ">
+                        <form   #address = "ngForm" novalidate (ngSubmit)="updateAddress(); ">
                             <div class="row">
                         <div class="col-md-6">
                                     <mat-form-field  class="example-full-width">
-                                        <input matInput name="addressdata.addrLine1" #addrLine1="ngModel" 
+                                        <input matInput name="addressdata.addrLine1" #addrLine1="ngModel"
                                     type="text" placeholder=" address Line1"  [(ngModel)]="addressdata.addrLine1" required >
                                         <mat-error>This field is required</mat-error>
                                 </mat-form-field>
                                 </div>
-                     
-                           
+
+
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <input matInput name="addressdata.addrLine2" #addrLine2="ngModel"  
+                                      <input matInput name="addressdata.addrLine2" #addrLine2="ngModel"
                                       type="text"  placeholder="landmark" [(ngModel)] = "addressdata.addrLine2"  required >
                                        <mat-error>This field is required</mat-error>
                                     </mat-form-field>
@@ -34,18 +34,18 @@ margin-left: 316px;">
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput name="addressdata.city"  #city="ngModel" 
+                                    <input matInput name="addressdata.city"  #city="ngModel"
                                     type="text"  placeholder="city" [(ngModel)] = "addressdata.city" required >
-                                     
+
                                     <mat-error>This field is required</mat-error>
                                   </mat-form-field>
                                 </div>
-                        
-                        
+
+
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput name="addressdata.state" #state="ngModel"  
-                                    type="text"  placeholder="state" 
+                                    <input matInput name="addressdata.state" #state="ngModel"
+                                    type="text"  placeholder="state"
                                      [(ngModel)] = "addressdata.state" required>
                                      <mat-error>This field is required</mat-error>
                                   </mat-form-field>
@@ -54,25 +54,25 @@ margin-left: 316px;">
                          <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput name="addressdata.country" #country ="ngModel"  
-                                   type="text"  placeholder="country" 
+                                    <input matInput name="addressdata.country" #country ="ngModel"
+                                   type="text"  placeholder="country"
                                    [(ngModel)] = "addressdata.country" required>
                                    <mat-error>This field is required</mat-error>
-                                  
+
                                   </mat-form-field>
                                 </div>
-                              
+
                                     <div class="col-md-6">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput name="addressdata.pincode" #pincode ="ngModel"  
-                                       type="text"  placeholder="pincode" 
+                                        <input matInput name="addressdata.pincode" #pincode ="ngModel"
+                                       type="text"  placeholder="pincode"
                                        [(ngModel)] = "addressdata.pincode" required>
                                        <mat-error>This field is required</mat-error>
-                                      
+
                                       </mat-form-field>
                                     </div>
                                     </div>
-                          
+
                             <button mat-raised-button type="submit" class="btn btn-danger pull-right" >Addaddress</button>
                             <div class="clearfix"></div>
                         </form>
@@ -85,10 +85,37 @@ margin-left: 316px;">
 
 
 
-<div style="    width: 750px;
+<!-- <div style="    width: 750px;
             margin-top: 107px;
 margin-left: 316px;">
     <ag-grid-angular  style="width: 100%; height: 200px;" class="ag-theme-balham"
           [rowData]="rowData" [columnDefs]="columnDefs">
     </ag-grid-angular>
+</div> -->
+<!-- temp -->
+<div class="container">
+
+<table class="table border">
+  <th>Id</th>
+  <th>City</th>
+  <th>State</th>
+  <th>Country</th>
+  <th>Pincode</th>
+  <th>Address Line 1</th>
+  <th>Address Line 2</th>
+  <th>Default Address</th>
+  <tr *ngFor="let address of addressList.addressResponseLst" >
+    <td>{{address.id}}</td>
+    <td>{{address.city}}</td>
+    <td>{{address.state}}</td>
+    <td>{{address.country}}</td>
+    <td>{{address.pincode}}</td>
+    <td>{{address.addrLine1}}</td>
+    <td>{{address.addrLine2}}</td>
+    <td><input type="radio" name="deafaultAddress" value=""></td>
+    <td (click)="editAddress(address)">Edit</td>
+    <td (click)="deleteAddress(address)">Delete</td>
+  </tr>
+</table>
+
 </div>

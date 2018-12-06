@@ -26,20 +26,3 @@
     width: 80%;
     background: #f1f1f1;
 }
-.footer_div{
-  padding-top:10px;
-  margin-top: 50px;
-  background-color: grey;
-
-}
-
-/*anchor tag styling */
- a:link, a:visited {
-    color: white;
-
-    text-decoration: none;
-    cursor: hand;
-}
- a:link:active, a:visited:active {
-    color: white;
-}
