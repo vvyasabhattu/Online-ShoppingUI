@@ -12,23 +12,11 @@
       <li class="nav-item">
         <a class="nav-link" href="about">About</a>
       </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li> -->
+
       <li class="nav-item">
         <a class="nav-link" href="contact">Contact</a>
       </li>
-      <a class="nav-item nav-link" *ngIf="isAdmin()"   href="/admin"><i class="fa fa-user"></i>Upload Product</a>
-      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/viewAccount"><i class="fa fa-user"></i>MyAccount</a>
-      <a class="nav-item nav-link" *ngIf="isUserLoggedIn()"   href="/addressBook"><i class="fa fa-user"></i>view address</a>
+
     </ul>
 
 
@@ -42,13 +30,29 @@
             <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" href="cart" >
               <i class="fa fa-shopping-cart"></i> {{cartListSize}}
             </a>
-            <a *ngIf="isUserLoggedIn()"  href="/viewaccount" class="nav-item nav-link "><i class="fa fa-user"></i>
-              {{getUserName()}} </a>
+            <!-- <a *ngIf="isUserLoggedIn()"  href="/viewaccount" class="nav-item nav-link "><i class="fa fa-user"></i>
+              {{getUserName()}} </a> -->
 
         <!-- if not logged in -->
         <a class="nav-item nav-link" *ngIf="!(isUserLoggedIn())" href="login" >
            <i class="fa fa-user"></i> &nbsp;login/Signup
         </a>
+
+        <!-- dropdown starts here  -->
+        <li class="nav-item dropdown" *ngIf="isUserLoggedIn()">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="fa fa-user"></i>
+             {{getUserName()}}
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a class="dropdown-item" href="/viewAccount">My Account</a>
+           <a class="dropdown-item" href="/addressBook">My Address</a>
+           <div class="dropdown-divider"></div>
+           <a class="dropdown-item" *ngIf="isAdmin()" href="/admin"> Product Upload</a>
+         </div>
+       </li>
+       <!-- ends here -->
+
         <a class="nav-item nav-link" *ngIf="isUserLoggedIn()" (click)="logout()" href="#">Logout</a>
 
   </div>

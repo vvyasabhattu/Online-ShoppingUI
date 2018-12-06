@@ -12,7 +12,7 @@ margin-left: 316px;">
                         <p class="card-category">enter your address</p>
                     </div>
                     <div class="card-body">
-                        <form   #address = "ngForm" novalidate (ngSubmit)="onsubmit(); ">
+                        <form   #address = "ngForm" novalidate (ngSubmit)="updateAddress(); ">
                             <div class="row">
                         <div class="col-md-6">
                                     <mat-form-field  class="example-full-width">
@@ -103,6 +103,7 @@ margin-left: 316px;">
   <th>Pincode</th>
   <th>Address Line 1</th>
   <th>Address Line 2</th>
+  <th>Default Address</th>
   <tr *ngFor="let address of addressList.addressResponseLst" >
     <td>{{address.id}}</td>
     <td>{{address.city}}</td>
@@ -111,7 +112,9 @@ margin-left: 316px;">
     <td>{{address.pincode}}</td>
     <td>{{address.addrLine1}}</td>
     <td>{{address.addrLine2}}</td>
+    <td><input type="radio" name="deafaultAddress" value=""></td>
     <td (click)="editAddress(address)">Edit</td>
+    <td (click)="deleteAddress(address)">Delete</td>
   </tr>
 </table>
 

@@ -30,17 +30,16 @@ addressdata = new Addressreq('','','','','','');
 
   constructor(private http: HttpClient,private apiService:ApiService) {
     this.userid  = localStorage.getItem('token');
-  console.log("tokensss"+this.userid);
+  console.log(this.userid);
 
    }
 
+public userId :string= " "+this.userid;
    "getListAddress"={
            "address": {
 
              "user": {
-
-               "id": 5
-
+               id:localStorage.getItem('token')
              }
            }
          };
@@ -63,8 +62,18 @@ addressdata = new Addressreq('','','','','','');
      console.log(address);
      this.addressdata=address;
    }
-
-//
+//delete address
+  deleteAddress(address:Addressreq){
+    console.log('Address deleted..'+address);
+  }
+//update Address
+  updateAddress(){
+    console.log('Update Address');
+    this.http.post(this.apiService.addresUpdateUrl,this.addressdata).subscribe( (data:AddressResponse)=>
+      {console.log(data);
+         this.addressList=data;
+      });
+  }
     "addaddress" = {
 
      "appOS": "string",
@@ -144,7 +153,7 @@ addressdata = new Addressreq('','','','','','');
 
 
     ]
-    onsubmit()
+/*    onsubmit()
     {
       console.log('22222222222222222');
 
@@ -167,7 +176,7 @@ addressdata = new Addressreq('','','','','','');
           this.resposeText = "your address added successfully."
           let useraddress : Useraddress;
     useraddress = JSON.parse(localStorage.getItem('userAddress'));
-    this.rowData[0].id =  useraddress[0].userid;
+    this.rowData[0].id =  useraddress[0].id;
     this.rowData[0].city =  useraddress[0].city;
     this.rowData[0].state =  useraddress[0].state;
     this.rowData[0].country = useraddress[0].country;
@@ -179,6 +188,6 @@ addressdata = new Addressreq('','','','','','');
            this.resposeText = data.errorDesc;
         }
        });
-    }
+    }*/
 
 }
