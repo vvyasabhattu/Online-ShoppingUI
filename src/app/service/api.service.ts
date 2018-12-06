@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
   //localhost check
-    public baseUrl:string="http://localhost:9090/api";
+    //public baseUrl:string="http://localhost:9090/api";
   //api urls
-  //public baseUrl:string="http://vgaddam-l-1196:9090/api";
+  public baseUrl:string="http://vgaddam-l-1196:9090/api";
   public productUrl:string=this.baseUrl+"/product-by-service/product/all";
   public userUrl:string=this.baseUrl+"/user-by-service/";
   public aboutUrl:string=this.baseUrl+"/about";
@@ -20,6 +20,8 @@ export class ApiService {
   public categoryURL : string = "/product-by-service/category";
   public addProductURL : string = "/product-by-service/product/add";
   public imageUploadURL :string = "/product-by-service/product/uploadImg";
+
+  public getAllProductsByUserURL : string = "/product/byUser";
 
 
 

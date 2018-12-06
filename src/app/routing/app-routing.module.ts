@@ -15,6 +15,8 @@ import { AddproductComponent } from '../admin/addproduct/product.component';
 import { SingleProductComponent } from '../single-product/single-product.component';
 import { AddressbookComponent } from '../addressbook/addressbook.component';
 import { SearchComponent } from '../search/search.component';
+import { MainadminpageComponent } from '../admin/mainadminpage/mainadminpage.component';
+import { ViewuploadedproductsComponent } from '../admin/viewuploadedproducts/viewuploadedproducts.component';
 
 
 
@@ -35,7 +37,9 @@ const routes: Routes = [
   { path: 'viewAccount', component: AccounteditComponent },
   { path: 'addressBook', component: AddressbookComponent },
   {path:'about',component:AboutComponent},
-  {path:'admin',component:AddproductComponent,canActivate: [AuthGuard]},
+  {path:'admin',component:MainadminpageComponent,canActivate: [AuthGuard]},
+  {path:'uploadproduct',component:AddproductComponent,canActivate: [AuthGuard]},
+  {path:'useruploadedproducts',component: ViewuploadedproductsComponent,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent},
   { path: 'search', component: SearchComponent},
 

@@ -62,4 +62,10 @@ export class AddproductService {
     };
     return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+'/'+prod_id,formData,{responseType: 'text'});
   }
+
+
+  getAllProductsbyUser(userid){
+    return this.http.get(this.apiservice.baseUrl+this.apiservice.getAllProductsByUserURL+'/'+userid);
+  }
+
 }

@@ -1,6 +1,11 @@
 <div class="image">
 <div class="container somestyle">
   <div class="row">
+    <button class="nav-item nav-link-edit" [routerLink]="['/admin']">
+      <i class="fa fa-arrow-left" aria-hidden="true"> <b> back</b></i></button>
+    
+  </div>
+  <div class="row">
   <div class="col-md-8 offset-2 border border-secondary rounded " >
 <form [formGroup] = "productForm" (ngSubmit) = "onSubmit()" class="form-horizontal" >
   <div class="panel panel-primary">

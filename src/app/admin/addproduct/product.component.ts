@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddproductService,CategoryConfig,ProductCategoryResponse} from '../addproduct.service';
 import { ProductResponse } from 'src/app/model/productResponce';
@@ -26,7 +25,6 @@ export class AddproductComponent implements OnInit {
   productCategory1:CategoryConfig[];
 
   constructor(private fb : FormBuilder,
-              private http: HttpClient,
               private productService : AddproductService) { }
 
   ngOnInit() {
