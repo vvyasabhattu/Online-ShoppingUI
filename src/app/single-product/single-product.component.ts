@@ -3,6 +3,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {ActivatedRoute } from "@angular/router";
 import { ProductService } from '../service/product.service';
 import { Product } from '../model/product';
+import { ApiService } from '../service/api.service';
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
@@ -11,10 +12,11 @@ import { Product } from '../model/product';
 })
 export class SingleProductComponent implements OnInit {
 //images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-  images = ["./assets/img/laptop1.jpg","./assets/img/laptop2.jpg","./assets/img/laptop3.jpg"];
+public imageUrl=this.apiService.imagePathUrl;
+  images = ["assets/img/laptop1.jpg","assets/img/laptop2.jpg","assets/img/laptop3.jpg"];
 
   private product:Product;
-  constructor(private config: NgbCarouselConfig ,private route:ActivatedRoute,private productService:ProductService) {
+  constructor(private config: NgbCarouselConfig ,private route:ActivatedRoute,private productService:ProductService,private apiService:ApiService) {
     // customize default values of carousels used by this component tree
      config.interval = 3000;
      config.wrap = false;

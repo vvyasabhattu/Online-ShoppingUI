@@ -3,14 +3,14 @@
 </div>
 <div class="row" *ngIf="product">
   <div class="col-md-2">
-    <div class="small_product"><img [src]="images[0]" alt="Random first slide"  class="" ></div>
+    <div class="small_product"><img src="{{imageUrl}}{{product.img_path}}" alt="Random first slide"  class="" ></div>
     <div class="small_product"><img [src]="images[1]" alt="Random second slide" class="" ></div>
     <div class="small_product"><img [src]="images[2]" alt="Random third slide" class="" ></div>
   </div>
   <div class="col-md-4">
     <ngb-carousel *ngIf="images">
       <ng-template ngbSlide>
-        <img [src]="images[0]" alt="Random first slide">
+        <img src="{{imageUrl}}{{product.img_path}}" alt="Random first slide" style="width:400px;height:400px;">
 
       </ng-template>
       <ng-template ngbSlide>
