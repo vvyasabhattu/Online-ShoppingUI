@@ -4,6 +4,7 @@ import { ProductService } from '../service/product.service';
 import { ApiService } from '../service/api.service';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-homecomponent',
   templateUrl: './homecomponent.component.html',
@@ -11,6 +12,7 @@ import {Router} from '@angular/router';
 })
 
 export class HomecomponentComponent implements OnInit {
+  imagePath=this.apiService.imagePathUrl;
   //slider images
     images = ["./assets/img/head1.png","./assets/img/head2.jpg","./assets/img/head3.jpg"];
 
@@ -24,6 +26,7 @@ public wishList = [];
 
     //set the product size to local Product Array
     this.getAllProductList();
+    console.log(this.imagePath);
 
   }
 
@@ -62,6 +65,11 @@ public wishList = [];
     //routing to single product component
     onRoutingProduct(product:Product){
         this.router.navigate(['/product',product.product_id]);
+    }
+    //filter products
+    searchText="";
+    filterProduct(products){
+      return products.product_name.toLowerCase().indexOf(this.searchText.toLowerCase())!=-1;
     }
 
 }

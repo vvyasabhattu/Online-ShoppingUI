@@ -1,7 +1,5 @@
 <!-- header slider -->
-<div class="top_30px">
 
-</div>
 <ngb-carousel *ngIf="images">
   <ng-template ngbSlide>
     <img [src]="images[0]" alt="Random first slide">
@@ -27,15 +25,24 @@
 </ngb-carousel>
 <!-- //end header slider -->
 <div class="clearfix top_30px">
-
+  <!-- search Box -->
+  <div class="col-md-6 " style="margin:5px;padding:5px;margin-left:35%;">
+    <form class="form-inline  " >
+      <input class="form-control" name="searchInput" placeholder="Search .." #searchInput="ngModel" [(ngModel)]="searchText" style="width:30%;">
+    <button type="button" class="btn btn-outline-warning" (click)="searchText=''">X</button>
+    </form>
+  </div>
+  <!-- // search Box -->
 </div>
+
 <!-- product lits view -->
 <div class="row offset-1">
     <div *ngFor="let products of Products " class="product-layout col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
-    <div class="product-thumb transition">
+    <div class="product-thumb transition" *ngIf="filterProduct(products)">
       <!-- dummy image  -->
 <div (click)="onRoutingProduct(products)">
-    <div class="image"><img src="./assets/img/Product3.png" alt="image" title="MacBook" class="img-responsive"></div>
+    <div class="image product_thumbnail">
+      <img src="{{imagePath}}{{products.img_path}}" alt="image" title="MacBook" class="img-responsive "></div>
 
     <div class="caption">
     <!--<h4><a href="https://demo.opencart.com/index.php?route=product/product&amp;product_id=43">MacBook</a></h4>-->

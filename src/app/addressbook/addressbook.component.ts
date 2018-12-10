@@ -21,7 +21,7 @@ export class AddressbookComponent implements OnInit {
   private addAddressUrl=this.apiService.addAddressUrl;
   public resposeText : string;
   public userid:string;
-addressdata = new Addressreq('','','','','','');
+addressdata = new Addressreq(1,'','','','','','');
 
   ngOnInit() {
       this.getAddressList();
@@ -67,13 +67,7 @@ public userId :string= " "+this.userid;
     console.log('Address deleted..'+address);
   }
 //update Address
-  updateAddress(){
-    console.log('Update Address');
-    this.http.post(this.apiService.addresUpdateUrl,this.addressdata).subscribe( (data:AddressResponse)=>
-      {console.log(data);
-         this.addressList=data;
-      });
-  }
+
     "addaddress" = {
 
      "appOS": "string",
@@ -81,15 +75,15 @@ public userId :string= " "+this.userid;
     "deviceId": "",
       "address":
         {
-
-          "addrLine1": "",
-          "addrLine2": "",
-          "city": "",
-          "country": "",
-          "pincode": "",
-          "state": "",
+          id:73,
+          "addrLine1": this.addressdata.addrLine1,
+          "addrLine2": this.addressdata.addrLine1,
+          "city": this.addressdata.city,
+          "country": this.addressdata.country,
+          "pincode": this.addressdata.pincode,
+          "state": this.addressdata.state,
           "user": {
-        "id":""
+        "id":localStorage.getItem('token')
 
 
           }
@@ -98,7 +92,16 @@ public userId :string= " "+this.userid;
   }
 
 
-
+  updateAddress(){
+    console.log('Update Address');
+    console.log(this.addaddress);
+    this.http.post(this.apiService.addresUpdateUrl,this.addaddress).subscribe( (data:AddressResponse)=>
+      {
+        console.log("Update data..........")
+        console.log(data);
+         this.addressList=data;
+      });
+  }
 
 
 

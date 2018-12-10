@@ -20,6 +20,7 @@ import { ViewuploadedproductsComponent } from '../admin/viewuploadedproducts/vie
 
 
 
+
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   { path: 'home', component: HomecomponentComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path:'useruploadedproducts',component: ViewuploadedproductsComponent,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent},
   { path: 'search', component: SearchComponent},
+
 
 
   { path: '**', component: PagenotfoundComponent }

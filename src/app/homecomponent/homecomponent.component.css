@@ -4,6 +4,11 @@
 	font-size: 14px;
 }
 /* Override the bootstrap defaults */
+
+.product_thumbnail img{
+	width:400px;
+	height:200px;
+}
 h1 {
 	font-size: 33px;
 }
