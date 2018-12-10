@@ -15,6 +15,11 @@ import { ProductResponse } from 'src/app/model/productResponce';
 })
 export class AddproductComponent implements OnInit {
 
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+}
+
+  successMsg :string;
   userId = localStorage.getItem('token');
   formSubmitResponse : any;
   productCategory : string[] = [''];
@@ -63,14 +68,42 @@ export class AddproductComponent implements OnInit {
     console.log("this is the user idddddddddddddddddd",this.userId);
     this.productForm.value.product.user.id = this.userId;
     console.log('user id ',this.productForm.value.product.user.id);
-    this.productService.addFormData(this.productForm.value).subscribe
-    (
+
+
+    this.productService.addFormData(this.productForm.value).toPromise().then(
       (data : ProductResponse) => {
-        this.formSubmitResponse = data.productResponse;
+        this.formSubmitResponse = data.productResponse[0].product_id;
         //resArray = this.formSubmitResponse.ProductResponse[0];
         console.log('Complete Response',data);
         console.log ('This is Product Resonse :',this.formSubmitResponse);
-        if(data != null)
+        
+        if(data.productResponse != null)
+        {
+          /* alert("Product Details Saved Successfully..!! Please Upload Images !!")
+          this.productForm.reset(); */
+          this.successMsg = 'Product Details successfully saved';
+        }
+        else{
+          alert("Some Error...Please try again!!!")
+        }
+        //console.log ('This is Product id :',this.formSubmitResponse.ProductResponse[0].product_id);
+
+      }
+      
+    );
+    
+    /* this.productService.addFormData(this.productForm.value).subscribe
+    (
+      (data : ProductResponse) => {
+
+        this.delay(3000);
+    
+        this.formSubmitResponse = data.productResponse[0].product_id;
+        //resArray = this.formSubmitResponse.ProductResponse[0];
+        console.log('Complete Response',data);
+        console.log ('This is Product Resonse :',this.formSubmitResponse);
+        
+        if(data.productResponse != null)
         {
           status = "success";
         }
@@ -81,15 +114,8 @@ export class AddproductComponent implements OnInit {
         console.log (err.message);    // SHOW ERRORS IF ANY.
       }
     );
-
-    if(status == "success"){
-      
-      alert("Product Details Saved Successfully..!! Please Upload Images !!")
-      this.productForm.reset();
-    }
-    else{
-      alert("Some Error...Please try again!!!")
-    }
+ */
+    
 
         
   }

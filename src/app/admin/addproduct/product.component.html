@@ -8,6 +8,7 @@
   <div class="row">
   <div class="col-md-8 offset-2 border border-secondary rounded " >
 <form [formGroup] = "productForm" (ngSubmit) = "onSubmit()" class="form-horizontal" >
+  <p class="msg_success">{{successMsg}}</p>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title text-center">Add Product</h3>
