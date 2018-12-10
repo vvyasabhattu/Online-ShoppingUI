@@ -20,6 +20,7 @@ const httpOptions = {
 export class RegisterComponent implements OnInit {
   private regdata =[];
   public resposeText :string = null;
+  isUserRegistered:boolean=false;
   constructor(private http: HttpClient,private apiService:ApiService) { }
 
   public usermodel = new Users('','','','','');
@@ -92,6 +93,8 @@ export class RegisterComponent implements OnInit {
           if(data.errorCode == 0)
           {
             this.resposeText = "user registered successfully."
+            this.isUserRegistered=true;
+            setTimeout( ()=>{this.isUserRegistered=false,3000});
           }
           else if(data.errorCode == 1001){
              this.resposeText = data.errorDesc;

@@ -4,6 +4,7 @@ import { ProductService } from '../service/product.service';
 import { ApiService } from '../service/api.service';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-homecomponent',
   templateUrl: './homecomponent.component.html',
@@ -62,6 +63,11 @@ public wishList = [];
     //routing to single product component
     onRoutingProduct(product:Product){
         this.router.navigate(['/product',product.product_id]);
+    }
+    //filter products
+    searchText="";
+    filterProduct(products){
+      return products.product_name.toLowerCase().indexOf(this.searchText.toLowerCase())!=-1;
     }
 
 }

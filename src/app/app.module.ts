@@ -32,6 +32,7 @@ import {AddressbookComponent } from './addressbook/addressbook.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AdminModule } from './admin/admin.module';
 import { FilterPipe } from './filter.pipe';
+import { ApiService } from './service/api.service';
 
 
 
@@ -55,7 +56,6 @@ import { FilterPipe } from './filter.pipe';
     AddressprofileComponent,
     AddressbookComponent,
     FilterPipe
-
   ],
   imports: [
     BrowserModule,
@@ -76,7 +76,7 @@ import { FilterPipe } from './filter.pipe';
    AgGridModule.withComponents([])
 
   ],
-  providers: [AuthGuard,SearchService],
+  providers: [AuthGuard,SearchService,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
