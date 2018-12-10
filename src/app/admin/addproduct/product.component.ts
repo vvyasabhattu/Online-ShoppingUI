@@ -57,6 +57,8 @@ export class AddproductComponent implements OnInit {
 
   /* this method sends the form data to the Web API */
   onSubmit(){
+
+    
     console.log(this.productForm.value);
     console.log("this is the user idddddddddddddddddd",this.userId);
     this.productForm.value.product.user.id = this.userId;
@@ -68,6 +70,10 @@ export class AddproductComponent implements OnInit {
         //resArray = this.formSubmitResponse.ProductResponse[0];
         console.log('Complete Response',data);
         console.log ('This is Product Resonse :',this.formSubmitResponse);
+        if(data != null)
+        {
+          status = "success";
+        }
         //console.log ('This is Product id :',this.formSubmitResponse.ProductResponse[0].product_id);
 
       },
@@ -75,7 +81,17 @@ export class AddproductComponent implements OnInit {
         console.log (err.message);    // SHOW ERRORS IF ANY.
       }
     );
-        this.productForm.reset();
+
+    if(status == "success"){
+      
+      alert("Product Details Saved Successfully..!! Please Upload Images !!")
+      this.productForm.reset();
+    }
+    else{
+      alert("Some Error...Please try again!!!")
+    }
+
+        
   }
 
   /* this method selects all multiple files */
@@ -111,11 +127,24 @@ export class AddproductComponent implements OnInit {
         // SHOW A MESSAGE RECEIVED FROM THE WEB API.
         //this.serviceMsg = data.errorDesc;
         console.log ('1111111111111',data);
+        if(data != null)
+        {
+          status = "success";
+        }
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);    // SHOW ERRORS IF ANY.
       }
     );
+
+    if(status == "success"){
+      
+      alert("Product Images Saved Successfully..!!")
+      
+    }
+    else{
+      alert("Some Error...Please Upload again!!!");
+    }
 
   }
 

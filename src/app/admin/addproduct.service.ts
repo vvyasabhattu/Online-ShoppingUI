@@ -65,7 +65,7 @@ export class AddproductService {
 
 
   getAllProductsbyUser(userid){
-    return this.http.get(this.apiservice.baseUrl+this.apiservice.getAllProductsByUserURL+'/'+userid);
+    return this.http.get(this.apiservice.baseUrl+this.apiservice.getAllProductsByUserURL+'/'+userid,{responseType: 'json'});
   }
 
 }
