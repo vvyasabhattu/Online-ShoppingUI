@@ -26,7 +26,7 @@ export class ApiService {
   public addressListUrl :string = this.baseUrl+"/user-by-service/user/getAddress";
   public addresUpdateUrl :string = this.baseUrl+"/user-by-service/user/updateAddress";
 
-  public getAllProductsByUserURL : string= "/product/byUser";
+  public getAllProductsByUserURL : string= "/product-by-service/product/byUser";
 
 
 //switch server Local or Docker

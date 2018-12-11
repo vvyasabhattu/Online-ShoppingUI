@@ -29,7 +29,11 @@ panel-title{
   }
 
 
-  .msg_success{
+  p.msg_success{
       background-color: green;
       
+  }
+
+  p.msg_fail{
+      background-color: red;
   }
