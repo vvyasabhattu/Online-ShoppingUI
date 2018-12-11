@@ -27,6 +27,7 @@ panel-title{
     box-shadow: 10px;
     border-radius: 5px;
   }
+<<<<<<< HEAD
 
 
   p.msg_success{
@@ -37,3 +38,5 @@ panel-title{
   p.msg_fail{
       background-color: red;
   }
+=======
+>>>>>>> 0406c72abf60118b3ec7f5ff85365e50d73bd8af

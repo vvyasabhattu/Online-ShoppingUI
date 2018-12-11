@@ -15,12 +15,15 @@ import { ProductResponse } from 'src/app/model/productResponce';
 })
 export class AddproductComponent implements OnInit {
 
+<<<<<<< HEAD
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
   }
 
   uploadMsg : string;
   successMsg :string;
+=======
+>>>>>>> 0406c72abf60118b3ec7f5ff85365e50d73bd8af
   userId = localStorage.getItem('token');
   formSubmitResponse : any;
   productCategory : string[] = [''];
@@ -69,6 +72,7 @@ export class AddproductComponent implements OnInit {
     console.log("this is the user idddddddddddddddddd",this.userId);
     this.productForm.value.product.user.id = this.userId;
     console.log('user id ',this.productForm.value.product.user.id);
+<<<<<<< HEAD
 
 
     this.productService.addFormData(this.productForm.value).toPromise().then(
@@ -92,6 +96,37 @@ export class AddproductComponent implements OnInit {
       }
       
     );    
+=======
+    this.productService.addFormData(this.productForm.value).subscribe
+    (
+      (data : ProductResponse) => {
+        this.formSubmitResponse = data.productResponse;
+        //resArray = this.formSubmitResponse.ProductResponse[0];
+        console.log('Complete Response',data);
+        console.log ('This is Product Resonse :',this.formSubmitResponse);
+        if(data != null)
+        {
+          status = "success";
+        }
+        //console.log ('This is Product id :',this.formSubmitResponse.ProductResponse[0].product_id);
+
+      },
+      (err: HttpErrorResponse) => {
+        console.log (err.message);    // SHOW ERRORS IF ANY.
+      }
+    );
+
+    if(status == "success"){
+      
+      alert("Product Details Saved Successfully..!! Please Upload Images !!")
+      this.productForm.reset();
+    }
+    else{
+      alert("Some Error...Please try again!!!")
+    }
+
+        
+>>>>>>> 0406c72abf60118b3ec7f5ff85365e50d73bd8af
   }
 
   /* this method selects all multiple files */
