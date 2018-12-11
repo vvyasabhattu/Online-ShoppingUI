@@ -65,7 +65,11 @@ export class AddproductService {
 
 
   getAllProductsbyUser(userid){
+<<<<<<< Updated upstream
     return this.http.get(this.apiservice.baseUrl+this.apiservice.getAllProductsByUserURL+'/'+userid,{responseType: 'json'});
+=======
+    return this.http.get(this.apiservice.baseUrl+this.apiservice.getAllProductsByUserURL+'/'+userid);
+>>>>>>> Stashed changes
   }
 
 }

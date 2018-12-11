@@ -40,10 +40,15 @@
 
         <!-- dropdown starts here  -->
         <li class="nav-item dropdown" *ngIf="isUserLoggedIn()">
+<<<<<<< Updated upstream
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fa fa-user"></i>
              {{getUserName()}}
          </a>
+=======
+         <a class="nav-link dropdown-toggle" href="/viewAccount" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="fa fa-user"></i>{{getUserName()}}</a>
+>>>>>>> Stashed changes
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            <a class="dropdown-item" href="/viewAccount">My Account</a>
            <a class="dropdown-item" href="/addressBook">My Address</a>

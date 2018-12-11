@@ -19,6 +19,7 @@ panel-title{
     background-image:url('productimage.jpg');
     background-position:50% 50%;
   } */
+<<<<<<< Updated upstream
 
   div.border{
     height:40em; background-size:cover; width:auto;
@@ -32,4 +33,13 @@ panel-title{
   .msg_success{
       background-color: green;
       
+=======
+
+  div.border{
+    height:40em; background-size:cover; width:auto;
+    /* background-image:url('product12.jpg'); */
+    background-position:50% 50%;
+    box-shadow: 10px;
+    border-radius: 5px;
+>>>>>>> Stashed changes
   }
