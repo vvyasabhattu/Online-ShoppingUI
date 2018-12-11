@@ -15,14 +15,11 @@ import { ProductResponse } from 'src/app/model/productResponce';
 })
 export class AddproductComponent implements OnInit {
 
-<<<<<<< Updated upstream
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
 }
 
   successMsg :string;
-=======
->>>>>>> Stashed changes
   userId = localStorage.getItem('token');
   formSubmitResponse : any;
   productCategory : string[] = [''];
@@ -71,7 +68,6 @@ export class AddproductComponent implements OnInit {
     console.log("this is the user idddddddddddddddddd",this.userId);
     this.productForm.value.product.user.id = this.userId;
     console.log('user id ',this.productForm.value.product.user.id);
-<<<<<<< Updated upstream
 
 
     this.productService.addFormData(this.productForm.value).toPromise().then(
@@ -103,12 +99,6 @@ export class AddproductComponent implements OnInit {
         this.delay(3000);
     
         this.formSubmitResponse = data.productResponse[0].product_id;
-=======
-    this.productService.addFormData(this.productForm.value).subscribe
-    (
-      (data : ProductResponse) => {
-        this.formSubmitResponse = data.productResponse;
->>>>>>> Stashed changes
         //resArray = this.formSubmitResponse.ProductResponse[0];
         console.log('Complete Response',data);
         console.log ('This is Product Resonse :',this.formSubmitResponse);
@@ -124,14 +114,10 @@ export class AddproductComponent implements OnInit {
         console.log (err.message);    // SHOW ERRORS IF ANY.
       }
     );
-<<<<<<< Updated upstream
  */
     
 
         
-=======
-        this.productForm.reset();
->>>>>>> Stashed changes
   }
 
   /* this method selects all multiple files */
@@ -167,13 +153,10 @@ export class AddproductComponent implements OnInit {
         // SHOW A MESSAGE RECEIVED FROM THE WEB API.
         //this.serviceMsg = data.errorDesc;
         console.log ('1111111111111',data);
-<<<<<<< Updated upstream
         if(data != null)
         {
           status = "success";
         }
-=======
->>>>>>> Stashed changes
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);    // SHOW ERRORS IF ANY.
