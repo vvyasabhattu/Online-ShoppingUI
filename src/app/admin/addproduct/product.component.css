@@ -8,35 +8,8 @@ panel-title{
     background-color: rgb(177, 205, 247);
 }
 
-/*  somestyle{
-    background-image: url("productima");           
+container{
     border: 2px;
     box-shadow: 2px;
-}  */
+}
 
-/* .image{
-    height:40em; background-size:cover; width:auto;
-    background-image:url('productimage.jpg');
-    background-position:50% 50%;
-  } */
-
-  div.border{
-    height:40em; background-size:cover; width:auto;
-    /* background-image:url('product12.jpg'); */
-    background-position:50% 50%;
-    box-shadow: 10px;
-    border-radius: 5px;
-  }
-<<<<<<< HEAD
-
-
-  p.msg_success{
-      background-color: green;
-      
-  }
-
-  p.msg_fail{
-      background-color: red;
-  }
-=======
->>>>>>> 0406c72abf60118b3ec7f5ff85365e50d73bd8af

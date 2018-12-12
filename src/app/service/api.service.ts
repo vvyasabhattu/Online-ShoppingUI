@@ -11,6 +11,7 @@ export class ApiService {
   public baseUrl:string="http://vgaddam-l-1196:9090/api";
   //api urls
   public imagePathUrl:string=this.baseUrl+"/product-by-service/";
+
   public productUrl:string=this.baseUrl+"/product-by-service/product/all";
   public userUrl:string=this.baseUrl+"/user-by-service/";
   public aboutUrl:string=this.baseUrl+"/about";
@@ -25,9 +26,18 @@ export class ApiService {
   public imageUploadURL :string = "/product-by-service/product/uploadImg";
   public addressListUrl :string = this.baseUrl+"/user-by-service/user/getAddress";
   public addresUpdateUrl :string = this.baseUrl+"/user-by-service/user/updateAddress";
+public deleteaddressUrl :string = this.baseUrl+"/user-by-service/user/deleteAddress";
+  public getAllProductsByUserURL : string= "/product/byUser";
 
-  public getAllProductsByUserURL : string= "/product-by-service/product/byUser";
 
+//switch server Local or Docker
+  // checkServerStatus(){
+  //   if(this.localUrl){
+  //     this.baseUrl=this.localUrl;
+  //   }else{
+  //     this.baseUrl=this.dockerUrl;
+  //   }
+  // }
 
 //switch server Local or Docker
   // checkServerStatus(){

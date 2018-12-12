@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 })
 
 export class HomecomponentComponent implements OnInit {
-  imagePath=this.apiService.imagePathUrl;
+  //imagePath=this.apiService.imagePathUrl;
   //slider images
     images = ["./assets/img/head1.png","./assets/img/head2.jpg","./assets/img/head3.jpg"];
 
@@ -26,7 +26,7 @@ public wishList = [];
 
     //set the product size to local Product Array
     this.getAllProductList();
-    console.log(this.imagePath);
+ //   console.log(this.imagePath);
 
   }
 

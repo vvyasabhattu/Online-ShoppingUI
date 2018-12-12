@@ -23,7 +23,6 @@ export class ViewuploadedproductsComponent implements OnInit {
       (data: ProductResponse) => { this.allProductsArray = data.productResponse;
       console.log('Complete Response',data);
       console.log ('This is Product Resonse :',this.allProductsArray);
-      console.log('Checking the responseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);    // SHOW ERRORS IF ANY.

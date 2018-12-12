@@ -70,7 +70,6 @@ import { ApiService } from './service/api.service';
    MatInputModule,
    //spinner Module
    NgxSpinnerModule,
-
    NgbModule.forRoot(),
 
    AgGridModule.withComponents([])
