@@ -29,8 +29,9 @@ private  addresUpdateUrl =this.apiService.addresUpdateUrl;
   public userid:string;
   public addressid:string;
   public deleteuser:string;
+  public action : string = "save";
 
-addressdata = new Addressreq('','','','','','');
+addressdata = new Addressreq('','','','','','','');
 
 
   ngOnInit() {
@@ -73,29 +74,16 @@ public userId :string= " "+this.userid;
           console.log('edit table');
           console.log(address);
           this.addressdata=address;
-          this.updateAddress();
+          this.action = "edit";
+          console.log('action in edit ',this.action);
+          //this.updateAddress();
         }
         deleteAddress(address:Addressreq){
           console.log('Address deleted..'+address);
           this.deleteUserAddress();
         }
 
-   
-
-
-
-
-    
-
-
-              
-  
-
-
-   
-
-
-    "updateaddress" = {
+ "updateaddress" = {
 
      "appOS": "string",
     "appVersion": "",
@@ -153,6 +141,15 @@ public userId :string= " "+this.userid;
       }   
 }
 
+  someAddress(){
+    if(this.action == "save"){
+     this.insertAddress();
+      //apiUrl = this.apiService.addAddressUrl;
+    }else{
+      this.updateAddress();
+      //apiUrl = this.apiService.addresUpdateUrl;
+    }
+  }
 // insert address operation
   insertAddress()
   {
@@ -164,7 +161,12 @@ public userId :string= " "+this.userid;
     this.addaddress.address.pincode= this.addressdata.pincode;
     this.addaddress.address.state =this.addressdata.state;
     this.addaddress.address.user.id=this.userid;
-    console.log(this.addaddress);
+    //console.log(this.addaddress);
+
+ 
+    console.log('1111111111111111111'+this.action);
+   
+   
     this.http.post(this.apiService.addAddressUrl,this.addaddress,httpOptions).subscribe( (data:Useraddress)=>
       {
         console.log("insert data..........")
@@ -172,6 +174,7 @@ public userId :string= " "+this.userid;
          this.insertaddress=data;
          if(data.errorCode == 0)
          {
+          this.getAddressList();
           localStorage.setItem('addresstoken',JSON.stringify(data.addressLst[0].id));
          }
       });
@@ -182,7 +185,7 @@ public userId :string= " "+this.userid;
   {
     console.log('update Address');
     
-    this.updateaddress.address.id= this.addressid;
+    this.updateaddress.address.id= this.addressdata.id;
     this.updateaddress.address.addrLine1=this.addressdata.addrLine1;
     this.updateaddress.address.addrLine2=this.addressdata.addrLine2;
     this.updateaddress.address.city=this.addressdata.city;
@@ -193,23 +196,25 @@ public userId :string= " "+this.userid;
     console.log(this.updateaddress);
     this.http.post(this.apiService.addresUpdateUrl,this.updateaddress,httpOptions).subscribe( (data:Useraddress)=>
     {
+      this.getAddressList();
       console.log("update data..........")
         console.log(data);
-        this.insertaddress=data;
+       // this.insertaddress=data;
        });  
 }
 
 //delete address operation
 deleteUserAddress()
 {
-  this.deleteaddress.address.id= this.addressid;
+  this.deleteaddress.address.id= this.addressdata.id;
   this.deleteaddress.address.user.id=this.userid;
-  console.log(this.deleteaddress);
+  //console.log(this.deleteaddress);
  
   this.http.post(this.apiService.deleteaddressUrl , this.deleteaddress,httpOptions).subscribe((data:Deleteaddress)=>
     {
       if(data.errorCode == 0)
          {
+          this.getAddressList();
 console.log("user address deleted")
      }
     });

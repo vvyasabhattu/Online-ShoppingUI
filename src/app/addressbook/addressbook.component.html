@@ -12,7 +12,7 @@ margin-left: 316px;">
                         <p class="card-category">enter your address</p>
                     </div>
                     <div class="card-body">
-                        <form   #address = "ngForm" novalidate (ngSubmit)="insertAddress()">
+                        <form   #address = "ngForm" novalidate (ngSubmit)="someAddress()">
                             <div class="row">
                         <div class="col-md-6">
                                     <mat-form-field  class="example-full-width">
@@ -73,7 +73,9 @@ margin-left: 316px;">
                                     </div>
                                     </div>
 
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" >save</button>
+                            <button *ngIf="action == 'save'" mat-raised-button type="submit" class="btn btn-danger pull-right" >save</button>
+                            <button *ngIf="action == 'edit'" mat-raised-button type="submit" class="btn btn-danger pull-right" >update</button>
+                            <button mat-raised-button type="button" (click)="address.reset();action='save'" class="btn btn-danger pull-right" >Clear</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

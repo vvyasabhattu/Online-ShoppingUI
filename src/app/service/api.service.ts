@@ -8,7 +8,7 @@ export class ApiService {
   //localhost check
   //public localUrl:string="http://localhost:9090/api";
   //public dockerUrl:string="http://vgaddam-l-1196:9090/api";
-  public baseUrl:string="http://vgaddam-l-1196:9090/api";
+  public baseUrl:string="http://localhost:9090/api";
   //api urls
   public imagePathUrl:string=this.baseUrl+"/product-by-service/";
 
