@@ -6,7 +6,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {  Useraddress } from '../model/addressrespone';
 import { Userdetail } from '../model/getuserresponse';
 import { Deleteaddress } from '../model/deleteUserres';
-
+import {Userlist} from '../model/loginresponse';
+import { Router } from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -31,7 +32,8 @@ private  addresUpdateUrl =this.apiService.addresUpdateUrl;
   public deleteuser:string;
   public action : string = "save";
 
-addressdata = new Addressreq('','','','','','','');
+addressdata = new Addressreq('','','','','','','','','');
+//addressEmptydata = new Addressreq('','','','','','','');
 
 
   ngOnInit() {
@@ -39,9 +41,9 @@ addressdata = new Addressreq('','','','','','','');
   }
 
 
-  constructor(private http: HttpClient,private apiService:ApiService) {
+  constructor(private http: HttpClient,private apiService:ApiService,private router: Router) {
     this.userid  = localStorage.getItem('token');
-  console.log(this.userid);
+ // console.log(this.userid);
   this.addressid =  localStorage.getItem("addresstoken");
 
    }
@@ -64,22 +66,24 @@ public userId :string= " "+this.userid;
           //   this.addressList=data;
           // });
           this.http.post(this.apiService.addressListUrl,this.getListAddress).subscribe( (data:AddressResponse)=>
-            {console.log(data);
+            {
+              //console.log(data);
                this.addressList=data;
             });
         }
      
 
         editAddress(address:Addressreq){
-          console.log('edit table');
-          console.log(address);
+          //console.log('edit table');
+          //console.log(address);
           this.addressdata=address;
           this.action = "edit";
-          console.log('action in edit ',this.action);
+          //console.log('action in edit ',this.action);
           //this.updateAddress();
         }
         deleteAddress(address:Addressreq){
-          console.log('Address deleted..'+address);
+//console.log('Address deleted..'+address);
+          this.addressdata=address;
           this.deleteUserAddress();
         }
 
@@ -97,6 +101,8 @@ public userId :string= " "+this.userid;
           "country": "",
           "pincode": "",
           "state": "",
+          "defaultAddress":"false",
+           "addressTag":"",
           "user": {
             "id":""
                }
@@ -117,6 +123,8 @@ public userId :string= " "+this.userid;
          "country": "", 
          "pincode": "",
          "state": "",
+         "defaultAddress":"",
+         "addressTag":"", 
          "user": {
        "id":""
      
@@ -160,17 +168,19 @@ public userId :string= " "+this.userid;
     this.addaddress.address.country=this.addressdata.country;
     this.addaddress.address.pincode= this.addressdata.pincode;
     this.addaddress.address.state =this.addressdata.state;
+    this.addaddress.address.defaultAddress = this.addressdata.defaultAddress;
+    this.addaddress.address.addressTag = this.addressdata.addressTag;
     this.addaddress.address.user.id=this.userid;
     //console.log(this.addaddress);
 
  
-    console.log('1111111111111111111'+this.action);
+    //console.log('1111111111111111111'+this.action);
    
    
     this.http.post(this.apiService.addAddressUrl,this.addaddress,httpOptions).subscribe( (data:Useraddress)=>
       {
-        console.log("insert data..........")
-        console.log(data);
+      //  console.log("insert data..........")
+        //console.log(data);
          this.insertaddress=data;
          if(data.errorCode == 0)
          {
@@ -192,11 +202,18 @@ public userId :string= " "+this.userid;
     this.updateaddress.address.country=this.addressdata.country;
     this.updateaddress.address.pincode= this.addressdata.pincode;
     this.updateaddress.address.state =this.addressdata.state;
+    this.updateaddress.address.defaultAddress = this.addressdata.defaultAddress;
+    this.updateaddress.address.addressTag = this.addressdata.addressTag;
     this.updateaddress.address.user.id=this.userid;
-    console.log(this.updateaddress);
+   // console.log(this.updateaddress);
     this.http.post(this.apiService.addresUpdateUrl,this.updateaddress,httpOptions).subscribe( (data:Useraddress)=>
     {
       this.getAddressList();
+     // this.updateaddress.address = this.addressEmptydata;
+  //   this.updateaddress.address =new   A
+   // $("#cform").reset();
+   //this.router.navigate(['']);
+     //document.getElementById("reset").click();
       console.log("update data..........")
         console.log(data);
        // this.insertaddress=data;
@@ -215,9 +232,17 @@ deleteUserAddress()
       if(data.errorCode == 0)
          {
           this.getAddressList();
-console.log("user address deleted")
+//console.log("user address deleted")
      }
     });
   }
+  getUserName():string {
+    let user : Userlist;
+   user = JSON.parse(localStorage.getItem('userData'));
+   console.log(user);
+  // this.role=user.roleLst[0]["role"];
+  // console.log(user.roleLst[0]["role"]);
+   return user.firstName;
+  }
 }
-     
+    

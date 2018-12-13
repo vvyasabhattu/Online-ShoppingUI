@@ -108,7 +108,7 @@ console.log('user object in local storage ',user);
         //this.childEvent.emit(localStorage.getItem('userData'));
         localStorage.setItem('token',JSON.stringify( data.userLst[0].id));
         
-        this.router.navigate(['/viewaccount']);
+        this.router.navigate(['/viewAccount']);
          this.resposeText = "your profile Updated succeessfully";
       }
       else{
