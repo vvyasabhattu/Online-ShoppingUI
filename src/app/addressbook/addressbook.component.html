@@ -81,12 +81,12 @@ margin-left: 316px;">
                                                 <input type="radio" [(ngModel)]="addressdata.addressTag" value = "Office" name="addressTag">Office  </label>
                                             
                                          </div>
-                                         <div class="container-fluid">
+                                     <!-- <div class="container-fluid">
                                                 <small>Make it deafaultAddress</small> <br/>
                                                 <label class="radio-inline">  <input type="radio" [(ngModel)]="addressdata.defaultAddress" value = "true" name=" defaultAddress" >DefaultAddress
                                                     </label>
                                          
-                                         </div>
+                                         </div>-->
                                     <div class="pull-right">
                             <button *ngIf="action == 'save'" mat-raised-button type="submit" class="btn btn-primary" >save</button> &nbsp;
                             <button *ngIf="action == 'edit'"   mat-raised-button type="submit" class="btn btn-danger" >update</button>&nbsp;
@@ -123,7 +123,7 @@ margin-left: 306px;">
   <th>Pincode</th>
   <th>Address Line 1</th>
   <th>Address Line 2</th>
- <!-- <th>Default Address</th>-->
+ <th>Default Address</th>
   <th>Action</th>
 </tr> 
   <tr *ngFor="let address of addressList.addressResponseLst" >
@@ -134,7 +134,7 @@ margin-left: 306px;">
     <td>{{address.pincode}}</td>
     <td>{{address.addrLine1}}</td>
     <td>{{address.addrLine2}}</td>
-    <!--<td><input type="radio" name="deafaultAddress" value=""  ></td> -->
+    <td><input type="radio" name="deafaultAddress" value="true" (click) = "defaultAddress(address)"></td> 
     <td ><a title="Edit" style="cursor: pointer !important ;color: #007bff !important;" (click)="editAddress(address)"><i class="fa fa-edit" ></i></a>&nbsp;&nbsp;
         <a title="Delete"  style="cursor: pointer !important ;color: #007bff !important;" (click)="deleteAddress(address)"><i class="fa fa-trash" ></i></a>
     </td>

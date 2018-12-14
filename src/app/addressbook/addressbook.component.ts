@@ -31,6 +31,7 @@ private  addresUpdateUrl =this.apiService.addresUpdateUrl;
   public addressid:string;
   public deleteuser:string;
   public action : string = "save";
+  public actvar : string;
 
 addressdata = new Addressreq('','','','','','','','','');
 //addressEmptydata = new Addressreq('','','','','','','');
@@ -101,7 +102,7 @@ public userId :string= " "+this.userid;
           "country": "",
           "pincode": "",
           "state": "",
-          "defaultAddress":"false",
+          "defaultAddress":"",
            "addressTag":"",
           "user": {
             "id":""
@@ -123,7 +124,7 @@ public userId :string= " "+this.userid;
          "country": "", 
          "pincode": "",
          "state": "",
-         "defaultAddress":"",
+         "defaultAddress":"falses",
          "addressTag":"", 
          "user": {
        "id":""
@@ -157,6 +158,15 @@ public userId :string= " "+this.userid;
       this.updateAddress();
       //apiUrl = this.apiService.addresUpdateUrl;
     }
+  }
+  defaultAddress(address:Addressreq)
+  {
+     this.actvar ="true";
+     this.addressdata=address;
+   this.addressdata.defaultAddress = this.actvar;
+  
+this.updateAddress();
+
   }
 // insert address operation
   insertAddress()
@@ -202,7 +212,7 @@ public userId :string= " "+this.userid;
     this.updateaddress.address.country=this.addressdata.country;
     this.updateaddress.address.pincode= this.addressdata.pincode;
     this.updateaddress.address.state =this.addressdata.state;
-    this.updateaddress.address.defaultAddress = this.addressdata.defaultAddress;
+    this.updateaddress.address.defaultAddress =  this.addressdata.defaultAddress;
     this.updateaddress.address.addressTag = this.addressdata.addressTag;
     this.updateaddress.address.user.id=this.userid;
    // console.log(this.updateaddress);
