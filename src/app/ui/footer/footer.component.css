@@ -18,3 +18,13 @@
 .footer_div > a:link:active, a:visited:active {
     color: white;
 }
+.a-size-mini {
+  font-size: 11px!important;
+  line-height: 1.465!important;
+}
+.a-text-center {
+  text-align: center!important;
+}
+.a-spacing-small, .a-ws .a-ws-spacing-small {
+  margin-bottom: 10px!important;
+}

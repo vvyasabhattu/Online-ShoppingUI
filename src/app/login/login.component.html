@@ -1,5 +1,14 @@
+<div class = "container ex1 " style="margin-top: 20px">
+<a href = "/home">
+  
+  <img src="./assets/img/evkee.jpeg" style="padding-left: 60px" ></a>
+</div>
+<div class="toast-container" > 
+  <app-toast></app-toast>
+</div>
+<div class = "container ex1 " style="margin-top: 30px">
+<div class ="container ex1 padding-extra-large">
 
-<div class="container ex1 ">
     <div *ngIf="errorCode == 0; then thenBlock; else elseBlock"></div>
       <ng-template #thenBlock>
         <h2 class="bg-success">{{resposeText}}</h2>
@@ -8,37 +17,66 @@
     <ng-template  #elseBlock>
         <p class="bg-warning"> {{resposeText}}</p>
     </ng-template>
-
-  <br/>
-  <h3 class="wrapper" text-align='center'> Login Form</h3>
-  <br/>
+    
+ 
+  <h5 class="wrapper" style="text-align: center;">Welcome</h5>
+ 
  <form #login1 = "ngForm" novalidate (ngSubmit)="onsubmit(); login1.reset()">
-
+      
 <div class="form-group">
-        <label for="email">UserName</label>
+        <label for="email" style ="  font-family: 'Roboto Medium'"> <i style="color:slateblue" class="fa fa-envelope icon"></i>&nbsp;Username</label>
         <input type="email" class="form-control" id="email" required name="email"
-        [(ngModel)]="login.email" #email1 = "ngModel" placeholder="abc@gmail.com"
+        [(ngModel)]="login.email" #email1 = "ngModel"
         [class.is-invalid] = "email1.invalid && email1.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
         <small class= 'text-danger' [class.d-none]="email1.valid || email1.untouched">
-            please must enter mail</small>
+            Enter your mail</small>
       </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
+    <div class="a-row" class="form-group">
+        <div class="a-column a-span5">
+      <label for="password"  class="a-form-label" style ="  font-family: 'Roboto Medium'"><i style="color:slateblue" class="fa fa-key icon"></i>&nbsp;Password </label></div>
+    
+      
       <input type="password" class="form-control" id="password" required name="password"
-      [(ngModel)]="login.password" #pwd = "ngModel" placeholder=" enter password"
+      [(ngModel)]="login.password" #pwd = "ngModel"
       [class.is-invalid] = "pwd.invalid && pwd.touched ">
       <small class= 'text-danger' [class.d-none]="pwd.valid || pwd.untouched">
-          please enter password</small>
+          Enter your password</small>
     </div>
-    <div class="wrapper">
-      <button [disabled] = 'login1.form.invalid' class="button" type="submit"
-       class="btn btn-success">login</button>
-       &nbsp;
-       <a routerLink="/register" routerLinkActive="active">register</a>
-      </div>
-
+    
+ <div class="wrapper" style="margin-right: 10px;right: 36px;left: -25; width : 200px; margin-left: 70px">
+      <button [disabled] = 'login1.form.invalid' class="button" type="submit" style = "margin-left:15px"
+       class="btn btn-success">Sign-in</button>
+  </div> 
+ <!--<div class="wrapper" style = "padding: 10px;">  -->
+ 
+    
 
     </form>
+  </div>   
+  <div style="padding-left: 83px">
+      <a id="auth-fpp-link-bottom" class="a-link-normal" tabindex="3" href="/resetpassword">
+      <small> Forgot Password </small> 
+      </a>
+            </div>  
+    <div style="padding-top: 15px;" class="a-divider a-divider-break"><small><b>New to Betterbuy?</b></small> 
+  
+    <span class="a-button-inner" style="margin-top: 13px">
 
-  </div>
+     <a abbr = "new user" style="text-decoration:none" id="createAccountSubmit" tabindex="6" href="/register"   class="a-button-text" role="button">
+               Create your Betterbuy account
+             </a></span>
+            </div>
+  
+          </div>
+          
+          
+         
+           <!-- <button class="ma2 w5 br3 ph3 pv2 ba bw1 b--moon-gray bg-green white pointer" (click)="success()">Success</button>
+            <button class="ma2 w5 br3 ph3 pv2 ba bw1 b--moon-gray bg-dark-red white pointer" (click)="error()">Error</button>
+            <button class="ma2 w5 br3 ph3 pv2 ba bw1 b--moon-gray bg-blue white pointer" (click)="info()">Info</button>
+            <button class="ma2 w5 br3 ph3 pv2 ba bw1 b--moon-gray bg-yellow pointer" (click)="warn()">Warn</button>
+            <button class="ma2 w2 br-100 pa2 ba bw1 b--moon-gray pointer" (click)="clear()" aria-label="clear all">X</button>-->
+         
+          
+     

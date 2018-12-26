@@ -6,7 +6,8 @@ import { Userdetails } from '../model/loginresponse';
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
 //import { tokenKey } from '@angular/core/src/view';
-
+import { ToastService } from '../service/toaster.service';
+import { IToastMessage } from '../model/toast';
 
 
 const httpOptions = {
@@ -27,7 +28,7 @@ private resposeText:string = null;
  // store the URL so we can redirect after logging in
  public redirectUrl: string;
 
-  constructor(private http: HttpClient, private router: Router,private apiService:ApiService) {
+  constructor(private http: HttpClient, private router: Router,private apiService:ApiService,private toastService: ToastService) {
 
   }
 
@@ -64,6 +65,7 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
    console.log('errorCode',data.errorCode);
   if (data.errorCode == 0)
   {
+    this.success();
     localStorage.setItem('isLoggedIn', "true");
     localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
     //this.childEvent.emit(localStorage.getItem('userData'));
@@ -74,7 +76,8 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
     this.resposeText = "user login succeessfully";
   }
   else{
-     this.resposeText = data.errorDesc;
+     //this.resposeText = data.errorDesc;
+     this.error();
   }
 
 }
@@ -85,4 +88,14 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
 
 
   }
+  success() {
+    this.toastService.success('Success!');
+   }
+   error() {
+    this.toastService.error('Oops, something went wrong...');
+   }
+   warn() {
+    this.toastService.warn('This is a warning.');
+   }
 }
+

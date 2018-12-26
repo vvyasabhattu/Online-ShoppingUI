@@ -72,25 +72,30 @@ margin-left: 316px;">
                                       </mat-form-field>
                                     </div>
                                     </div>
-                                    <div class="container-fluid">
-                                            <small>please select address location</small><br/>
+                                    <div class ="row">
+                                    <div class="col-md-6">
+                                       
                                         <label class="radio-inline">
-                                            Address Tag :&nbsp;<input type="radio" [(ngModel)]="addressdata.addressTag" value = "home" name="addressTag" >Home
+                                            Address Tag :&nbsp;<input type="radio"  #addresstag ="ngModel" [(ngModel)]="addressdata.addressTag" value = "home" name="addressTag" checked>Home
                                               </label> &nbsp;
                                               <label class="radio-inline">
-                                                <input type="radio" [(ngModel)]="addressdata.addressTag" value = "Office" name="addressTag">Office  </label>
+                                                <input type="radio" #addresstag ="ngModel"  [(ngModel)]="addressdata.addressTag" value = "Office" name="addressTag">Office  </label>
                                             
                                          </div>
-                                     <!-- <div class="container-fluid">
-                                                <small>Make it deafaultAddress</small> <br/>
-                                                <label class="radio-inline">  <input type="radio" [(ngModel)]="addressdata.defaultAddress" value = "true" name=" defaultAddress" >DefaultAddress
-                                                    </label>
-                                         
-                                         </div>-->
+                                
+                                         <div class="col-md-6">
+                                           
+                                            <label class="radio-inline">
+                                                Default Address :&nbsp;<input type="radio" #defaultaddress ="ngModel" [(ngModel)]="addressdata.defaultAddress" value = "true" name="defaultAddress" (click) = "defaultAddress()">Yes
+                                                  </label> &nbsp;
+                                                  <label class="radio-inline">
+                                                    <input type="radio" #defaultaddress ="ngModel" [(ngModel)]="addressdata.defaultAddress" value = "false" name="defaultAddress" checked = "checked" checked = "checked">No</label>
+                                         </div>
+                                        </div>
                                     <div class="pull-right">
                             <button *ngIf="action == 'save'" mat-raised-button type="submit" class="btn btn-primary" >save</button> &nbsp;
                             <button *ngIf="action == 'edit'"   mat-raised-button type="submit" class="btn btn-danger" >update</button>&nbsp;
-                            <button mat-raised-button type="button" id="reset" (click)="address.reset();action='save'" class="btn btn-default" >Clear</button>&nbsp;
+                         <!-- <button mat-raised-button type="button" id="reset" (click)="address.reset();action='save'" class="btn btn-default" >Clear</button>&nbsp; -->
                         </div> <div class="clearfix"></div>
                         </form>
                     </div>
@@ -123,7 +128,9 @@ margin-left: 306px;">
   <th>Pincode</th>
   <th>Address Line 1</th>
   <th>Address Line 2</th>
+  <th>Address Tag</th>
  <th>Default Address</th>
+ 
   <th>Action</th>
 </tr> 
   <tr *ngFor="let address of addressList.addressResponseLst" >
@@ -134,7 +141,10 @@ margin-left: 306px;">
     <td>{{address.pincode}}</td>
     <td>{{address.addrLine1}}</td>
     <td>{{address.addrLine2}}</td>
-    <td><input type="radio" name="deafaultAddress" value="true" (click) = "defaultAddress(address)"></td> 
+    <td>{{address.addressTag}}</td>
+    <td>{{address.defaultAddress}}</td>
+    
+   <!-- <td><input type="radio" name="deafaultAddress" value="true" (click) = "defaultAddress(address)"></td> -->
     <td ><a title="Edit" style="cursor: pointer !important ;color: #007bff !important;" (click)="editAddress(address)"><i class="fa fa-edit" ></i></a>&nbsp;&nbsp;
         <a title="Delete"  style="cursor: pointer !important ;color: #007bff !important;" (click)="deleteAddress(address)"><i class="fa fa-trash" ></i></a>
     </td>

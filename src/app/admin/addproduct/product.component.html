@@ -34,7 +34,7 @@
       <div class="form-group">
         <label class="col-sm-10 control-label" for="category">Category</label>
         <div class="col-sm-8">
-          <!-- <input id="category" placeholder="Choose Category" formControlName="category" type="text" class="form-control"> -->
+        
           <select id="category" formControlName="category_id" class="custom-select mr-sm-2 form-control">
               <option value="" disabled selected>Choose Category...</option>
               <option *ngFor = "let category of productCategory1" value="{{category.category_id}}">{{category.category_name}}</option>
@@ -57,10 +57,7 @@
         </div>
       </div>
 
-      <!-- <img [src]="uploadImageURL" style="width:150px;height:150px;"> -->
-      <!-- <div class="form-group"> -->
-        
-      <!-- </div> -->
+     
     </fieldset>
     <div class="form-group">
         <div class="col-sm-8">
@@ -88,4 +85,4 @@
 </div>
 
 
-        <!-- <button class="btn btn-primary" (click)="showProductCategory()">Category</button> -->
+       

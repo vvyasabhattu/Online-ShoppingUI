@@ -17,7 +17,7 @@ import { AddressbookComponent } from '../addressbook/addressbook.component';
 import { SearchComponent } from '../search/search.component';
 import { MainadminpageComponent } from '../admin/mainadminpage/mainadminpage.component';
 import { ViewuploadedproductsComponent } from '../admin/viewuploadedproducts/viewuploadedproducts.component';
-
+import {ResetpasswordComponent  } from 'src/app/resetpassword/resetpassword.component';
 
 
 
@@ -43,7 +43,7 @@ const routes: Routes = [
   {path:'useruploadedproducts',component: ViewuploadedproductsComponent,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent},
   { path: 'search', component: SearchComponent},
-
+  { path: 'resetpassword', component: ResetpasswordComponent },
 
 
   { path: '**', component: PagenotfoundComponent }

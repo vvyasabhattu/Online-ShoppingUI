@@ -1,3 +1,104 @@
 .ex1 {
     width:300px;
 }
+.a-divider.a-divider-break {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+
+    
+    .a-button-inner {
+  
+        background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+        background: #eff0f3;
+        background: -webkit-linear-gradient(top,#f7f8fa,#e7e9ec);
+        background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+        display: block;
+        position: relative;
+        overflow: hidden;
+        height: 29px;
+        box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+        border-radius: 2px;
+        width: 300px;
+        text-align: center;
+      
+    }
+    
+.a-button-text {
+    color: #111;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    display: block;
+    font-family: Arial,sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    margin: 0;
+    outline: 0;
+    padding: 0 10px 0 11px;
+    text-align: center;
+    white-space: nowrap;
+}
+.a-row {
+    width: 100%;
+}
+
+.a-row:after, .a-row:before {
+    display: table;
+    content: "";
+    line-height: 0;
+    font-size: 0;
+}
+.a-row:after {
+    clear: both;
+}
+.a-row:after, .a-row:before {
+    display: table;
+    content: "";
+    line-height: 0;
+    font-size: 0;
+}
+.a-ws .a-ws-span12, div.a-column.a-span-last {
+    margin-right: 0;
+    float: right;
+}
+.a-ws div.a-column, div.a-column {
+    margin-right: 2%;
+    float: left;
+    min-height: 1px;
+    overflow: visible;
+}
+
+.a-row .a-span7, .a-ws .a-row .a-ws-span7 {
+    width: 57.448%;
+}
+.a-text-right {
+    text-align: right!important;
+}
+.padding-extra-large {
+    border-style: ridge;
+    padding: 20px 26px!important;
+}
+
+.toast-container {
+    visibility: hidden;
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+  
+  }

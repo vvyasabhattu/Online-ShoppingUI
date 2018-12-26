@@ -1,63 +1,117 @@
-
-<div class="container">
-  <h1 class="text-center">User Registration</h1>
-  <div *ngIf="resposeText">
+<div class = "container ex1 " style="margin-top: 20px">
+<a href = "/home">
+  
+  <img src="./assets/img/evkee.jpeg" style="padding-left: 240px" ></a>
+</div>
+<div class = "container ex1 " style="margin-top: 30px ;">
+    <div class ="container ex1 padding-extra-large"  >
+<!-- 
+<div class="container"  >
+  <h4 class="text-center">Create Account</h4>
+  <div *ngIf="resposeText" >
      <h4 class="bg-success"> {{resposeText}}</h4>
-  </div>
-<form #userForm = "ngForm" novalidate (ngSubmit)="onsubmit();userForm.reset()" class="form ex1 offset-4">
-   <div class="form-group">
-     <label for="firstName">FirstName</label>
-      <input type="text" class="form-control " id="firstName" required name="firstName"
-      [(ngModel)]="usermodel.firstName" #fname1 = "ngModel" placeholder="enter first name"
-      [class.is-invalid] = "fname1.invalid && fname1.touched">
+  </div> -->
+  <div *ngIf="resposeText" >
+      <h4 class="bg-success"> {{resposeText}}</h4>
+   </div> 
+
+      <h5 class="wrapper" style="text-align: center;">Create Account</h5>
+<form #userForm = "ngForm" novalidate (ngSubmit)="onsubmit();userForm.reset()" class="form ex1 offset-4" style="
+margin-left: 0px;">
+   <div class="row">
+      <div class="col-md-6">
+     <label for="firstName" style ="  font-family: 'Roboto Medium'" > <i  style="color:slateblue" class="fa fa-user icon"></i>&nbsp;First name</label>
+      <input  style="
+      padding-right: 11px;
+      padding-left: 6px;
+      border-right-width: 1px;
+      border-left-width: 28px;
+      width: 246px; "  type="text" class="form-control " id="firstName" required name="firstName"
+      [(ngModel)]="usermodel.firstName" #fname1 = "ngModel" 
+      [class.is-invalid] = "fname1.invalid && fname1.touched" >
+     
       <small class= 'text-danger' [class.d-none]="fname1.valid || fname1.untouched ">
           please must enter FirstName</small>
   </div>
- <div class="form-group">
-     <label for="lastName">LastName</label>
-      <input type="text" class="form-control" id="lastName" required name="lastName"
-      [(ngModel)]="usermodel.lastName" #lname1 = "ngModel" placeholder=" enter last name"
+ <div class="col-md-6">
+     <label for="lastName" style ="  font-family: 'Roboto Medium'"><i  style="color:slateblue" class="fa fa-user icon"></i>&nbsp;Last name</label>
+      <input type="text" style="
+      padding-right: 11px;
+      padding-left: 6px;
+      border-right-width: 1px;
+      border-left-width: 28px;
+      width: 246px; "  class="form-control" id="lastName" required name="lastName"
+      [(ngModel)]="usermodel.lastName" #lname1 = "ngModel" 
       [class.is-invalid] = "lname1.invalid && lname1.touched ">
       <small class= 'text-danger' [class.d-none]="lname1.valid || lname1.untouched">
           please must enter LastName</small>
     </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" required name="email"
-      [(ngModel)]="usermodel.email" #email = "ngModel" placeholder="abc@gmail.com"
+  </div>
+  <div class="row">
+      <div class="col-md-6">
+      <label for="email" style ="  font-family: 'Roboto Medium'"> <i style="color:slateblue" class="fa fa-envelope icon"></i>&nbsp;Email</label>
+      <input type="email" style="
+      padding-right: 11px;
+      padding-left: 6px;
+      border-right-width: 1px;
+      border-left-width: 28px;
+      width: 246px; "   class="form-control" id="email" required name="email"
+      [(ngModel)]="usermodel.email" #email = "ngModel" placeholder="Enter email"
       [class.is-invalid] = "email.invalid && email.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
       <small class= 'text-danger' [class.d-none]="email .valid || email.untouched">
           please must enter mail</small>
     </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" required name="password"
+    <div class="col-md-6">
+      <label for="password" style ="  font-family: 'Roboto Medium'" > <i style="color:slateblue" class="fa fa-key icon"></i>&nbsp;Password</label>
+      <input type="password" style="
+      padding-right: 11px;
+      padding-left: 6px;
+      border-right-width: 1px;
+      border-left-width: 28px;
+      width: 246px; "   class="form-control" id="password" required name="password"
       [(ngModel)]="usermodel.password" #pwd = "ngModel" placeholder=" enter password"
       [class.is-invalid] = "pwd.invalid && pwd.touched ">
       <small class= 'text-danger' [class.d-none]="pwd.valid || pwd.untouched">
           please enter password</small>
     </div>
-
-<div class="form-group">
-   <label for="contactNumber">Mobile Number</label>
-<input type="text" class="form-control " id="contactNumber" required name="contactNumber"
+  </div>
+  <div class="row">
+      <div class="col-md-6">
+   <label for="contactNumber" style ="  font-family: 'Roboto Medium'"><i style="color:slateblue" class="fa fa-mobile" aria-hidden="true"></i>&nbsp;Mobile number</label>
+<input type="text" class="form-control "  style="
+padding-right: 11px;
+padding-left: 6px;
+border-right-width: 1px;
+border-left-width: 28px;
+width: 246px; "  id="contactNumber" required name="contactNumber"
   [(ngModel)]="usermodel.contactNumber" #mobile = "ngModel"  pattern="[6789][0-9]{9}" size ='10'
-     placeholder="enter mobile number" [class.is-invalid] = "mobile.invalid && mobile.touched">
+     placeholder=" Mobile number" [class.is-invalid] = "mobile.invalid && mobile.touched">
  <div  *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
    <small  class= 'text-danger' *ngIf="mobile.errors.required">enter mobilenumber</small>
    <small  class= 'text-danger' *ngIf="mobile.errors.pattern">must enter 10 digits and digit must be start with[6789]</small>
   </div>
 </div>
+</div>
+<small style="text-align: center">We will send you a text to verify your phone.
+Message and Data rates may apply</small>
 <div class="wrapper">
-              <button  class="button" type="submit"
-              class="btn btn-success">Submit</button>
+              <button  class="button" [disabled] = 'userForm.form.invalid' type="submit"
+              class="btn btn-success" style="margin-left :240px">Submit</button>
               </div>
+            </form>
+          </div>
+        
+          <div class="a-row" style="padding-top :30px;">
+              <small style="margin-left :200px;" >  Already have an account?</small>
+                <a class="a-link-emphasis" href="/login">
+                  Sign-in
+                </a>
+              </div>
+        </div>
+      
+              
+  
+  
 
-  </form>
-  <!-- submit response  -->
-  <div class="bg-success top_30px" *ngIf="isUserRegistered">
-    <h1>Registered successfully</h1>
-  </div>
-      </div>
+     

@@ -1,0 +1,33 @@
+.toast-message {
+    padding: 0.5rem 2rem;
+    /* -webkit-animation: fadeinout 5s linear forwards;
+    animation: fadeinout 5s linear forwards; */
+    /* visibility: hidden; */
+    visibility: visible;
+    background-color: slategray;
+    width:240px;
+    height : 100px;
+   margin-top :70px;
+   margin-left: 1130px;
+   border-radius: 25px;
+ 
+  }
+  
+  @-webkit-keyframes fadeinout {
+    10%,
+    90% {
+      visibility: visible;
+    }
+  }
+  
+  @keyframes fadeinout {
+    10%,
+    90% {
+      visibility: visible;
+    }
+  }
+  
+  .toast-x {
+    top: 0.25rem;
+    right: 0.75rem;
+  }

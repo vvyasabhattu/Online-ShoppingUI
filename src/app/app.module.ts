@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
+
 import { FormsModule,FormGroup,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HomecomponentComponent } from './homecomponent/homecomponent.component';
@@ -21,7 +22,7 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import {NgxSpinnerModule } from 'ngx-spinner';
-
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './search/search.component';
@@ -33,6 +34,9 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AdminModule } from './admin/admin.module';
 import { FilterPipe } from './filter.pipe';
 import { ApiService } from './service/api.service';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+//import { ToastAlertsComponent } from './toast-alerts/toast-alerts.component';
+import {ToastHostComponent } from './toast-host/toast-host.component';
 
 
 
@@ -55,7 +59,11 @@ import { ApiService } from './service/api.service';
 
     AddressprofileComponent,
     AddressbookComponent,
-    FilterPipe
+    FilterPipe,
+    ResetpasswordComponent,
+    
+    ToastHostComponent
+ 
   ],
   imports: [
     BrowserModule,
@@ -68,6 +76,7 @@ import { ApiService } from './service/api.service';
     BrowserAnimationsModule,
    MatFormFieldModule,
    MatInputModule,
+
    //spinner Module
    NgxSpinnerModule,
    NgbModule.forRoot(),
@@ -76,6 +85,7 @@ import { ApiService } from './service/api.service';
 
   ],
   providers: [AuthGuard,SearchService,ApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
