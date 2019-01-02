@@ -3,6 +3,8 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { ConnectionService } from 'ng-connection-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { OnInit } from '@angular/core';
+import { ToastService } from './service/toaster.service'; 
+import { IToastMessage } from './model/toast';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit{
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 2000);
+    }, 1000);
 
   }
 
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit{
   status = 'ONLINE';
 isConnected = true;
 
-constructor(private connectionService: ConnectionService ,private spinner:NgxSpinnerService) {
+constructor(private connectionService: ConnectionService ,private spinner:NgxSpinnerService,private toastService: ToastService) {
   
   this.connectionService.monitor().subscribe(isConnected => {
     this.isConnected = isConnected;
@@ -32,12 +34,15 @@ constructor(private connectionService: ConnectionService ,private spinner:NgxSpi
     }
     else {
       this.status = "OFFLINE";
+      this.warn();
     }
   });
   //end of connection check
 
 
 }
-
+warn() {
+  this.toastService.warn('Please check your network.');
+ }
 
 }

@@ -18,9 +18,9 @@ import { SearchComponent } from '../search/search.component';
 import { MainadminpageComponent } from '../admin/mainadminpage/mainadminpage.component';
 import { ViewuploadedproductsComponent } from '../admin/viewuploadedproducts/viewuploadedproducts.component';
 import {ResetpasswordComponent  } from 'src/app/resetpassword/resetpassword.component';
-
-
-
+import {GmapsComponent} from 'src/app/gmaps/gmaps.component';
+import {PaypalgatewayComponent} from 'src/app/paypalgateway/paypalgateway.component';
+ 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   { path: 'home', component: HomecomponentComponent },
@@ -44,8 +44,10 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'search', component: SearchComponent},
   { path: 'resetpassword', component: ResetpasswordComponent },
-
-
+  { path: 'gmaps', component: GmapsComponent},
+  { path: 'paypalpayment', component: PaypalgatewayComponent},
+  
+  
   { path: '**', component: PagenotfoundComponent }
 
 ];

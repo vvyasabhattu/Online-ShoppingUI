@@ -8,6 +8,8 @@ import { Userdetail } from '../model/getuserresponse';
 import { Deleteaddress } from '../model/deleteUserres';
 import {Userlist} from '../model/loginresponse';
 import { Router } from '@angular/router';
+
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'

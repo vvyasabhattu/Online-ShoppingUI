@@ -37,7 +37,13 @@ import { ApiService } from './service/api.service';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 //import { ToastAlertsComponent } from './toast-alerts/toast-alerts.component';
 import {ToastHostComponent } from './toast-host/toast-host.component';
-
+import { CustomerserviceComponent } from './customerservice/customerservice.component';
+import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
+import { ResetpasswordoptionsComponent } from './resetpasswordoptions/resetpasswordoptions.component';
+import { GmapsComponent } from './gmaps/gmaps.component';
+import { PaypalgatewayComponent } from './paypalgateway/paypalgateway.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { PayumoneyComponent } from './payumoney/payumoney.component';
 
 
 @NgModule({
@@ -62,7 +68,19 @@ import {ToastHostComponent } from './toast-host/toast-host.component';
     FilterPipe,
     ResetpasswordComponent,
     
-    ToastHostComponent
+    ToastHostComponent,
+    
+    CustomerserviceComponent,
+    
+    ConfirmpasswordComponent,
+    
+    ResetpasswordoptionsComponent,
+    
+    GmapsComponent,
+    
+    PaypalgatewayComponent,
+    
+    PayumoneyComponent
  
   ],
   imports: [
@@ -76,6 +94,7 @@ import {ToastHostComponent } from './toast-host/toast-host.component';
     BrowserAnimationsModule,
    MatFormFieldModule,
    MatInputModule,
+   NgxPayPalModule,
 
    //spinner Module
    NgxSpinnerModule,

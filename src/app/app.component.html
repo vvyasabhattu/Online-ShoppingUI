@@ -9,10 +9,11 @@
 <!-- // end spinner service -->
 <app-layout>
   <!-- online ofline network  -->
-  <div class="offset-4 col-sm-4 bg-warning" *ngIf="!isConnected">
-    <h2 class=" text-center">You Are OFFLINE</h2>
-    <p class="text-center">please check you Internet connection</p>
+  <div class="offset-4 col-sm-4"  style="border-radius :25px;background-color:goldenrod; margin-left:480px;" *ngIf="!isConnected">
+    
+    <p class="text-center"><img    src= "./assets/img/network.PNG"><small>you are offline,please check your network connection</small>
   </div>
+ 
   <!-- //end online ofline network  -->
   <!-- <app-search></app-search> -->
  <router-outlet ></router-outlet>
