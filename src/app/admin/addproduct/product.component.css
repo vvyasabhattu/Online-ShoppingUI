@@ -8,8 +8,12 @@ panel-title{
     background-color: rgb(177, 205, 247);
 }
 
-container{
-    border: 2px;
-    box-shadow: 2px;
+
+.padding-extra-large {
+    border-style: ridge;
+    padding: 20px 26px!important;
 }
 
+.ex1 {
+    width:650px;
+}

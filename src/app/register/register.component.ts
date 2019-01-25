@@ -1,9 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Users } from 'src/app/model/user';
 import { RegisterService } from 'src/app/service/register.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Userdetail} from '../model/registrationres';
 import { ApiService } from '../service/api.service';
+import { Router } from '@angular/router';
+import {
+  AuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider
+} from 'angular-6-social-login';
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,7 +29,14 @@ export class RegisterComponent implements OnInit {
   private regdata =[];
   public resposeText :string = null;
   isUserRegistered:boolean=false;
-  constructor(private http: HttpClient,private apiService:ApiService) { }
+public fname:string;
+ public lname:string;
+public email1:string;
+//public render:boolean=false;
+public visible :boolean =false;
+public show:boolean = true;
+  constructor(private http: HttpClient,private apiService:ApiService,private socialAuthService: AuthService,
+    private router: Router    ) { }
 
   public usermodel = new Users('','','','','');
 
@@ -123,10 +138,32 @@ export class RegisterComponent implements OnInit {
 
 
    });
-
-
-
-
-
 }
+
+public socialSignIn(socialPlatform : string) {
+  let socialPlatformProvider;
+  if(socialPlatform == "facebook"){
+    socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+  }else if(socialPlatform == "google"){
+    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+  } 
+  this.socialAuthService.signIn(socialPlatformProvider).then(
+    (userData) => {
+      console.log(socialPlatform+" sign in data : " , userData);
+   //localStorage.setItem('socialuser',JSON.stringify(userData));
+this.fname =  userData.name;
+  this.lname = userData.name;
+ this.email1 = userData.email;
+      console.log("hiii", this.email1);
+     //this.router.navigate['gmailuser'];
+    // this.router.navigate(['../gmailuser']);
+    }
+    );
+
+  }
+  handler()
+  {
+    this.visible = true;
+    this.show = false;
+  }
 }

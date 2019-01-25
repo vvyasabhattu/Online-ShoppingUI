@@ -6,8 +6,10 @@ import { Userdetails } from '../model/loginresponse';
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
 //import { tokenKey } from '@angular/core/src/view';
-import { ToastService } from '../service/toaster.service';
-import { IToastMessage } from '../model/toast';
+//import { ToastService } from '../service/toaster.service';
+//import { IToastMessage } from '../model/toast';
+
+//import { MdbSuccessDirective } from 'angular-bootstrap-md';
 
 
 const httpOptions = {
@@ -22,13 +24,14 @@ const httpOptions = {
 })
 export class LoginComponent implements OnInit {
   private regdata =[];
+  hide = true;
 private resposeText:string = null;
 //@Output() public childEvent = new EventEmitter();
 
  // store the URL so we can redirect after logging in
  public redirectUrl: string;
 
-  constructor(private http: HttpClient, private router: Router,private apiService:ApiService,private toastService: ToastService) {
+  constructor(private http: HttpClient, private router: Router,private apiService:ApiService) {
 
   }
 
@@ -65,7 +68,7 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
    console.log('errorCode',data.errorCode);
   if (data.errorCode == 0)
   {
-    this.success();
+
     localStorage.setItem('isLoggedIn', "true");
     localStorage.setItem('userData',JSON.stringify(data.userLst[0]));
     //this.childEvent.emit(localStorage.getItem('userData'));
@@ -73,11 +76,11 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
   let ket  = localStorage.getItem('token');
   console.log("tokensss"+ket);
     this.router.navigate(['']);
-    this.resposeText = "user login succeessfully";
+    //this.resposeText = "user login succeessfully";
   }
   else{
-     //this.resposeText = data.errorDesc;
-     this.error();
+     this.resposeText = data.errorDesc;
+  
   }
 
 }
@@ -86,16 +89,7 @@ console.log(this.http.post(this.loginUrl,this.userobject, httpOptions).subscribe
 
 
 
-
   }
-  success() {
-    this.toastService.success('Success!');
-   }
-   error() {
-    this.toastService.error('Oops, something went wrong...');
-   }
-   warn() {
-    this.toastService.warn('This is a warning.');
-   }
+ 
 }
 

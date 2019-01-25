@@ -13,17 +13,22 @@ import { ProductService } from '../../service/product.service';
 export class HeaderComponent implements OnInit {
     cartListSize:number=0;
     wishListSize:number=0;
+   // cartnumber:number =0;
+    //wishnumber:number= 0;
+    //public wishnumber:number;
+   // cartlengthdata:number= 0;
 
   constructor(private router: Router,public authService :AuthService,private productService:ProductService) {
-
+  
 
 }
   role:string;
   isLoggedIn : boolean;
   ngOnInit() {
       //cart and wishList size fetching from product service
-      this.cartListSize=this.productService.cartListSize;
-      this.wishListSize=this.productService.wishListSize;
+     // this.cartListSize=this.productService.cartListSize;
+      //this.wishListSize=this.productService.wishListSize;
+   
   }
 
   logout(): void {
@@ -53,4 +58,5 @@ export class HeaderComponent implements OnInit {
      if(this.role=="Seller" || this.role=="admin") return true;
      else false;
    }
+ 
 }

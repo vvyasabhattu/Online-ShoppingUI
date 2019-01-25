@@ -1,44 +1,185 @@
-<mat-toolbar color="primary">
-    <!-- <button mat-button (click)="sidenav.open ()" ><mat-icon>menu</mat-icon></button> -->
-    <span>My Uploaded Products</span>  
-    <!-- <span class="example-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button> -->
-  </mat-toolbar>
-  <!-- <mat-menu #appMenu="matMenu">
-    <button mat-menu-item> Settings </button>
-    <button mat-menu-item> Help </button>
-  </mat-menu> -->
-  <mat-sidenav-container class="example-container">
-    
-    <!-- <mat-sidenav #sidenav class="example-sidenav">
-      <mat-list class="list-nav">
-          <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.id);sidenav.close();">
+<mat-toolbar >
+ <span style= " font-family: 'Roboto Medium';color:peru">My Uploaded Products</span>  
+</mat-toolbar>
+
+<div class="container " >
+
+  <div class="row" style ="margin-top:20px;margin-right: 0px;width:1250px;">
+
+  <div class="col-md-8 offset-2 " >
+
+      <div class = "container ex1 " style="margin-top: 10px; margin-right:400px;">
+
+          <a href = "/home">
             
-            <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}" class="example-header-image"></div>
+            <img src="./assets/img/evkee.jpeg" style="padding-left: 240px;" ></a>
+            <h6 class="panel-title text-center"   style ="  font-family: 'Roboto Medium';color:teal;margin-left:5px;">
+              Sell on Butterbuy</h6>
+          </div>
+      
+         
+          <form [formGroup] = "productForm"  (ngSubmit)="someProducts(); " class="form-horizontal">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                   
+                </div>
+                <div class="col-sm-8" style= "margin-left: 120px; margin-top:20px;">
+                  <fieldset formGroupName="product">
+                  <div class="form-label-group">
+                    <label class="col-sm-8 control-label" for="fullName" style=  "font-family: Roboto Medium;" >Product Name</label>
+                    <div class="col-sm-8">
+                      <input style=  "font-family: Roboto Medium;width:326px;"[class.is-invalid]="productForm.get('product.product_name').invalid &&
+                                                productForm.get('product.product_name').touched" id="fullName" 
+                                                placeholder="Enter Product Name" formControlName = "product_name"  type="text" class="form-control">
+                                                <small class= 'text-danger' [class.d-none]="productForm.get('product.product_name').valid || productForm.get('product.product_name').untouched">
+                                                    please enter product name</small>
+                    </div>
+                  </div>
+                  
+                  <div class="form-label-group">
+                    <label class="col-sm-8 control-label" for="fullName" style=  "font-family: Roboto Medium;" >Product Brand</label>
+                    <div class="col-sm-8">
+                      <input   style=  "font-family: Roboto Medium;width:326px;" [class.is-invalid]="productForm.get('product.brand').invalid &&
+                                                productForm.get('product.brand').touched"
+                      placeholder="Enter Product Brand" formControlName = "brand"  type="text" class="form-control">
+                      <small class= 'text-danger' [class.d-none]="productForm.get('product.brand').valid || productForm.get('product.brand').untouched">
+                          please enter product brand</small>
+                    </div>
+                  </div>
             
-            <span class="source-name"> {{source.name}}</span>
+                  <fieldset formGroupName="category">
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label" for="category" style=  "font-family: Roboto Medium;" >Category</label>
+                    <div class="col-sm-8">
+                    
+                      <select id="category"  style=  "font-family: Roboto Medium;width:326px;" formControlName="category_id" class="custom-select mr-sm-2 form-control">
+                          <option value="" disabled selected>Choose Category...</option>
+                          <option *ngFor = "let category of productCategory1" value="{{category.category_id}}">{{category.category_name}}</option>
+                      </select>
+                    </div>
+                   
+                  </div>
+                </fieldset>
+                <div class="form-group">
+                <label class="col-sm-12 control-label" for="quantity" style=  "font-family: Roboto Medium;" >Quantity</label>
+                <div class="col-sm-8">
+              
+               
+               <input id="quantity"  style=  "font-family: Roboto Medium;width:326px;" placeholder="Enter product quantity" min="1" formControlName ="qty" type="number" class="form-control"
+               [class.is-invalid]="productForm.get('product.qty').invalid &&
+                                            productForm.get('product.qty').touched">
+
+               <small class= 'text-danger' [class.d-none]="productForm.get('product.qty').valid || productForm.get('product.qty').untouched">
+                please enter product Quantity</small>
+              </div>
+                </div>
+              
+                  <div class="form-group">
+                    <label class="col-sm-8 control-label" for="description" style=  "font-family: Roboto Medium;"  >Description</label>
+                    <div class="col-sm-8">
+                      <input id="description"  style=  "font-family: Roboto Medium;width:326px;" placeholder="Enter Description" formControlName ="description" type="text" class="form-control">
+                    </div>
+                  </div>
+            
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="price" style=  "font-family: Roboto Medium;" >Price</label>
+                    <div class="col-sm-8">
+                      <input id="price"   style=  "font-family: Roboto Medium;width:326px;" placeholder="Enter price" formControlName ="price" type="text" class="form-control">
+                    </div>
+                  </div>
+            
+                 
+                </fieldset>
+                <div class="form-group">
+                    <div class="col-sm-8">
+                      <button *ngIf="action == 'save'"class=" col-sm-8 control-label" type="submit"  style= "background-color:goldenrod; font-family: Roboto Medium; margin-left:40px; border-radius: 25px;">Save Product</button>
+                      <button *ngIf="action == 'edit'" class=" col-sm-8 control-label" type="submit" style= "background-color:goldenrod; font-family: Roboto Medium; margin-left:40px; border-radius: 25px;">update Product</button>
+                    </div>
+                </div>
+                </div>
+               
+              </div>
+            </form>
+            
           
-          </mat-list-item>
-      </mat-list>
-    </mat-sidenav> -->
-    <mat-card class="example-card"  *ngFor="let product of mArticles">
-      <mat-card-header>
-        <div mat-card-avatar [ngStyle]="{'background-image': 'url(tv.jpg)'}" class="example-header-image"></div>
-        <mat-card-title class="title">{{product.product_name}}</mat-card-title>
-        <!-- <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle> -->
-      </mat-card-header>
-      <img mat-card-image class="img-article" src={{product.img_path}} alt="">
-      <mat-card-content>
-        <p>
-          {{product.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions class="action-buttons">
-        <button mat-button color="primary"><mat-icon>thumb_up_alt</mat-icon> 12 Likes</button>
-        <button mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
-        <button mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
-        <!-- <a mat-button color="primary" href={{article.url}} target="_blank" ><mat-icon>visibility</mat-icon> More</a> -->
-      </mat-card-actions>
-    </mat-card>
-  </mat-sidenav-container>
+      
+          
+         
+<br>
+<div class="panel panel-primary">
+<label class="col-sm-8 control-label" for="image"  style=  "font-family: Roboto Medium;margin-left: 135px;">Upload Product Image</label>
+        <div class="col-sm-8" style = "margin-left:135px;font-family: Roboto Medium;">
+          <input id="image" type="file" multiple style= "width:230px;"
+          (change) = "getFileDetails($event)">
+          <button class="btn btn-default" (click)="uploadFiles()">
+              <i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <table style= " font-family: 'Roboto Medium';" class="table " style ="margin-top:20px;max-width:900px;margin-left:250px;border:ridge">
+    <tr>
+        <th>Category ID</th>
+        <th>Category Name</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>price</th>
+        <th>img_path</th>
+        <th>Quantity</th>
+        <th>Brand</th>
+       <th>Description</th>
   
+    
+   <th>Action</th>
+  </tr>
+
+     <tr *ngFor="let Productdata of Products " >
+  <td>{{ Productdata?.category.category_id}}</td>
+      <td>{{Productdata?.category.category_name}}</td>
+      <td>{{Productdata?.product_id}}</td>
+      <td>{{Productdata?.product_name}}</td>
+      <td>{{Productdata?.price}}</td>
+      <td>{{Productdata?.img_path}}</td>
+      <td>{{Productdata?.qty}}</td>
+      <td>{{Productdata?.brand}}</td>
+      <td>{{Productdata?.description}}</td>
+    
+
+       <td ><a title="Edit" style="cursor: pointer !important ;color: #007bff !important;" (click)="editproduct(Productdata)"><i class="fa fa-edit" ></i></a>&nbsp;&nbsp;
+          <a title="Delete"  style="cursor: pointer !important ;color: #007bff !important;" (click)="deleteuserproducts(Productdata)"><i class="fa fa-trash" ></i></a>
+      </td> 
+    </tr>
+
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

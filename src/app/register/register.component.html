@@ -1,9 +1,12 @@
-<div class = "container ex1 " style="margin-top: 20px">
+<app-gmailuser *ngIf= " visible" [gname]='fname' [glname]='lname' [mail]='email1'></app-gmailuser>
+     <div *ngIf= " show">
+
+<div  class = "container ex1 " style="margin-top: 10px">
 <a href = "/home">
   
   <img src="./assets/img/evkee.jpeg" style="padding-left: 240px" ></a>
 </div>
-<div class = "container ex1 " style="margin-top: 30px ;">
+<div class = "container ex1 " style="margin-top: 10px ;" >
     <div class ="container ex1 padding-extra-large"  >
 <!-- 
 <div class="container"  >
@@ -107,11 +110,12 @@ Message and Data rates may apply</small>
                 <a class="a-link-emphasis" href="/login">
                   Sign-in
                 </a>
+                <!--<button (click)="socialSignIn('facebook')">Sign in with Facebook</button>--><br/>
+            
               </div>
-        </div>
-      
-              
-  
-  
-
+          <button   (click)="socialSignIn('google') "  (click) = "handler()" class="btn  btn-social btn-google"style="margin-left: 210px;    background-color: #3b5998;color:white"><span class="fa fa-google"></span> Sign in with Google</button>
      
+  
+        </div>
+      </div>
+  

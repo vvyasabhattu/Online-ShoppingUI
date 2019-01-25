@@ -34,6 +34,8 @@ private  addresUpdateUrl =this.apiService.addresUpdateUrl;
   public deleteuser:string;
   public action : string = "save";
   public actvar : string;
+public addressupdation:boolean;
+public usermessage:boolean;
 
 addressdata = new Addressreq('','','','','','','','','');
 
@@ -67,6 +69,16 @@ public userId :string= " "+this.userid;
             {
          
                this.addressList=data;
+               if(data.addressResponseLst.length == 0)
+               {
+                
+  this.usermessage = true;
+               } else if(data.addressResponseLst.length > 0)
+               {
+                 this.usermessage  = false;
+               }
+      
+               
             });
         }
      
@@ -179,7 +191,7 @@ public userId :string= " "+this.userid;
           this.getAddressList();
           alert("address profile insert successfully");
           localStorage.setItem('addresstoken',JSON.stringify(data.addressLst[0].id));
-         
+         // location.reload();
          }
       });
   }
@@ -207,7 +219,7 @@ public userId :string= " "+this.userid;
          {
           this.getAddressList();
        alert("address profile updated successfully");
-
+      // location.reload();
          }
        });  
 }
@@ -226,8 +238,9 @@ deleteUserAddress()
         
           this.getAddressList();
           alert("user address deleted");
-
-
+         // location.reload();
+        
+         
      }
     });
   }
@@ -237,6 +250,14 @@ deleteUserAddress()
    console.log(user);
  
    return user.firstName;
+  }
+  addresshandling()
+  {
+this.addressupdation=true;
+  }
+  addressclose()
+  {
+    this.addressupdation=false;
   }
 }
     

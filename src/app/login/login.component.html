@@ -36,17 +36,18 @@
         <div class="a-column a-span5">
       <label for="password"  class="a-form-label" style ="  font-family: 'Roboto Medium'"><i style="color:slateblue" class="fa fa-key icon"></i>&nbsp;Password </label></div>
     
-      
+      <show-hide-password   size="md" class="eye" icon="fontawesome">
       <input type="password" class="form-control" id="password" required name="password"
       [(ngModel)]="login.password" #pwd = "ngModel"
       [class.is-invalid] = "pwd.invalid && pwd.touched ">
       <small class= 'text-danger' [class.d-none]="pwd.valid || pwd.untouched">
           Enter your password</small>
+        </show-hide-password>
     </div>
     
  <div class="wrapper" style="margin-right: 10px;right: 36px;left: -25; width : 200px; margin-left: 70px">
       <button [disabled] = 'login1.form.invalid' class="button" type="submit" style = "margin-left:15px"
-       class="btn btn-success">Sign-in</button>
+       class="btn btn-success" >Sign-in</button>
   </div> 
  <!--<div class="wrapper" style = "padding: 10px;">  -->
  
@@ -79,4 +80,6 @@
             <button class="ma2 w2 br-100 pa2 ba bw1 b--moon-gray pointer" (click)="clear()" aria-label="clear all">X</button>-->
          
           
-     
+            
+              
+            

@@ -16,7 +16,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ViewuploadedproductsComponent } from './viewuploadedproducts/viewuploadedproducts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 
 @NgModule({
@@ -32,6 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule ,
     MatSidenavModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule

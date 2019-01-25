@@ -1,88 +1,113 @@
-<div class="container ">
-  <div class="row">
-  <div class="col-md-8 offset-2 border border-secondary rounded " >
-<form [formGroup] = "productForm" (ngSubmit) = "onSubmit()" class="form-horizontal" >
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title text-center">Add Product</h3>
-    </div>
-    <div class="col-sm-8">
-      <fieldset formGroupName="product">
-      <div class="form-label-group">
-        <label class="col-sm-8 control-label" for="fullName" >Product Name</label>
-        <div class="col-sm-8">
-          <input [class.is-invalid]="productForm.get('product.product_name').invalid &&
-                                    productForm.get('product.product_name').touched" id="fullName" 
-                                    placeholder="Enter Product Name" formControlName = "product_name"  type="text" class="form-control">
-                                    <small class= 'text-danger' [class.d-none]="productForm.get('product.product_name').valid || productForm.get('product.product_name').untouched">
-                                        please enter product name</small>
-        </div>
-      </div>
-      
-      <div class="form-label-group">
-        <label class="col-sm-8 control-label" for="fullName" >Product Brand</label>
-        <div class="col-sm-8">
-          <input [class.is-invalid]="productForm.get('product.brand').invalid &&
-                                    productForm.get('product.brand').touched"
-          placeholder="Enter Product Brand" formControlName = "brand"  type="text" class="form-control">
-          <small class= 'text-danger' [class.d-none]="productForm.get('product.brand').valid || productForm.get('product.brand').untouched">
-              please enter product brand</small>
-        </div>
-      </div>
+<div class="container " >
 
-      <fieldset formGroupName="category">
-      <div class="form-group">
-        <label class="col-sm-10 control-label" for="category">Category</label>
-        <div class="col-sm-8">
+    <div class="row" style ="margin-top:20px;margin-right: 0px;width:1250px;">
+
+    <div class="col-md-8 offset-2 " >
+
+        <div class = "container ex1 " style="margin-top: 10px; margin-right:400px;">
+
+            <a href = "/home">
+              
+              <img src="./assets/img/evkee.jpeg" style="padding-left: 240px;" ></a>
+              <h6 class="panel-title text-center"   style ="  font-family: 'Roboto Medium';color:teal;margin-left:5px;">
+                Sell on Butterbuy</h6>
+            </div>
         
-          <select id="category" formControlName="category_id" class="custom-select mr-sm-2 form-control">
-              <option value="" disabled selected>Choose Category...</option>
-              <option *ngFor = "let category of productCategory1" value="{{category.category_id}}">{{category.category_name}}</option>
-          </select>
-        </div>
-      </div>
-    </fieldset>
+           
+            <form [formGroup] = "productForm" (ngSubmit) = "onSubmit()" class="form-horizontal" >
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                     
+                  </div>
+                  <div class="col-sm-8" style= "margin-left: 120px; margin-top:20px;">
+                    <fieldset formGroupName="product">
+                    <div class="form-label-group">
+                      <label class="col-sm-8 control-label" for="fullName" style=  "font-family: Roboto Medium;" >Product Name</label>
+                      <div class="col-sm-8">
+                        <input style=  "font-family: Roboto Medium;width:326px;"[class.is-invalid]="productForm.get('product.product_name').invalid &&
+                                                  productForm.get('product.product_name').touched" id="fullName" 
+                                                  placeholder="Enter Product Name" formControlName = "product_name"  type="text" class="form-control">
+                                                  <small class= 'text-danger' [class.d-none]="productForm.get('product.product_name').valid || productForm.get('product.product_name').untouched">
+                                                      please enter product name</small>
+                      </div>
+                    </div>
+                    
+                    <div class="form-label-group">
+                      <label class="col-sm-8 control-label" for="fullName" style=  "font-family: Roboto Medium;" >Product Brand</label>
+                      <div class="col-sm-8">
+                        <input   style=  "font-family: Roboto Medium;width:326px;" [class.is-invalid]="productForm.get('product.brand').invalid &&
+                                                  productForm.get('product.brand').touched"
+                        placeholder="Enter Product Brand" formControlName = "brand"  type="text" class="form-control">
+                        <small class= 'text-danger' [class.d-none]="productForm.get('product.brand').valid || productForm.get('product.brand').untouched">
+                            please enter product brand</small>
+                      </div>
+                    </div>
+              
+                    <fieldset formGroupName="category">
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label" for="category" style=  "font-family: Roboto Medium;" >Category</label>
+                      <div class="col-sm-8">
+                      
+                        <select id="category"  style=  "font-family: Roboto Medium;width:326px;" formControlName="category_id" class="custom-select mr-sm-2 form-control">
+                            <option value="" disabled selected>Choose Category...</option>
+                            <option *ngFor = "let category of productCategory1" value="{{category.category_id}}">{{category.category_name}}</option>
+                        </select>
+                      </div>
+                     
+                    </div>
+                  </fieldset>
+                  <div class="form-group">
+                  <label class="col-sm-12 control-label" for="quantity" style=  "font-family: Roboto Medium;" >Quantity</label>
+                  <div class="col-sm-8">
+                
+                 
+                 <input id="quantity"  style=  "font-family: Roboto Medium;width:326px;" placeholder="Enter product quantity" min="1" formControlName ="qty" type="number" class="form-control"
+                 [class.is-invalid]="productForm.get('product.qty').invalid &&
+                                              productForm.get('product.qty').touched">
 
-      <div class="form-group">
-        <label class="col-sm-8 control-label" for="description">Description</label>
-        <div class="col-sm-8">
-          <input id="description" placeholder="Enter Description" formControlName ="description" type="text" class="form-control">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-sm-2 control-label" for="price">Price</label>
-        <div class="col-sm-8">
-          <input id="price" placeholder="Enter Price" formControlName ="price" type="text" class="form-control">
-        </div>
-      </div>
-
-     
-    </fieldset>
-    <div class="form-group">
-        <div class="col-sm-8">
-          <button class="btn btn-primary  col-sm-8 control-label" type="submit">Save Product</button>
-        </div>
-    </div>
-    </div>
-   
+                 <small class= 'text-danger' [class.d-none]="productForm.get('product.qty').valid || productForm.get('product.qty').untouched">
+                  please enter product Quantity</small>
+                </div>
+                  </div>
+                
+                    <div class="form-group">
+                      <label class="col-sm-8 control-label" for="description" style=  "font-family: Roboto Medium;"  >Description</label>
+                      <div class="col-sm-8">
+                        <input id="description"  style=  "font-family: Roboto Medium;width:326px;" placeholder="Enter Description" formControlName ="description" type="text" class="form-control">
+                      </div>
+                    </div>
+              
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="price" style=  "font-family: Roboto Medium;" >Price</label>
+                      <div class="col-sm-8">
+                        <input id="price"   style=  "font-family: Roboto Medium;width:326px;" placeholder="Enter price" formControlName ="price" type="text" class="form-control">
+                      </div>
+                    </div>
+              
+                   
+                  </fieldset>
+                  <div class="form-group">
+                      <div class="col-sm-8">
+                        <button class=" col-sm-8 control-label" type="submit" (click) ="success()" style= "background-color:goldenrod; font-family: Roboto Medium; margin-left:40px; border-radius: 25px;">Save Product</button>
+                      </div>
+                  </div>
+                  </div>
+                 
+                </div>
+              </form>
+              
+  
+  <br>
+  <div class="panel panel-primary">
+  <label class="col-sm-8 control-label" for="image"  style=  "font-family: Roboto Medium;margin-left: 135px;">Upload Product Image</label>
+          <div class="col-sm-8" style = "margin-left:135px;font-family: Roboto Medium;">
+            <input id="image" type="file" multiple style= "width:230px;"
+            (change) = "getFileDetails($event)">
+            <button class="btn btn-default" (click)="uploadFiles()">
+                <i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+          </div>
   </div>
-</form>
-
-
-<br>
-<div class="panel panel-primary">
-<label class="col-sm-8 control-label" for="image">Upload Image</label>
-        <div class="col-sm-8">
-          <input id="image" type="file" multiple
-          (change) = "getFileDetails($event)">
-          <button class="btn btn-default" (click)="uploadFiles()">
-              <i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
-        </div>
-</div>
-</div>
-</div>
-</div>
-
-
-       
+  </div>
+  </div>
+  </div>
+  

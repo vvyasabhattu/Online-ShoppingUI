@@ -34,6 +34,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AdminModule } from './admin/admin.module';
 import { FilterPipe } from './filter.pipe';
 import { ApiService } from './service/api.service';
+import {ToasterServiceService} from './service/toaster-service.service';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 //import { ToastAlertsComponent } from './toast-alerts/toast-alerts.component';
 import {ToastHostComponent } from './toast-host/toast-host.component';
@@ -44,8 +45,29 @@ import { GmapsComponent } from './gmaps/gmaps.component';
 import { PaypalgatewayComponent } from './paypalgateway/paypalgateway.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { PayumoneyComponent } from './payumoney/payumoney.component';
+import {SocialLoginModule,AuthServiceConfig,GoogleLoginProvider,FacebookLoginProvider} from "angular-6-social-login";
+import { PasswordassistanceComponent } from './passwordassistance/passwordassistance.component';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import { GmailuserComponent } from './gmailuser/gmailuser.component';
+import { DeliveryaddressComponent } from './deliveryaddress/deliveryaddress.component';
 
-
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("Your-Facebook-app-id")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("521776257353-4ecf4cfojm2r81h1dgct0jf6hav4ibhq.apps.googleusercontent.com")
+        },
+         
+      ]
+  );
+  return config;
+}
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +81,7 @@ import { PayumoneyComponent } from './payumoney/payumoney.component';
     AccounteditComponent,
     ViewaccountComponent,
     CartComponent,
-
+    
     SingleProductComponent,
     SearchComponent,
 
@@ -80,7 +102,13 @@ import { PayumoneyComponent } from './payumoney/payumoney.component';
     
     PaypalgatewayComponent,
     
-    PayumoneyComponent
+    PayumoneyComponent,
+    
+    PasswordassistanceComponent,
+    
+    GmailuserComponent,
+    
+    DeliveryaddressComponent
  
   ],
   imports: [
@@ -95,15 +123,21 @@ import { PayumoneyComponent } from './payumoney/payumoney.component';
    MatFormFieldModule,
    MatInputModule,
    NgxPayPalModule,
-
-   //spinner Module
+   SocialLoginModule,
+   ShowHidePasswordModule.forRoot() ,
+ 
    NgxSpinnerModule,
    NgbModule.forRoot(),
 
    AgGridModule.withComponents([])
 
   ],
-  providers: [AuthGuard,SearchService,ApiService],
+  providers: [AuthGuard,SearchService,ApiService,ToasterServiceService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

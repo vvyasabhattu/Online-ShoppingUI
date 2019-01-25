@@ -1,0 +1,53 @@
+<div *ngIf="resposeText" style ="  font-family: 'Roboto Medium';margin-left:600px;" >
+      <h6> {{resposeText}}</h6>
+   </div> 
+    <div class = "container ex1 " style="margin-top: 0px ;margin-bottom:10px;" >
+        <div class ="container ex1 padding-extra-large"  style="width:450px;margin-top:20px;height:420px;">
+                <div class = "container ex1 " style="margin-top: 10px;">
+                        <a href = "/home">
+                          
+                          <img src="./assets/img/evkee.jpeg" style="margin-left:100px;margin-bottom:9px;" ></a>
+                        </div>
+                       
+                     <form #gmailregisterform= "ngForm" novalidate (ngSubmit)="onsubmit();gmailregisterform.reset()" 
+                     class="form ex1 offset-4">
+
+                     <div class ="row">
+                            <div class="col-md-12" style ="     font-family: 'Google Sans',arial,sans-serif;margin-bottom:15px;right:20px;">
+<h6>Hi,{{gname}} </h6>
+                                            </div>
+                                        </div>
+                        <div class ="row">
+                            <div class="col-md-12" style ="  font-family: 'Roboto Medium';right:60px;max-width:280px;">
+<h6 style = "border:groove;border-radius:20px;padding:5px;">{{mail}} <i class="fa fa-angle-down" style="font-size:16px"></i> </h6>
+                                            </div>
+                                        </div>
+                       <div class="row">
+                       
+    <div class="col-md-6">
+      <label for="password" style ="  font-family: 'Roboto Medium';margin-left:-90px;" > <i style="color:slateblue" class="fa fa-key icon"></i>&nbsp;Password</label>
+      <input type="password" style="width:300px;height:50px;right:170px;margin-left:-90px;margin-top:0px;font-family: 'Roboto Medium';right:10px;"class="form-control" id="password" required name="password"
+      [(ngModel)]="gmailuser.password" #pwd = "ngModel" placeholder=" enter password"
+      [class.is-invalid] = "pwd.invalid && pwd.touched ">
+      <small class= 'text-danger' [class.d-none]="pwd.valid || pwd.untouched">
+          please enter password</small>
+    </div>
+    </div>
+
+
+<div class = "row" style= "margin-top:25px;">
+  <mat-form-field appearance="fill"  style="width:300px;height:50px;right:170px;margin-left:100px;margin-top:10px;font-family: 'Roboto Medium';" >
+    <mat-label>Enter MobileNumber</mat-label>
+    <input matInput placeholder="MobileNumber" [(ngModel)]= "gmailuser.mobilenumber" name="mobilenumber" >
+
+    <mat-hint>Enter MobileNumber</mat-hint>
+  </mat-form-field>
+</div>
+   <div class="pull-right">
+    <button style= " font-family: 'Roboto Medium';margin-right: 380px;margin-top: 20px;" mat-raised-button type="submit" class="btn btn-primary" >send</button> 
+               </div> <div class="clearfix"></div>
+                        </form>
+            </div>
+            </div>
+ 
+<!-- <button (click)="socialSignIn('google')">submit</button> -->

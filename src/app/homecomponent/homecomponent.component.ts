@@ -21,6 +21,7 @@ export class HomecomponentComponent implements OnInit {
 
 public cartList =[];
 public wishList = [];
+public wishnumber: number;
   //private apiService:ApiService=new ApiService();
   ngOnInit() {
 
@@ -49,14 +50,19 @@ public wishList = [];
         this.addproduct(products,this.cartList);
         console.log(this.cartList);
         console.log(this.cartList.length);
-
+        localStorage.setItem('cart', "this.cartList");
+        localStorage.setItem('cartlength', "this.cartList.length");
     }
 
     wishlist(products:Product){
       console.log("wishlist");
       this.addproduct(products,this.wishList);
-      console.log(this.wishList);
+    //  console.log(this.wishList);
       console.log(this.wishList.length);
+this.wishnumber= this.wishList.length;
+       localStorage.setItem('wishlst', "this.wishList");
+       localStorage.setItem('wishlength', "this.wishnumber");
+       
     }
     addproduct(products:Product,array:Product []){
         length =array.length;
@@ -64,7 +70,7 @@ public wishList = [];
     }
     //routing to single product component
     onRoutingProduct(product:Product){
-        this.router.navigate(['/product',product.product_id]);
+       this.router.navigate(['/product',product.product_id]);
     }
     //filter products
     searchText="";

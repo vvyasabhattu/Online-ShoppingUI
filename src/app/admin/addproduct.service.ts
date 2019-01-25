@@ -6,7 +6,8 @@ import { ApiService } from 'src/app/service/api.service';
 import { HttpHeaders } from '@angular/common/http';
 
 
-export interface ProductData{
+export interface ProductData
+{
   appOS: string;
   appVersion: number;
   deviceId: number;
@@ -17,9 +18,7 @@ export interface ProductData{
   price: number;
   product_name: string;
   user_id:number;
-  /* "user": {
-  "id": 1
-  } */
+  
 }
 
 export interface CategoryConfig {
@@ -53,19 +52,23 @@ export class AddproductService {
     return this.http.post(this.apiservice.baseUrl+this.apiservice.addProductURL,formData);
   }
 
-  postImage(formData:FormData,prod_id){
+  postImage(formData:FormData,product_id){
     const httpOptions = {
       headers: new HttpHeaders({
         'enctype':  'multipart/form-data'
 
       })
     };
-    return this.http.post(this.apiservice.baseUrl+this.apiservice.imageUploadURL+'/'+prod_id,formData,{responseType: 'text'});
+    
+    return this.http.post(this.apiservice.imageUploadURL+'/'+product_id,formData,{responseType: 'text'});
   }
 
 
   getAllProductsbyUser(userid){
     return this.http.get(this.apiservice.baseUrl+this.apiservice.getAllProductsByUserURL+'/'+userid,{responseType: 'json'});
   }
+
+  
+
 
 }

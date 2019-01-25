@@ -4,14 +4,14 @@
   size="medium"
   color="#fff"
   type="ball-scale-multiple">
- <p style="font-size: 20px; color: white">Loading...</p>
+ <p style="font-size: 10px; color: white">Loading...</p>
 </ngx-spinner>
 <!-- // end spinner service -->
 <app-layout>
   <!-- online ofline network  -->
-  <div class="offset-4 col-sm-4"  style="border-radius :25px;background-color:goldenrod; margin-left:480px;" *ngIf="!isConnected">
+  <div class="offset-4 col-sm-4"  style="border-radius :25px;background-color:orangered; margin-left:480px;color:white" *ngIf="!isConnected">
     
-    <p class="text-center"><img    src= "./assets/img/network.PNG"><small>you are offline,please check your network connection</small>
+    <p class="text-center"><small>could not connect to internet</small>
   </div>
  
   <!-- //end online ofline network  -->

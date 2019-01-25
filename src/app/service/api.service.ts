@@ -23,11 +23,14 @@ export class ApiService {
   public productById:string=this.baseUrl+"/product-by-service/product/";
   public categoryURL : string = "/product-by-service/category";
   public addProductURL : string = "/product-by-service/product/add";
-  public imageUploadURL :string = "/product-by-service/product/uploadImg";
+  public imageUploadURL :string = this.baseUrl+"/product-by-service/product/uploadImg/{product_id}";
   public addressListUrl :string = this.baseUrl+"/user-by-service/user/getAddress";
   public addresUpdateUrl :string = this.baseUrl+"/user-by-service/user/updateAddress";
 public deleteaddressUrl :string = this.baseUrl+"/user-by-service/user/deleteAddress";
   public getAllProductsByUserURL : string= "/product/byUser";
+public deleteproduct :string =  this.baseUrl+"/product-by-service/product/delete";
+public updateproduct :string =    this.baseUrl+"/product-by-service/product/update";
+
 
 
 //switch server Local or Docker

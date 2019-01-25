@@ -1,18 +1,21 @@
-<div class="container"> 
+<div class="container" style = "margin-left: 104px;"> 
   <div style="text-align:center">
     
   </div>
 
   
-  <div>
+  <!-- <div style = "max-width :550px; "> -->
     <div>
-      <button [disabled]="isTracking" class="btn btn-primary" (click)="findMe()">Find me</button>
-      <button class="btn btn-primary" (click)="trackMe()">Track me</button>
+    <div   style = "margin-top:0px;">
+      <!-- <button [disabled]="isTracking" class="btn btn-primary" (click)="findMe()">Find me</button> -->
+      <a (click)="trackMe()"  style ="  font-family: 'Roboto Medium';padding:4px; border-radius:33px;background-color: peru">Track Me&nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i></a>
+    
+    
     </div>
-    <div class="text-white">
+    <!-- <div class="text-white"> 
       <span>Longitude: {{currentLong}}</span>
       <span>Longitude: {{currentLong}}</span>
-    </div>
+    </div> -->
     <br>
     <div class="row">
       <div class="col-md-12">
@@ -25,5 +28,8 @@
     </div>
   </div>
   <br>
+
+</div>
+<div>
 
 </div>

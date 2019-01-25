@@ -1,0 +1,151 @@
+
+    <div class="card-header" style= "margin-top: 10px;
+    margin-left: 0px;
+    margin-right:0px;font-family: 'Roboto Medium';text-align: center;color:teal">
+   Billing Address
+   <span (click) = "mapping()" style="color:teal;text-decoration: underline;cursor: pointer;margin-left: 1100px;">Track Me</span>
+    </div>
+    <div *ngIf=" deliveryform" class="card-body" style= "margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 200px;font-family: 'Roboto Medium';">
+<form  #billingaddress = "ngForm" novalidate (ngSubmit)="someAddress();">
+
+    <p style= " font-family: 'Roboto Medium'; "><sup>&#10033;</sup>Do you want add your default address Please, 
+      <span style="color:teal;text-decoration: underline;cursor: pointer;" (click)="addresshandle()">click here</span></p>
+  <div style = "margin-bottom: 20px;">
+    <div class = "row" >
+      <div class = "col-md-4" >
+      
+          <mat-form-field  appearance="fill">
+              <mat-label  style="font-family: 'Roboto Medium';" >Address Line1</mat-label>
+              <input matInput  style="font-family: 'Roboto Medium';" name ="addressLine1" [(ngModel)]="billingaddress.addressLine1" placeholder="Address Line1">
+            
+              <mat-hint  style="font-family: 'Roboto Medium';">Enter H.no</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class = "col-md-4">
+            <mat-form-field appearance="fill">
+                <mat-label  style="font-family: 'Roboto Medium';" >Landmark</mat-label>
+                <input  style="font-family: 'Roboto Medium';"  name ="landmark" [(ngModel)]="billingaddress.landMark"  matInput placeholder="Enter Landmark">
+      
+                <mat-hint  style="font-family: 'Roboto Medium';">Enter Nearest Landmark</mat-hint>
+              </mat-form-field>
+          </div>
+          <div class = "col-md-4">
+              <mat-form-field appearance="fill">
+                  <mat-label  style="font-family: 'Roboto Medium';">City</mat-label>
+                  <input   style="font-family: 'Roboto Medium';"  name ="city" [(ngModel)]="billingaddress.city"  matInput placeholder="City">
+         
+                  <mat-hint  style="font-family: 'Roboto Medium';">Enter Your City</mat-hint>
+                </mat-form-field>
+          </div>
+      </div>
+    </div>
+    <div style = "margin-bottom: 20px;">
+      <div class = "row" >
+          
+          <div class = "col-md-4">
+              <mat-form-field appearance="fill">
+                  <mat-label  style="font-family: 'Roboto Medium';">State</mat-label>
+                  <input   style="font-family: 'Roboto Medium';" name ="state" [(ngModel)]="billingaddress.state"  matInput placeholder="State">
+                
+                  <mat-hint  style="font-family: 'Roboto Medium';">Enter Your State</mat-hint>
+                </mat-form-field>
+          </div>
+          <div class = "col-md-4">
+              <mat-form-field appearance="fill">
+                  <mat-label  style="font-family: 'Roboto Medium';">Country</mat-label>
+                  <input  style="font-family: 'Roboto Medium';" name ="country" [(ngModel)]="billingaddress.country"  matInput placeholder="Country">
+    
+                  <mat-hint  style="font-family: 'Roboto Medium';" >Enter Your Country</mat-hint>
+                </mat-form-field>
+          </div>
+          <div class = "col-md-4">
+              <mat-form-field appearance="fill">
+                  <mat-label  style="font-family: 'Roboto Medium';" >ZipCode</mat-label>
+                  <input  style="font-family: 'Roboto Medium';" name = "zipcode" [(ngModel)]="billingaddress.Zipcode"  matInput placeholder="ZipCode">
+          
+                  <mat-hint  style="font-family: 'Roboto Medium';" >Enter Your ZipCode</mat-hint>
+                </mat-form-field>
+          </div>
+      </div>
+   </div>
+      <div class = "row"  >
+          <div class = "col-md-6">
+              <mat-form-field appearance="fill">
+                  <mat-label  style="font-family: 'Roboto Medium';" > Email</mat-label>
+                  <input  style="font-family: 'Roboto Medium';" name = "email" [(ngModel)]="billingaddress.email" matInput placeholder="Email">
+                  
+                  <mat-hint  style="font-family: 'Roboto Medium';" >Enter Your Email</mat-hint>
+                </mat-form-field>
+          </div>
+          <div class = "col-md-6">
+              <mat-form-field appearance="fill">
+                  <mat-label  style="font-family: 'Roboto Medium';" >Mobile Number</mat-label>
+                  <input  style="font-family: 'Roboto Medium';" name = "contactNumber" [(ngModel)]="billingaddress.contactNumber" matInput placeholder="Mobile Number">
+             
+                  <mat-hint  style="font-family: 'Roboto Medium';" >Enter Your 10 Digits Mobile Number</mat-hint>
+                </mat-form-field>
+
+                
+          </div>
+      </div>
+      <div class ="row" style="text-align: center;margin-left: 460px;margin-top: 30px; color: teal">
+      <input type="checkbox" style="font-family: 'Roboto Medium';margin-top:5px; " > Use this address for my shipping information.<br>
+    </div>
+</form>
+      
+     
+      <a href="paypalpayment" class="btn btn-warn" style = "margin-left:540px;margin-top:10px; background-color:peru; border-radius: 30px;">proceed to checkout</a>
+    </div>
+  
+
+    <div *ngIf ="usermsg"  class="container" style="    width: 745px;
+    margin-top: 30px;
+    margin-left: 220px;">
+    <div  >
+        <h5 *ngIf = "usermessage " class="text-danger" style =" font-family: 'Roboto Medium'; "> No records found, Please Enter your Biling Address Details</h5>
+     </div> 
+    <!-- <h5 style = "color:teal;  font-family: 'Roboto Medium';"> <a style= "text-decoration: none;color:teal" href ="/viewAccount" title ="view profile">{{getUserName()}}</a> AddressBook</h5> -->
+      <p style= " font-family: 'Roboto Medium';margin-left: 750px;">
+  <span style="color:teal;text-decoration: underline;cursor: pointer;" (click)="addresscloser()">Close</span></p> 
+    <table style= " font-family: 'Roboto Medium';" class="table border">
+        
+        <tr><th>Id</th>
+            
+      <th>AddressLine1</th>
+      <th>Landmark</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Zipcode</th>
+      <th>MobileNumber</th>
+      <th>Email</th>
+      <th>Select Billing Address</th>
+    
+     
+     
+    </tr> 
+      <tr *ngFor="let address of addressList.addressResponseLst" >
+            <td>{{address.id}}</td>
+       <td>{{address.addrLine1}}</td>
+       <td>{{address.addrLine2}}</td>
+        <td>{{address.city}}</td>
+        <td>{{address.state}}</td>
+        <td>{{address.country}}</td>
+        <td>{{address.pincode}}</td>
+        <td>{{user.contactNumber}}</td>
+        <td>{{user.email}}</td>
+       <td ><a title="Select Address" style="cursor: pointer !important ;color: #007bff !important;" (click) ="selectaddress(address)">select address</a>&nbsp;&nbsp; </td>
+     
+      </tr>
+    </table>
+    
+    </div>
+    <div *ngIf= "gmapsuser">
+      
+                    <span style="color:teal;text-decoration: underline;cursor: pointer;margin-left:1270px;" (click)="addressclose()">Close</span>
+ <app-gmaps></app-gmaps>
+</div>
+
+

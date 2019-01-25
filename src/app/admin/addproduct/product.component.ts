@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AddproductService,CategoryConfig,ProductCategoryResponse} from '../addproduct.service';
 //import { AddProductService, CategoryConfig,ProductCategoryResponse } from '../service/addproduct.service';
 //import { AddnewproductService,CategoryConfig,ProductCategoryResponse} from '../service/addnewproduct.service';
-
+import { ToasterServiceService } from '../../service/toaster-service.service';
 
 
 
@@ -18,17 +18,23 @@ import { AddproductService,CategoryConfig,ProductCategoryResponse} from '../addp
 export class AddproductComponent implements OnInit {
 
   /* uploadImageURL : string = "src/assets/image/icons8-upload-96.png"; */
+   //categoryObject :any;
 
-  
-  //categoryObject :any;
   formSubmitResponse : any;
+
   productCategory : string[] = [''];
+
   serviceMsg:string = '';
+
   myFiles:string [] = [];
+
   productForm : FormGroup;
+
   //private addNewProductUrl='#';
   //private imageUploadURL = 'http://192.168.2.164:9099/product/addProductImg/{product_id}';
+
   categoryConfig: CategoryConfig;
+  
   productCategory1:CategoryConfig[];
   /* nFileChanged(event) {
     const file = event.target.files[0]} */
@@ -37,7 +43,8 @@ export class AddproductComponent implements OnInit {
 
   constructor(private fb : FormBuilder,
               private http: HttpClient,
-              private productService : AddproductService) { }
+              private productService : AddproductService,private toastr : ToasterServiceService) { }
+              public id  = localStorage.getItem('token');
 
   ngOnInit() {
     this.productForm = this.fb.group({
@@ -45,30 +52,44 @@ export class AddproductComponent implements OnInit {
       appVersion:1.0,
       deviceId : 1.0,
       source : ['Angular'],
-      product : this.fb.group({
+      product: this.fb.group({
         brand :['',[Validators.required]],
         product_name : ['',Validators.required],
         description : [''],
         price : [''],
+        qty:['',Validators.required],
+        user_id: this.id,
         category : this.fb.group({
-          category_id : []
+          category_id : [],
+         
         }),
-        user:this.fb.group({
-          id:[]
-        })  
-    })
+      
+       })
   })
     this.showProductCategory();
   }
+  
+ 
+     //this method fetches the Category options from API and display in template
+  showProductCategory(){
 
+    this.productService.getAllProductCategories()
+    .subscribe(
+      (data : ProductCategoryResponse) => {
+        console.log('aaaaaaaaaaaaaaa',data);
+        this.productCategory1 = data.category;
+      } )
+}
+ 
+    
   /* this method sends the form data to the Web API */
   onSubmit(){
     console.log(this.productForm.value);
 
     var resArray ;
 
-    this.productForm.value.product.user.id = 1;
-    console.log('user id ',this.productForm.value.product.user.id);
+    //this.productForm.value.product.user.id = 1;
+    //console.log('user id ',this.productForm.value.product.user.id);
     this.productService.addFormData(this.productForm.value).subscribe
     (
       data => {
@@ -103,10 +124,7 @@ export class AddproductComponent implements OnInit {
     var imageData = new FormData();
     var prod_id = this.formSubmitResponse;
     //var user_id =46;
-
-    
-    
-    for (var i = 0; i < this.myFiles.length; i++) { 
+for (var i = 0; i < this.myFiles.length; i++) { 
       imageData.append("fileUpload", this.myFiles[i]);
       //imageData.append("prod_id",prod_id.toString());
     }
@@ -126,14 +144,21 @@ export class AddproductComponent implements OnInit {
 
   }
 
-  //this method fetches the Category options from API and display in template
-  showProductCategory(){
-
-    this.productService.getAllProductCategories()
-    .subscribe(
-      (data : ProductCategoryResponse) => {
-        console.log('aaaaaaaaaaaaaaa',data);
-        this.productCategory1 = data.category;
-      } )
+  
+success()
+{
+this.toastr.Success("your products uploaded successfully");
+}
+Info()
+{
+this.toastr.Success("you are login successfully");
+} 
+Warning()
+{
+this.toastr .Success("check your Internet");
+} 
+Error()
+{
+this.toastr.Success("check your validations");
 }
 }

@@ -86,6 +86,13 @@
     padding: 20px 26px!important;
 }
 
+.eye{
+    background-color:aliceblue;
+   padding-top:1px !important; 
+   padding-bottom:1px !important; 
+   padding-right:1px !important; 
+   padding-left:1px !important; 
+}
 .toast-container {
     visibility: hidden;
     position: absolute;

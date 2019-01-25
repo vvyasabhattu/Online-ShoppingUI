@@ -31,6 +31,7 @@ constructor(private connectionService: ConnectionService ,private spinner:NgxSpi
     this.isConnected = isConnected;
     if (this.isConnected) {
       this.status = "ONLINE";
+      this.success();
     }
     else {
       this.status = "OFFLINE";
@@ -44,5 +45,8 @@ constructor(private connectionService: ConnectionService ,private spinner:NgxSpi
 warn() {
   this.toastService.warn('Please check your network.');
  }
-
+success()
+{
+  this.toastService.success('we are back..');
+}
 }

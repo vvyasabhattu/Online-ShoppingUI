@@ -20,40 +20,41 @@ import { ViewuploadedproductsComponent } from '../admin/viewuploadedproducts/vie
 import {ResetpasswordComponent  } from 'src/app/resetpassword/resetpassword.component';
 import {GmapsComponent} from 'src/app/gmaps/gmaps.component';
 import {PaypalgatewayComponent} from 'src/app/paypalgateway/paypalgateway.component';
- 
+ import {PasswordassistanceComponent} from  'src/app/passwordassistance/passwordassistance.component';
+ import { DeliveryaddressComponent } from '../deliveryaddress/deliveryaddress.component';
+import { GmailuserComponent } from 'src/app/gmailuser/gmailuser.component';
+
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   { path: 'home', component: HomecomponentComponent },
   { path: 'cart', component: CartComponent ,canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent  },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent},
+
   { path: 'product/:id', component: SingleProductComponent },
-  // {path :'editAccount',component : MyaccountComponent,
-  //   children:[
-  //               {path:'viewaccount',component:AccounteditComponent,outlet: 'editmyaccountOutlet'},
-  //               {path:'viewmyaccount',component:ViewaccountComponent,outlet: 'viewmyaccountOutlet'}
-  //           ]
-  // },
+ {path :'register',component : RegisterComponent},
+ 
+               {path:'gmailuser',component:GmailuserComponent} ,             
+               {path:'deliveryaddress',component:  DeliveryaddressComponent } ,
   { path: 'editAccount', component: ViewaccountComponent },
   { path: 'viewAccount', component: AccounteditComponent },
   { path: 'addressBook', component: AddressbookComponent },
   {path:'about',component:AboutComponent},
   {path:'admin',component:MainadminpageComponent,canActivate: [AuthGuard]},
-  {path:'uploadproduct',component:AddproductComponent,canActivate: [AuthGuard]},
+  {path:'uploadproduct',component: AddproductComponent,canActivate: [AuthGuard]},
   {path:'useruploadedproducts',component: ViewuploadedproductsComponent,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent},
   { path: 'search', component: SearchComponent},
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'gmaps', component: GmapsComponent},
-  { path: 'paypalpayment', component: PaypalgatewayComponent},
+  { path: 'paypalpayment', component:PaypalgatewayComponent},
   
-  
+  { path: 'passwordassistance', component: PasswordassistanceComponent},
   { path: '**', component: PagenotfoundComponent }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),RouterModule.forChild(routes)],
   exports: [ RouterModule ]
 })
 

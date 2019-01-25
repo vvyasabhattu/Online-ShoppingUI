@@ -86,4 +86,5 @@ export class GmapsComponent {
       this.marker.setPosition(location);
     }
   }
+ 
 }
